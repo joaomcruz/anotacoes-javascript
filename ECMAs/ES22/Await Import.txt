@@ -1,0 +1,1 @@
+• Importar módulos apenas se uma condição for verdadeira/falsa usando "await import" 

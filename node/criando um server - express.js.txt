@@ -1,0 +1,25 @@
+
+• npm init
+
+• npm install express
+
+
+const express = require('express')
+
+const app = express()
+
+app.get('/', (req,res) => {
+const user = { 
+name: "Joao",
+age: "28"
+}
+res.send(user)
+})
+
+app.listen(3000)
+
+
+• Podemos usar get/post/put e delete
+
+• O primeiro parâmetro é a "rota" da url para qual o método está sendo escrito.
+

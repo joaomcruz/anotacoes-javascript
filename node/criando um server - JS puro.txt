@@ -1,0 +1,23 @@
+• importar o módulo http
+
+
+• utilizar a função createServer
+
+
+• setar a porta que será utilizada para a criação do servidor
+
+
+
+const http = require('http')
+
+const server = http.createServer(() => {
+const user = {
+name: 'Joao',
+idade: '21'
+}
+
+response.setHeader('Content-Type','application/json')
+response.ednd(JSON.stringify(user))
+})
+
+server.listen(3000)

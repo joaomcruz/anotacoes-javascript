@@ -1,0 +1,6 @@
+• npm init
+
+• no arquivo package.json adicionar "type": "module"
+
+Dessa forma irá reconhecer os arquivos .js como módulos e poderemos utilizar a importação e 
+exportação de módulos com a sintaxe do ES6

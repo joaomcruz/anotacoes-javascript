@@ -1,0 +1,5 @@
+• Não é mais necessário "envolver" o await em uma função assíncrona, contanto que seja a função
+no "top level" do corpo do módulo/do escopo. 
+
+• Se for dentro de uma função (Promise.all , por exemplo) é necessário o uso do async
+

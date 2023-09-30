@@ -1,0 +1,3 @@
+• Recebe a requisição antes das "rotas" e só permite chegar até as mesmas após o método "next()" 
+ser chamado
+
