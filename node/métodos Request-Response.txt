@@ -1,0 +1,14 @@
+• req.query
+
+• req.body
+
+• req.headers
+
+• req.params
+
+
+
+
+• res.send
+
+• res.status(código)
