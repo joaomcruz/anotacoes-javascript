@@ -1,0 +1,5 @@
+• Em javascript temos 3 operadores lógicos . geralmente são utilizados para "tomada de decisão" :
+
+    • && -> Significa "e"
+    • || -> Significa "ou"
+    • !  -> Significa negação . Torna a expressão que vem a seguir negativa. Se verdadeiro torna falso. Se falso torna verdadeiro.
