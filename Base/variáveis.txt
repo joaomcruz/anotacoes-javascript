@@ -1,0 +1,14 @@
+# Variáveis 
+
+  • Sempre utilizar camelCase pela convenção
+  • Podemos começar uma variável com caracteres especiais/underscore/números ou letras
+  • Em Javascript temos duas formas de declarar variáveis : let e const
+    - let é utilizado para variáveis que podem ter o valor alterável
+    - const é utilizado para variáveis que possurem um valor constante
+
+
+  Exemplos :
+
+    let $variavel1 = valor1
+    let _variavel2 = valor2
+    const $variavel3 = valor3
