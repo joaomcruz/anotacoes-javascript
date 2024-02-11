@@ -1,0 +1,17 @@
+• Temos "duas maneiras" de utilizarmos os operadores de comparação : 
+  - Comparação de Valor
+  - Comparação de Valor e Tipo
+
+  • Para realizarmos a comparação somente do valor temos :
+    - == (igual à)
+    - != (diferente de)
+    - >= (maior ou igual à)
+    - <= (menor ou igual à)
+    - > (maior que)
+    - < (menor que)
+
+
+  • Para realizarmos a comparação do valor e do tipo temos :
+
+    - !== (diferente em valor e tipo)
+    - === (igual em valor e tipo)
