@@ -1,0 +1,26 @@
+• Tem o formato -> propriedade : valor
+• O valor pode ser de qualquer tipo. Seja de estrutura de dados , seja dos tipos de valores básicos do javascript.
+• Para acessar o valor de uma propriedade , basta digitarmos : nomeDoObjeto.propriedade
+• Para criarmos/adicionarmos uma propriedade , basta digitarmos : nomeDoObjeto.nomeNovaPropriedade = valorNovaPropriedade
+• Para alterarmos um valor de uma propriedade já existente, basta digitarmos : nomeDoObjeto.propriedade = novoValorPropriedade
+• Funções dentro de objetos são chamadas de métodos
+• Para acessarmos uma função dentro de um objeto basta digitarmos : nomeDoObjeto.funcao()
+
+
+
+  Exemplo :
+
+    let usuario = {
+    nome: "Joao",
+    idade: 29,
+    eMaiorDeIdade : true,
+    falar: function () {
+    console.log("Oi")
+  }
+ }
+
+  console.log(usuario.nome) -> Vai acessar o objeto usuario, a propriedade nome , e vai imprimir João
+  console.log(usuario.idade) -> Vai acessar o objeto usuario, a propriedade nome , e vai imprimir 29
+  console.log(usuario.eMaiorDeIdade) -> Vai acessar o objeto usuario, a propriedade eMaiorDeIdade , e vai imprimir true
+  console.log(usuario.falar()) -> Vai acessar o objeto usuario, a propriedade falar que contem uma função , e vai imprimir Oi
+  
