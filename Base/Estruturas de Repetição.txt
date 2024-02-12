@@ -1,0 +1,91 @@
+• Em javascript possuímos 3 estruturas básicas de repetição/loop/laço :
+  - for -> Provavelmente o mais utilizado. Utilizamos quando já possuímos conhecimento de quantas vezes queremos repetir o bloco de código.
+  - while -> Quando apenas sabemos a condição de continuarmos repetindo o bloco de código.
+  - do while -> Quando apenas sabemos a condição de continuarmos repetindo o bloco de código.
+
+
+
+
+## for loops :
+
+  • No laço for, nós definimos na mesma linha o início do contador de repetição,
+  a pausa na repetição, e o incremento desse contador de repetição.
+
+  Estrutura / Sintaxe :
+
+    for(variavel de inicio do loop ; condição de parada do loop ; incremento) {
+      //bloco de código
+    }
+
+
+  Exemplo :
+
+    listaDeAnimais = ["Macaco","Cachorro","Gato","Coruja","Pato"]
+    for(let i = 0 ; i < listaDeAnimais.length ; i++) {
+      console.log(listaDeAnimais[i])
+    }
+
+
+
+    - O código acima começa no index 0 do array listaDeAnimais e tem como condição de parada
+      quando chegar o index for 1 anterior ao tamanho desse array ,já que a condição de incremento
+      tá sendo de 1 em 1 .
+    - Dessa forma, ele vai imprimir na tela todos os itens do array, uma vez que tá sendo passado
+      através do console.log a lista de animais no index i. Ou seja, irá imprimir o index 0,1,2 e 3 do array.
+
+    ps : Caso não entenda o .length nem o "listaDeAnimais" , consultar "Array ou Listas.txt" 
+
+
+
+================================================================================================================================================================
+
+
+## while :
+
+  • No laço while, é no bloco do código que mexemos no incremento para que 
+  a condição de parada seja atingida e o laço não fique rodando para sempre
+  até estourar a memória.
+
+
+   Estrutura / Sintaxe :
+
+    while(condição) {
+    //bloco de código
+    }
+
+
+   Exemplo :
+
+    let contador = 0
+    while(contador < 10) {
+    console.log(contador)
+    contador++
+    }
+
+
+================================================================================================================================================================
+
+
+## do while :
+
+  • Provavelmente o laço menos utilizado , pois primeiro executa
+  um bloco de código para depois verificar a condição de parada.
+  • Igual o while, é dentro do bloco de código que também
+  alteramos o contador que irá afetar na condição de parada
+
+
+   Estrutura / Sintaxe :
+
+    do {
+      //bloco de código
+    } while(condição)
+
+
+   Exemplo :
+
+    let contador2 = 10
+    do {
+      console.log(contador2)
+      contador2--
+    }
+    while(contador > 0) 
