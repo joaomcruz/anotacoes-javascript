@@ -5,10 +5,31 @@
   • Em Javascript temos duas formas de declarar variáveis : let e const
     - let é utilizado para variáveis que podem ter o valor alterável
     - const é utilizado para variáveis que possurem um valor constante
+  • Se uma variável let estiver dentro de um {} um escopo é criado (consultar escopo.txt caso surja alguma dúvida)
+  • Antigamente ao invés de let/const utilizava-se "var" , porém após a criação de let/const, var não é mais utilizado.
+  O motivo será explicado no exemplo 2
+  • O código do exemplo 2 é mais avançado. Para melhor entender o bloco "if" visite o arquivo controle de fluxo.txt
 
 
-  Exemplos :
+  Exemplo 1 :
 
     let $variavel1 = valor1
     let _variavel2 = valor2
     const $variavel3 = valor3
+
+
+  Exemplo 2 :
+
+  let experiencia = 100
+  let wizardLevel = false
+  if(experiencia > 90) {
+  let wizardLevel = true
+  }
+
+  • Caso usássemos um console.log para imprimir o valor de wizardLevel , o output seria ainda sim "false".
+  Se a palavra utilizada para definir o wizardLevel fosse "var" ao invés de "let" , a expressão condicional (if)
+  sobrescreveria o valor da mesma. Como aqui a palavra utilizada foi "let", um novo escopo foi criado e a variável
+  wizardLevel fora da estrutura condicional permanece intacta. Contudo, se ao invés de utilizar a expressão 
+  "let wizardLevel = true" utilizarmos "wizardLevel = true" , o valor da variável será de fato alterado, pois
+  a mesma se encontra no escopo raíz/global e será diretamente acessada.
+  
