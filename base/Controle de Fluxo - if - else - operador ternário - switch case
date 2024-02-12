@@ -1,0 +1,114 @@
+• Em javascript possuímos 3 formas de "controlarmos o fluxo" da tomada de decisão baseado em uma condição sendo elas :
+  • Declaração if/else (se / senão se ) -> Em teoria não se tem um limite de quantos if/else podemos utilizar.
+  • Operador ternário (É uma forma reduzida de if/else , que suporta apenas 1 condição e o que fazer com ela retornando true/false)
+  • Switch case -> Bom para quando temos muitas condições. 
+
+
+===========================================================================================================================================
+
+## Declaração if/else :
+
+  • Usamos o if primeiro, e pras demais opções de condição para comparação usamos elfe if. 
+  Geralmente usamos o else na última condição, ou seja , caso as comparações antes listadas 
+  não sejam "cumpridas" , todas as demais entrarão no bloco else.
+  • Podemos usar apenas o if simples também e se para iniciarmos um else if, precisamos ter uma condição if anterior.
+
+    Sintaxe / Estrutura :
+
+      if(condição de comparação 1) {
+      //bloco de código que irá fazer algo caso a condição de comparação 1 seja satisfeita
+      } else if (condição de comparação número 2) {
+      //bloco de código que irá fazer algo caso a condição de comparação 1 não seja satisfeita e a condição 2 seja satisfeita
+      } else if (condição de comparação número 3) {
+      //bloco de código que irá fazer algo caso a condição de comparação 1 e 2 não sejam satisfeitas e a condição 3 seja satisfeita
+      } else {
+        // Irá entrar nesse bloco somene se a condição de comparação 1,2 e 3 não forem satisfeitas.
+      ]
+
+
+    Exemplo :
+
+      let idade = 18
+  
+      if(idade >= 18) {
+        console.log("Você é maior de idade")
+      } else if (idade < 18 && idade >= 13) {
+        console.log("Você é adolescente")
+      } else if (idade < 13 && idade > 2) {
+        console.log("Você é criança")
+      } else {
+        console.log("Você é um bebê")
+        }
+
+===========================================================================================================================================
+
+
+## Operador Ternário
+
+  • É um if/else reduzido , onde passamos apenas uma condição e o que fazer diante dela retornar verdadeiro ou falso  . 
+  Caso a condição seja satisfeita, irá executar a expressão 1. Caso não seja satisfeita executará a expressão 2.
+  
+    Sintaxe / Estrutura :
+
+      condição ? expressão1 : expressão2
+
+
+    Exemplo :
+
+      function usuarioValido(bool) {
+        return bool
+      ]
+
+      usuarioValido(true) ? console.log("Pode entrar") : console.log("Acesso negado")
+
+
+
+===========================================================================================================================================
+
+
+## Switch Case
+
+  • Bom para quando temos muitas condições, ao invés de criarmos um if/else grande, é "melhor" utilizarmos um switch case.
+  • A condição "default" contempla todos os casos que não estão descritos nas condições anteriores. Atua como o else.
+  • Utilizamos a palavra "break" para "sairmos" da declaração switch case, pois uma vez que uma condição foi encontrada,
+  não precisamos continuar com a checagem.
+  • Caso uma mesma condição sirva para diferentes "cases" ,podemos omitir o corpo do bloco de código de todos que satisfazem aquela
+  condição com exceção do último. Isso será melhor demonstrado no exemplo.
+
+  Sintaxe / Estrutura :
+
+  • Estrutura "Padrão" : 
+  
+  switch (variavelParaComparação) {
+  case condição1:
+    //bloco de código
+    break
+  case condição2:
+     //bloco de código
+    break
+  default:
+    console.log("Nenhuma condição foi encontrada");
+}
+
+
+ • Exemplo :
+
+  const Animal = "Giraffe";
+  switch (Animal) {
+    case "Cow":
+    case "Giraffe":
+    case "Dog":
+    case "Pig":
+      console.log("This animal is not extinct.");
+      break;
+    case "Dinosaur":
+    default:
+      console.log("This animal is extinct.");
+  }
+
+
+
+
+    
+
+    
