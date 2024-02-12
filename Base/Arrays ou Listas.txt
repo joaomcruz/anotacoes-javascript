@@ -35,7 +35,7 @@
 
 ## Métodos e Propriedades disponíveis para Listas / Arrays  :
 
-  • Para utilizarmos uma propriedade/método usamos um ponto (.) e o nome da função/propriedade em sequência. Exemplo : .push("
+  • Para utilizarmos uma propriedade/método usamos um ponto (.) e o nome da função/propriedade em sequência. Exemplo : listaExemplo.push("gavião")
 
   - length -> Retorna o tamanho da lista
   - push() -> Adiciona um item ao final do Array
