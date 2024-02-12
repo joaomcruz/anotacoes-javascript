@@ -2,3 +2,6 @@
 
 
 ## Boas plataformas para exercitar conhecimento : HackerRank & Leetcode
+
+
+## Conteúdo sendo atualizado para melhor entendimento dos conceitos
