@@ -163,7 +163,6 @@
   }
 
 
-
   • No exemplo acima um laço rotulado como checkiandj contém 
   o laço rotulado checkj. Se o continue for alcançado, o programa
   continua a execução voltando ao topo do rótulo checkj. 
@@ -203,3 +202,27 @@
 ================================================================================================================================================================
 
 ## break
+
+  • O comando break encerra o loop atual,
+  switch (como explicado no controle de fluxo.txt),
+  ou o loop que foi informado no label e transfere
+  o controle da execução do programa para o comando
+  seguinte
+
+  Exemplo - Usando o break com while :
+
+  function testaBreak(x) {
+  var i = 0;
+  while (i < 6) {
+    if (i == 3) {
+      break;
+    }
+    i += 1;
+    }
+  return i * x;
+  }
+
+  • A função acima possui um comando break
+  que encerra o loop while quando a variável
+  i vale 3, e então retorna o valor 3 * x.
+
