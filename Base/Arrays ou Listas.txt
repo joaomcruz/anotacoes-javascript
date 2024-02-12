@@ -8,7 +8,29 @@
 • Para acessar um elemento específico da lista,basta digitar o nome da lista e passar a posição do elemento entre []
 
 
+### Exemplo 1 :
 
+  listaExemplo = ["Tigre", "Gato" , "Cachorro"]
+
+  • Essa lista possui length (tamanho) 3
+  • Sendo os index dela 0,1,2
+  • Acessando os index 0,1,2 , acessaríamos na ordem : Tigre, Gato e Cachorro.
+
+
+
+### Exemplo 2 :
+
+  listaExemplo2 = [
+["Tigre", "Gato" , "Cachorro"],
+["Pavão","Hipopótamo", "Macaco"],
+["Tucano","Arara","Gavião"]
+]
+
+  • Essa lista possui length (tamanho) 3
+  • Sendo os index dela 0,1,2
+  • Por se tratar de uma lista com listas dentro, para acessarmos os elementos devemos passar primeiramente o index de qual lista queremos acessar, depois passamos o elemento. Por exemplo : listaExemplo2[0][0] acessa tigre. listaExemplo2[2][1] acessa arara.
+
+================================================================================================================================================
 
 
 ## Métodos e Propriedades disponíveis para Listas / Arrays  :
