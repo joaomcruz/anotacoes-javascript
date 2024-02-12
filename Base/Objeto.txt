@@ -7,6 +7,12 @@
 • Para acessarmos uma função dentro de um objeto basta digitarmos : nomeDoObjeto.funcao()
 
 
+  Sintaxe / Estrutura :
+
+  let objeto = {
+  propriedade1 : valorPropriedade1,
+  propriedade2 : valorPropriedade2
+  }
 
   Exemplo :
 
