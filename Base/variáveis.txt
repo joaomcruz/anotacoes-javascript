@@ -9,7 +9,10 @@
   • Antigamente ao invés de let/const utilizava-se "var" , porém após a criação de let/const, var não é mais utilizado.
   O motivo será explicado no exemplo 2
   • O código do exemplo 2 é mais avançado. Para melhor entender o bloco "if" visite o arquivo controle de fluxo.txt
-  • Variáves criadas com "let" só são disponíveis dentro do bloco em que são criadas. 
+  • Variáves criadas com "let" só são disponíveis dentro do bloco em que são criadas ( e ela cria um bloco ). 
+  • A palavra "var" cria uma variável definida para o "restante" do programa, criando inconsistência caso a mesma variável fosse criada dentro de um bloco de código, a mesma era alterada.
+  • Variáveis criadas com let não podem ser redeclaradas e tem que ser declaradas antes do uso, diferente de "var" que é "hoisted"
+  • Hoisting significa que toda variável é “elevada/içada” (hoisting) até o topo do seu contexto de execução. Esse mecanismo move as variáveis para o topo do seu escopo antes da execução do código. É por esse mesmo motivo que “é possível usar uma variável antes dela ter sido declarada”: em tempo de execução a variável será elevada (hoisting) e tudo funcionará corretamente. Isso tudo caso a variável seja declarada com var.
 
 
   Exemplo 1 :
