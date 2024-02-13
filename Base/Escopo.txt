@@ -1,0 +1,43 @@
+• É basicamente a quais variáveis temos acesso quando um código está rodando
+• O objeto "window" é o objeto padrão, sendo a "raíz". Tudo está contido no window.
+• Cada função/laço (estruturas que tenham {} basicamente) cria seu próprio escopo. Variáveis definidas dentro de uma função/laço só podem ser acessadas por eles. 
+• Variáveis definidas na raíz podem ser acessadas por qualquer estrutura (função, laço, etc) .
+• Caso exista uma variável com mesmo nome de uma variável no escopo raíz, a preferência será do escopo da própria função/estrutura com {} 
+
+
+  Exemplos :
+
+  Escopo Raíz :
+
+    var fun = 5;
+
+
+  function funFunction() {
+  //Escopo filho
+  var fun = "helloooo"
+  console.log(1,fun)
+  }
+
+  function funerFunction() {
+  //Escopo filho
+  var fun = "bye"
+  console.log(2,fun)
+  }
+
+  function funestFunction() {
+  //Escopo filho
+  fun = "AAAAAAAAAAAAAAH"
+  console.log(3,fun)
+  }
+
+  console.log("Window Object",fun)
+  funFunction()
+  funerFunction()
+  funestFunction()
+  console.log("Window Object",fun)
+
+  • Todas as funções pertencem ao escopo do objeto raíz (window)
+  • Todas as funções tem acesso à variável fun, pois a mesma foi definida no escopo raíz.
+  • Por utilizar "var" na declaração da variável no escopo raíz, as funções funFunction e funerFunction sobrescrevem a variável fun.
+  • O valor sobrescrito pelas funções funFunction e funerFunction só são acessíveis através das mesmas, pois o escopo delas só pertence à elas.
+  • A função funestFuntion modifica o valor da varíavel fun na RAÍZ.
