@@ -9,6 +9,7 @@
   • Antigamente ao invés de let/const utilizava-se "var" , porém após a criação de let/const, var não é mais utilizado.
   O motivo será explicado no exemplo 2
   • O código do exemplo 2 é mais avançado. Para melhor entender o bloco "if" visite o arquivo controle de fluxo.txt
+  • Variáves criadas com "let" só são disponíveis dentro do bloco em que são criadas. 
 
 
   Exemplo 1 :
