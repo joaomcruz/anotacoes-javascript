@@ -16,6 +16,7 @@
   Esse mecanismo move as variáveis para o topo do seu escopo antes da execução do código. É por esse mesmo motivo que “é possível usar uma variável antes dela ter sido declarada”: em tempo de execução a variável será elevada (hoisting) e tudo funcionará corretamente.
   • Variáveis não inicializadas (var) possuem valor undefined e por isso quando sofrem hoisting não lançam um erro.
   • Variáveis não inicializadas com let não possuem valor e por isso dão erro caso sejam acessadas sem serem inicializadas.
+  • Uma variável declarada com let em um bloco estará disponível apenas dentro daquele bloco.
   
 
 
