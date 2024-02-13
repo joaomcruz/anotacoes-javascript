@@ -7,15 +7,15 @@
     - const é utilizado para variáveis que possurem um valor constante
   • Se uma variável let estiver dentro de um {} um escopo é criado (consultar escopo.txt caso surja alguma dúvida)
   • Antigamente ao invés de let/const utilizava-se "var" , porém após a criação de let/const, var não é mais utilizado.
-  O motivo será explicado no exemplo 2
   • O código do exemplo 2 é mais avançado. Para melhor entender o bloco "if" visite o arquivo controle de fluxo.txt
-  • Variáves criadas com "let" só são disponíveis dentro do bloco em que são criadas ( e ela cria um bloco ). 
-  • A palavra "var" cria uma variável definida para o "restante" do programa, criando inconsistência caso a mesma variável fosse criada dentro de um bloco de código, a mesma era alterada.
-  • Variáveis criadas com let não podem ser redeclaradas no mesmo escopo e tem que ser declaradas antes do uso, diferente de "var" que é "hoisted"
-  • Hoisting significa que toda variável é “elevada/içada” (hoisting) até o topo do seu contexto de execução. Esse mecanismo move as 
-variáveis para o topo do seu escopo antes da execução do código. É por esse mesmo motivo que “é possível usar uma variável antes dela ter sido declarada”:
-em tempo de execução a variável será elevada (hoisting) e tudo funcionará corretamente. Isso tudo caso a variável seja declarada com var.
-  • Variáveis não inicializadas (var) possuem valor undefined.
+  • Variáves criadas com "let" só são disponíveis dentro do bloco em que são criadas ( e ela "cria" um bloco ). 
+  • Declarações com var tem escopo global ou escopo de função/local. O escopo é global quando uma variável var é declarada fora de uma função. Isso significa que qualquer variável que seja declarada com var fora de um bloco de função pode ser utilizada na janela inteira. Criando inconsistência caso a mesma variável fosse criada dentro de um bloco de código, onde dessa forma a mesma era alterada.
+  • var tem escopo de função quando é declarado dentro de uma função. Isso significa que ele está disponível e pode ser acessado somente de dentro daquela função
+  • Variáveis criadas com let não podem ser redeclaradas no mesmo escopo e tem que ser declaradas antes do uso, diferente de "var" .
+  • Toda variável em javascript sofre Hoisting , que significa que toda variável é “elevada/içada” (hoisting) até o topo do seu contexto de execução. 
+  Esse mecanismo move as variáveis para o topo do seu escopo antes da execução do código. É por esse mesmo motivo que “é possível usar uma variável antes dela ter sido declarada”: em tempo de execução a variável será elevada (hoisting) e tudo funcionará corretamente.
+  • Variáveis não inicializadas (var) possuem valor undefined e por isso quando sofrem hoisting não lançam um erro.
+  • Variáveis não inicializadas com let não possuem valor e por isso dão erro caso sejam acessadas sem serem inicializadas.
   
 
 
