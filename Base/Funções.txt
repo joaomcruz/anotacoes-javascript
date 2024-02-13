@@ -1,0 +1,23 @@
+• Devem retornar algo (com o uso da palavra return), caso contrário irá retornar undefined automaticamente
+• A palavra return faz sair da função. Pois fará a mesma retornar algo.
+• Funções anônimas são funções sem nome
+• Uma callback function é uma referência à função, quando uma ação for tomada, aquela função será executada
+• Chamamos de parâmetros de uma função as variáveis passadas junto à sua definição.
+• Chamamos de argumentos de uma função os valores passados às variáveis quando chamamos a função
+• Uma função pode ter quantos parâmetros forem necessários
+
+
+
+  Sintaxe / Estrutura :
+
+  function nomeDaFuncao(parametro1,parametro2) {
+  //bloco de código da função
+  return parametro1 + parametro2
+  }
+
+
+  Exemplo :
+
+  function multiplicar(a,b) {
+  return a * b
+  }
