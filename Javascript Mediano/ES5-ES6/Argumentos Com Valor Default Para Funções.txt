@@ -1,0 +1,17 @@
+• Faz com a que a função tenha argumentos padrão e não quebre caso a mesma seja chamada sem argumentos
+
+• É colocado na assinatura do método (quando declaramos os parâmetros)
+
+
+	
+	Exemplo :
+
+	function funcaoExemplo(argumento1 = "Valor Padrao Arg1", argumento2 = "Valor Padrao arg2") {
+		return arg1 + arg2
+	}
+
+	const funcaoExemplo = (arg1 ="Valor Padrao Arg 1", arg2 ="Valor Padrao Arg 2") => arg1 + arg2
+
+	const funcaoExemplo = (arg1 ="Valor Padrao Arg 1", arg2 ="Valor Padrao Arg 2") => {
+	return arg1 + arg2
+	}
