@@ -1,0 +1,35 @@
+• É uma forma mais enxuta de se definir uma função
+
+• Caso não tenha uma expressão , podemos omitir a palavra "return" que a mesma será utilizada
+implicitamente.
+
+• Caso não haja a palavra return, o que será retornado virá após a última "=>" do lado direito.
+
+
+
+
+	Sintaxe / Estrutura :
+
+	const nomeDaFuncao = (parametro1,parametro2,...parametron) => parametro1 + parametro2 + ...parametron
+
+	const nomeDaFuncao = (a,b,c) => (d,e,f) => (g,h) => a + b + c + d + e + f + g + h
+
+	const nomeDaFuncao = (parametro1,parametro2,...parametron) => { 
+	//Bloco de código ou expressão
+	return parametro1 + parametro2 + ...parametron
+	}
+
+
+	
+	Exemplo :
+
+	const somarNumeros = (a,b) => a + b
+	
+	const divisaoNumeros = (a,b) => {
+	if(a > 0) {
+	return b/a
+	}
+	return "Erro, o divisor tem que ser maior que 0"
+	}		
+
+	
