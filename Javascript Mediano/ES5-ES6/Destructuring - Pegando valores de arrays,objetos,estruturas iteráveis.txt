@@ -1,0 +1,211 @@
+• Facilita pegarmos valores das propriedades de um objeto/array,estrutura que seja iterável e até argumentos de funções.
+• Ao pegarmos esses valores, os mesmos são designados à variáveis tornando a utilização mais fácil
+• O que o destructuring faz é simplmente copiar itens de uma estrutura para variáveis. O array/objeto/estrutura original não é modificado.
+• Se passarmos um número menor de variáveis em relação ao tamanho da estrutura, salvo o caso de utilizarmos recursos
+que peguem o restante dos valores, somente aquele número de valores será atribuído as variáveis ( ver Sintaxe/Estrutura 3)
+
+
+       ## Utilizações : 
+
+
+
+       ***********************************************
+       *                        	             *
+       * Sintaxe / Estrutura 1 - Direto de um Array  *
+       *                                             *
+       ***********************************************
+
+
+	let arrayDestructuring = ["valor1", "valor2"]
+
+	let [primeiroValor,segundoValor] = arrayDestructuring
+
+	console.log(primeirovalor)
+	console.log(segundovalor)
+
+	• Temos um array com dois valores : valor1 e valor2. 
+	• O destructuring ocorre na segunda expressão, onde passamos 2 variáveis (primeiroValor e segundoValor)
+	sendo "igualadas" ao array antes definido. 
+	• O que ocorre aqui é que o javascript "seta" cada valor do array a cada variável separada por vírgula.
+	Ou seja, primeiroValor recebe o valor de arrayDestructuring[0] e segundoValor recebe o valor de arrayDestructuring[1]
+	• Dessa forma, se quisermos trabalhar com os valores soltos de um array, podemos utilizar primeiroValor ao invés 
+	de arrayDestructuring[0] .
+	• É só uma forma mais simples de usarmos arrayDestructuring[index]
+
+
+
+       *************************************************************************
+       *                                                                       *
+       * Sintaxe / Estrutura 2 - Utilizando uma função que retorna um array :  *
+       *                                                                       *
+       *************************************************************************
+	
+	
+	
+	let [primeiroValor, segundoValor] = "João Victor".split(' ')
+
+	• Ao invés de igualarmos as variáveis à um array, iremos igualar ao que será retornado da função que retorna um array
+	• No caso primeiroValor irá absorver "João" e segundoValor irá "absorver" Victor
+	
+
+
+
+       *******************************************************
+       *                                                     *
+       * Sintaxe / Estrutura 3 - Pulando item de um array :  *
+       *                                                     *
+       *******************************************************
+
+
+	let [primeiroValor, ,segundoValor] = ["Valor1","Valor2","Valor3","Valor4"]
+
+	• Dessa forma , primeiroValor irá ser associado ao "Valor1" e o segundoValor será associado ao "Valor3"
+	• Isso é realizado porquê a vírgula fazia diz para pularmos aquele item na hora da deestruturação.
+	• Somente Valor1 e Valor3 foram atribuídos as variáveis primeiroValor e segundoValor. Valor2 foi pulado
+	por conta da vírgula e Valor4 não foi atrubuída porquê nenhuma variável foi atribuída para a mesma.
+	• Para que o Valor4 fosse atribuído à alguma variável deveríamos fazer [primeroValor,,segundoValor,terceiroValor]. 
+	Nesse caso, a variável terceiroValor receberia Valor4.
+
+
+	
+
+       *******************************************************
+       *                                                     *
+       * Sintaxe / Estrutura 4 - Utilizando com iteráveis    *
+       *                                                     *
+       *******************************************************
+
+	let [valor1,valor2,valor3] = "abc"
+
+	• No caso valor1 recebe "a", valor2 recebe "b" e valor3 recebe "c"
+
+	let [um,dois,tres] = new Set ([1,2,3])
+
+	• No caso um recebe 1, dois recebe 2 e tres recebe 3.
+
+	• Isso funciona porquê internamente a destruturação funciona iterando sobre os valores do lado direito. 
+	É um syntax sugar para chamarmos um loop que veremos no javascript avançado chamado for..of . Ele é utilizado
+	sobre os valores do lado direito do "=" e vai atribuindo cada um a cada variável do lado esquerdo do "="
+
+
+
+
+       **********************************************************************************
+       *                                                     			        *
+       *   Sintaxe / Estrutura 5 - Atribuindo à qualquer coisa do lado esquerdo do =    *
+       *                                                                                *
+       **********************************************************************************
+
+
+	let objeto = {}
+	[objeto.propriedade1, objeto.propriedade2] = "João Victor".split(' ')
+
+	• Nesse caso irá criar no objeto de nome objeto a propriedade1 com valor "João" e propriedade2 com valor "Victor".
+
+
+
+
+       ******************************************************************************************************************
+       *                                                     			        		 		*
+       *   		Sintaxe / Estrutura 6 - Laço for of com um objeto e a funcionalidade .entries()	                *
+       *		                                                						*
+       *														*
+       ******************************************************************************************************************
+
+	
+	let user = {
+  		name: "John",
+		age: 30
+	};
+
+
+	for (let [propriedade, valor] of Object.entries(user)) {
+	  console.log(`${propriedade}:${valor}`);
+	}
+
+	• Performa um laço entre as propriedades e valor do objeto "user" e irá imprimir os valores das propriedades juntamente da sua propriedade (name : John e age: 30)
+	• Para entendimento do `${key}:${value}` verificar o arquivo "template string.txt"
+	• Para entender o for.. of checar o documento "laço for of.txt"
+	• Para entender .entries() checar o documento na pasta ES8 "funcionalidades para objetos.txt"
+
+
+	
+       ******************************************************************************************
+       *                                                     	       		 		*
+       *   		Sintaxe / Estrutura 7 - Laço for of com a estrutura Map()               *
+       *		                                                			*
+       *											*
+       ******************************************************************************************
+	
+	
+	let user = new Map();
+	user.set("name", "John");
+	user.set("age", "30");
+
+	for (let [propriedade, valor] of user) {
+	  console.log(`${propriedade}:${valor}`);
+	}
+
+	• Para entendimento do `${key}:${value}` verificar o arquivo "template string.txt"
+	• Pelo fato de um Map ser iterável, torna a deestruturação bem mais simples, bastando passar a referência do mesmo 
+	• Map iteram sobre os pares [chave,valor], tornando muito conveniente para deestruturação
+	• Irá imprimir name:John e age:30.
+
+
+
+       ******************************************************************************************
+       *                                                     	       		 		*
+       *   		Sintaxe / Estrutura 8 - Trocando o valor de variáveis entre si          *
+       *		                                                			*
+       *											*
+       ******************************************************************************************
+
+	
+
+	let guest = "Jane";
+	let admin = "Pete";
+
+
+	[guest, admin] = [admin, guest];
+
+	• Jane passa a ser admin
+	• Pete passa a ser guest
+	• Aqui nós criamos um array temporário de duas variáveis e deestruturamos imediatamente em ordem contrária
+
+
+
+	
+       ******************************************************************************************
+       *                                                     	       		 		*
+       *   		Sintaxe / Estrutura 9 - Pegando o restante dos itens de um array        *
+       *		                                                			*
+       *											*
+       ******************************************************************************************
+	
+	• Conforme vimos anteriormente, se não passarmos o número de variáveis igual ao número de itens em um array,
+	nem todos os itens são associados as variáveis, ficando o faltante sem uma associação com variável. Isso pode
+	ser um problema caso o array seja muito grande. Não seria nada otimizado passarmos 100 variáveis para pegar
+	os dados de um array. Dessa forma surgiu o a notação "...variavel" que é utilizada para pegar o restante dos
+	valores de um array durante sua deestruturação
+	
+	• A variável que usa ... recebe um array com o restante dos itens do array original
+
+	let [nome1, nome2, ...restante] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+	
+	• nome1 -> recebe "Julius"
+	• nome2 -> recebe "Caesar"
+	• restante -> recebe ["Consul" , "of the Roman Republic"]
+	• console.log(restante[0]); // Consul
+	• console.log(restante[1]); // of the Roman Republic
+	• console.log(restante.length); // 2
+
+	
+
+       ******************************************************************************************
+       *                                                     	       		 		*
+       *   		Sintaxe / Estrutura 10 - Valores Default (Padrão)                       *
+       *		                                                			*
+       *											*
+       ******************************************************************************************
+	
