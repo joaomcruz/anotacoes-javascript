@@ -5,6 +5,9 @@
 • O valor default pode ser uma expressão ou uma chamada de função. Sendo que a mesma só será chamada quando o argumento/parâmetro
 em questão retornar esse valor default.
 
+• Se ao chamarmos uma função passarmos um argumento como undefined, sendo que o mesmo foi definido com um valor padrão, o valor
+padrão prevalecerá
+
 
 	
 	Exemplo :
