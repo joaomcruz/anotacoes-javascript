@@ -272,13 +272,6 @@ que peguem o restante dos valores, somente aquele número de valores será atrib
 	
 	--------------------------------------------------	
 
-	let {title: t, width: w, height: h } = options
-
-	• Caso queiramos "renomear" ou usar um "alias" para a variável com o nome da propriedade, basta adicionarmos um ": novoNome" sem as aspas. 
-	Nesse caso as variáveis serão t,w e h.
-
-	--------------------------------------------------	
-
 	let options = {
 	  title: "Menu"
 	};
@@ -459,4 +452,31 @@ que peguem o restante dos valores, somente aquele número de valores será atrib
 	}	
 
 	showMenu(); // Menu 100 200
+
+	
+	*********************
+	*                   *
+	*	ADENDO      *
+	*		    *
+	*********************
+
+
+	• Caso queiramos "renomear" ou usar um "alias" para a variável com o nome da propriedade, basta adicionarmos um ": novoNome" sem as aspas. 
+	Nesse caso as variáveis serão t,w e h.
+
+	
+	let options = {
+  	title: "Menu",
+ 	 width: 100,
+ 	 height: 200
+	};
+
+	let {title: t, width: w, height: h } = options
+
+
+	• Podemos misturar isso com um valor default , dessa forma : 
+
+	let {propriedade : nomeDaVariavel = valorDefault, ...restante} = objeto
+
+	let {title : titulo = "Nada", ...restante} = objeto
 	
