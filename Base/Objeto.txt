@@ -1,32 +1,172 @@
 • Tem o formato -> propriedade : valor
+
 • O valor pode ser de qualquer tipo. Seja de estrutura de dados , seja dos tipos de valores básicos do javascript.
-• Para acessar o valor de uma propriedade , basta digitarmos : nomeDoObjeto.propriedade
-• Para criarmos/adicionarmos uma propriedade , basta digitarmos : nomeDoObjeto.nomeNovaPropriedade = valorNovaPropriedade
-• Para alterarmos um valor de uma propriedade já existente, basta digitarmos : nomeDoObjeto.propriedade = novoValorPropriedade
+
+• A propriedade sempre será uma string e o valor da mesma pode ser de qualquer tipo
+
 • Funções dentro de objetos são chamadas de métodos
-• Para acessarmos uma função dentro de um objeto basta digitarmos : nomeDoObjeto.funcao()
+
+• A notação de acesso as propriedades de um objeto por meio do . só funciona caso não possua espaço, não comece com dígito
+ e não inclua caracteres especiais ($ e _ são permitidos)
+
+• O nome de uma propriedade de um objeto , ao contrário do que ocorre com variáveis , pode conter o nome de palavras reservadas
+
+  ************************************************************************
+  *                                                                      *
+  *             Exemplo de Objeto :                                      *
+  *                                                                      *
+  *            let usuario = {                                           *
+  *  		  nome: "Joao",                                          *
+  * 		 idade: 29,                                              *
+  *      	"sobrenome e apelido" : "Machado da Cruz"                *
+  *  		eMaiorDeIdade : true,                                    *
+  *  		falar: function () {                                     *
+  *  			console.log("Oi")                                *
+  *			}                                                *
+  *       	 }                                                       *
+  *                                                                      *
+  ************************************************************************
 
 
-  Sintaxe / Estrutura :
 
-  let objeto = {
-  propriedade1 : valorPropriedade1,
-  propriedade2 : valorPropriedade2
-  }
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Acessando valor de propriedade de um objeto  *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
 
-  Exemplo :
+  • Para acessar o valor de uma propriedade , basta digitarmos : nomeDoObjeto.propriedade
 
-    let usuario = {
-    nome: "Joao",
-    idade: 29,
-    eMaiorDeIdade : true,
-    falar: function () {
-    console.log("Oi")
-  }
- }
+	console.log(usuario.nome) // imprime Joao
 
-  console.log(usuario.nome) -> Vai acessar o objeto usuario, a propriedade nome , e vai imprimir João
-  console.log(usuario.idade) -> Vai acessar o objeto usuario, a propriedade nome , e vai imprimir 29
-  console.log(usuario.eMaiorDeIdade) -> Vai acessar o objeto usuario, a propriedade eMaiorDeIdade , e vai imprimir true
-  console.log(usuario.falar()) -> Vai acessar o objeto usuario, a propriedade falar que contem uma função , e vai imprimir Oi
-  
+
+  • Caso seja um objeto com uma propriedade não simples  , precisamos utilizar nomeDoObjeto["nome da propriedade"] 
+
+        console.log(usuario["sobrenome e apelido"]) // imprime "Machado da Cruz" 
+
+
+  • Para acessarmos uma função dentro de um objeto basta digitarmos : nomeDoObjeto.funcao()
+
+	usuario.falar() // imprime Oi
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Criando/Adicionando propriedade em um objeto *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+
+  • Para criarmos/adicionarmos uma propriedade , basta digitarmos : nomeDoObjeto.nomeNovaPropriedade = valorNovaPropriedade
+
+	usuario.eCasado = true // já que não existe a propriedade "eCasado" no objeto usuario, a mesma seria criada/adicionada ao objeto
+
+
+  • Para realizarmos isso com uma propriedade inexistente mas que queremos que tenha mais de uma palavra, basta :
+
+	usuario["possui investimento"] = true
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Alterando valor de propriedade em um objeto  *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+  • Para alterarmos um valor de uma propriedade já existente, basta digitarmos : nomeDoObjeto.propriedade = novoValorPropriedade
+
+	usuario.idade = 30 // mudaria o valor da propriedade idade do objeto usuario de 29 para 30.
+
+
+  • Para alterarmos um valor de uma propriedade já existente com mais de uma palavra, basta :
+	
+	usuario["sobrenome e apelido"] = "Joaozinho"	
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Deletando uma propriedade de um objeto       *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+  • Para deletarmos uma propriedade basta usarmos "delete objeto.propriedade"
+
+	delete usuario.falar
+
+
+  • Para deletarmos uma propriedade que tenha múltiplas palavras , basta :
+
+     	delete usuario["sobrenome e apelido"]
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Criação de um Objeto - Propriedade Simples   *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+  • Por propriedade simples consideramos uma propriedade com nome único, sem espaços.
+
+  • Podemos criar um objeto de duas formas. 
+
+  • A primeira é conhecida como object literal. 
+
+	  let objeto = {
+	  propriedade1 : valorPropriedade1,
+	  propriedade2 : valorPropriedade2
+	  }	
+
+  • A segunda é chamada de construtor do objeto
+
+	  let objeto = new Object()
+
+
+  ***************************************************************************
+  *                                                                         *
+  *  Sintaxe / Estrutura :  Criação de um Objeto - Propriedade Não simples  *
+  *                                                                         * 
+  *                                                                         *
+  ***************************************************************************
+
+  • Podemos utilizar uma propriedade com mais de um nome, a mesma deve estar entre ""
+   
+     let objeto = {
+	  "propriedade 1" : valorPropriedade1,
+	  "propriedade 2" : valorPropriedade2
+	  }	
+	
+
+
+  ***************************************************************************
+  *                                                                         *
+  *        Sintaxe / Estrutura :  Testando existência de propriedade        *
+  *                                                                         * 
+  *                                                                         *
+  ***************************************************************************
+
+  • Podemos testar a existência de uma propriedade tentando acessá-la. Caso a mesma não exista , retornará undefined
+
+	let user = {}
+	console.log(user["age"]) // Retorna undefined
+
+
+
+  • Podemos também utilizar uma propriedade "especial" chamada "in" . "propriedade" in nomeDoObjeto
+
+	"age" in user // Retorna false
+
+
+
+  • No caso de utilizarmos a sintaxe com "in" , é importante passarmos o nome da propriedade com "" uma vez que
+    se não passarmos estaremos comparando o VALOR daquela variável como se a mesma fosse uma propriedade.
+
+	
+	let user = { age: 30 };
+
+	let key = "age";
+	console.log( key in user ); // true, a propriedade "age" existe no objeto.
+
