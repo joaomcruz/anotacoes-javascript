@@ -1,0 +1,32 @@
+	
+
+	***************************
+	*                         *
+	*  Conversão para String  *
+	*		          *
+	***************************
+
+	• Basta utilizarmos a palavra String e envolvermos o que queremos entre () .
+	• false torna-se "false" . null torna-se "null". etc
+
+	Exemplo :
+
+	let value = true
+	console.log(typeof value) // boolean
+	value = String(value)
+	console.log(value) // String
+
+
+
+	***************************
+	*                         *
+	*  Conversão para Número  *
+	*		          *
+	***************************
+
+	• Basta utilizarmos a palavra Number e envolvermos o que queremos entre () .
+	• Se a String que tivermos convertendo para número não for um número válido, o resultado será NaN
+	• Valores undefined viram NaN
+	• null vira 0
+	• true e false viram 1 e 0 respectivamente
+	• Se a string tiver vazia retorna 0. Erro retorna NaN
