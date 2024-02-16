@@ -5,6 +5,8 @@
 • Chamamos de parâmetros de uma função as variáveis passadas junto à sua definição.
 • Chamamos de argumentos de uma função os valores passados às variáveis quando chamamos a função
 • Uma função pode ter quantos parâmetros forem necessários
+• Uma função deve fazer uma e apenas uma coisa. Caso uma função esteja muito grande, talvez seja uma boa ideia quebrarmos em
+funções menores.
 
 
 
@@ -21,3 +23,19 @@
   function multiplicar(a,b) {
   return a * b
   }
+
+-----------------------------------------------------------------------
+
+	## Declaração de Função vs Expressão de função
+
+
+	• Declaração de função é o método padrão explicado acima 
+	• Expressão de função seria :
+
+	let soma = function(a,b) {
+	return a + b
+	}		
+
+	• A declaração de função pode ser utilizada antes mesmo de ser definida, enquanto a expressão de função
+	só pode ser chamada após a sua declaração.
+	• A declaração de função só pode ser utilizada dentro do bloco de código em que foi inicializada.
