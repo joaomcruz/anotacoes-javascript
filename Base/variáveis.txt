@@ -1,7 +1,9 @@
 # Variáveis 
 
   • Sempre utilizar camelCase pela convenção
-  • Podemos começar uma variável com caracteres especiais/underscore/números ou letras
+  • Podemos utilizar caracteres os seguintes caracteres em uma variável : $ _ ou letras
+  • É caso sensitive
+  • Boa prática nomear a variável de acordo com o uso. Evitar nomes aleatórios.
   • Em Javascript temos duas formas de declarar variáveis : let e const
     - let é utilizado para variáveis que podem ter o valor alterável
     - const é utilizado para variáveis que possurem um valor constante

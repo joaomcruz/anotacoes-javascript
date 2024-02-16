@@ -1,9 +1,10 @@
-• Em javascript temos 7 tipos diferentes de variáveis/valores :
+• Em javascript temos 7 tipos diferentes de valores primitivos :
 
   1 - Números
-  2 - String (texto , dentro de uma variável estará sempre entre " " ou ' ' )
+  2 - String (texto , dentro de uma variável estará sempre entre " " , ' ' ou `` )
   3 - Boolean ( true/false ) 
   4 - Undefined ( Quando não foi atribuído nenhum valor à variável )
-  5 - Null ( Objeto com valor nulo, não se pode atribuir um valor à uma propriedade )
+  5 - Null ( Objeto com valor nulo, não se pode atribuir um valor à uma propriedade, desconhecido )
   6 - Symbol ( Um tipo de valor único, por mais que tenha o mesmo valor que outro)
   7 - Objeto/Object ( representado por  { propriedade : valor } )
+  8 - BigInt (Números muito grandes)
