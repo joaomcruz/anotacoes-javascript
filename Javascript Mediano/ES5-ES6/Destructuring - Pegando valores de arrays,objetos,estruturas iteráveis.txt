@@ -411,4 +411,52 @@ que peguem o restante dos valores, somente aquele número de valores será atrib
        *											*
        ******************************************************************************************	
 	
+	
+	• Vamos supor que temos uma função com muitos parâmetros e não lembramos a ordem dos mesmos na hora de efetuarmos
+	uma chamada a mesma. Basta colocarmos os parâmetros da mesma dentro de um objeto quando criarmos a mesma.
+	Na sua chamada basta passarmos o objeto que contém as propriedades definidas nos parâmetros.
+        A explicação abaixo deixa isso mais claro :
 
+		
+	• Definimos o objeto com as propriedades title e items com os respectivos valores que queremos passar para a execução da função :
+
+	let options = {
+  	title: "My menu",
+	items: ["Item1", "Item2"]
+	};
+
+	
+	• Definimos a função com os parâmetros envoltos de {} :	
+
+	function showMenu( { title = "Untitled", width = 200, height = 100, items = [] } ) {
+	  alert( `${title} ${width} ${height}` ); // My Menu 200 100
+	  alert( items ); // Item1, Item2
+	}
+	
+	
+	• Passamos o objeto "options" como argumento da função na sua chamada. A função é inteligente e deestrutura os objetos 
+	para as variáveis dos parâmetros de acordo com as suas correspondências no objeto
+
+
+	showMenu(options)	
+
+	----------------------------------------------------------------------
+
+	• Se quisermos que os valores default definidos na função sejam utilizados, basta passarmos um {} vazio 
+	dentro da chamada da função.
+
+	showMenu({})
+
+	-----------------------------------------------------------------------
+
+	• Se quisermos utilizar os valores default definidos na função sem passarmos um {} na sua chamada , basta 
+	envolvermos todos os paramêtros em {} na sua definição e igualarmos o mesmo a um {} vazio. Dessa forma,
+	podemos só fazer a chamada da função. O exemplo a seguir deixa isso mais claro :
+	
+
+	function showMenu({ title = "Menu", width = 100, height = 200 } = {}) {
+	  alert( `${title} ${width} ${height}` );
+	}	
+
+	showMenu(); // Menu 100 200
+	
