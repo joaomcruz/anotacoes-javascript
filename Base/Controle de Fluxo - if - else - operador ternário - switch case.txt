@@ -45,7 +45,7 @@
 
 ## Operador Ternário
 
-  • É um if/else reduzido , onde passamos apenas uma condição e o que fazer diante dela retornar verdadeiro ou falso  . 
+  • É um if/else reduzido , onde passamos  uma condição e o que fazer diante dela retornar verdadeiro ou falso  . 
   Caso a condição seja satisfeita, irá executar a expressão 1. Caso não seja satisfeita executará a expressão 2.
   
     Sintaxe / Estrutura :
@@ -60,6 +60,23 @@
       }
 
       usuarioValido(true) ? console.log("Pode entrar") : console.log("Acesso negado")
+
+	
+
+  • Podemos encadear o operador ternário também. Onde cada : irá fazer uma checagem por uma nova condição e o que vier após o ?
+  será a expressão executada . O exemplo mostra isso de forma mais clara :
+  • No exemplo caso age < 3 , irá imprimir "Hi , baby", caso contrário irá checar se age < 18, se retornar verdadeiro, irá imprimir "Hello!".
+   Se retornar falso irá checar se age<100 , caso retorne verdadeiro, irá imprimir "Greetings" . Se retornar falso irá imprimir "What an unusual age!"
+
+
+ 	 let age = prompt('age?', 18);
+
+	let message = (age < 3) ? 'Hi, baby!' :
+  	(age < 18) ? 'Hello!' :
+  	(age < 100) ? 'Greetings!' :
+        'What an unusual age!';
+
+	alert( message );
 
 
 
