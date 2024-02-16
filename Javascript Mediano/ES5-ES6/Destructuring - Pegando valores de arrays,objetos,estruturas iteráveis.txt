@@ -204,8 +204,211 @@ que peguem o restante dos valores, somente aquele número de valores será atrib
 
        ******************************************************************************************
        *                                                     	       		 		*
-       *   		Sintaxe / Estrutura 10 - Valores Default (Padrão)                       *
+       *   	Sintaxe / Estrutura 10 - Array Vazio e Mais Variáveis que Itens no Array        *
        *		                                                			*
        *											*
        ******************************************************************************************
 	
+
+	let [variavel1, variavel2] = [];
+
+	console.log(variavel1); // undefined
+	console.log(variavel2); // undefined
+
+	let [variavel1, variavel2] = ["João"]
+	
+	console.log(variavel1); // João
+	console.log(variavel2); // undefined
+	
+	• Caso o array seja menor que a lista de variáveis (que fica sempre à esquerda), nenhum erro ocorrerá,
+	valores ausentes são considerados undefined
+
+
+
+       ******************************************************************************************
+       *                                                     	       		 		*
+       *   	Sintaxe / Estrutura 11 - Array com Valores Default (Padrão)                     *
+       *		                                                			*
+       *											*
+       ******************************************************************************************
+
+
+	
+	let [variavel1 = "Guest", variavel2 = "Anonymous"] = ["Julius"];
+
+	console.log(variavel1)  // Julius (da deestruturação do array)
+	console.log(variavel2) // Anonymous (default definido)	
+	
+	• Para melhor entendimento de valores default, verificar arquivo "argumentos com valor default...txt"
+
+
+	
+       ******************************************************************************************
+       *                                                     	       		 		*
+       *   	Sintaxe / Estrutura 12 - Deestruturação de Objetos	                        *
+       *		                                                			*
+       *											*
+       ******************************************************************************************
+
+	let options = {
+  	title: "Menu",
+ 	 width: 100,
+ 	 height: 200
+	};
+
+	let {title, width, height} = options; // Aqui que ocorre a deestruturação
+
+	console.log(title);  // Menu
+	console.log(width);  // 100
+	console.log(height); // 200
+	
+
+	• De forma geral , basta definirmos o tipo de variável e colocarmos o nome das propriedades do objeto que
+	queremos deestruturar como se fosse um objeto (dentro de {}) separado por vírgulas.
+	• Nesse caso é obrigatório termos um objeto que exista do lado direito do "=" .
+	• A ordem a qual colocamos as variáveis não importa
+	• A deestruturação faz com que objeto.propriedade1 seja associado à variável com o mesmo nome da propriedade1 e assim
+	sucessivamente 
+	
+	--------------------------------------------------	
+
+	let {title: t, width: w, height: h } = options
+
+	• Caso queiramos "renomear" ou usar um "alias" para a variável com o nome da propriedade, basta adicionarmos um ": novoNome" sem as aspas. 
+	Nesse caso as variáveis serão t,w e h.
+
+	--------------------------------------------------	
+
+	let options = {
+	  title: "Menu"
+	};
+
+	let {width = 100, height = 200, title} = options;
+	
+	console.log(title);  // Menu
+	console.log(width);  // 100
+	console.log(height); // 200
+
+	• Assim como fizemos com os arrays, podemos setar valores default para propriedades que não existam.
+	
+	-----------------------------------------------------
+
+	• Podemos extrair somente as propriedades que quisermos de um objeto, não sendo necessário passarmos todas.
+
+	-----------------------------------------------------
+
+
+       ******************************************************************************************
+       *                                                     	       		 		*
+       *   	Sintaxe / Estrutura 13 - Pegando o restante dos itens de um Objeto              *
+       *		                                                			*
+       *											*
+       ******************************************************************************************
+
+	let options = {
+ 	 title: "Menu",
+ 	 height: 200,
+ 	 width: 100
+	};
+
+	
+	let {title, ...restante} = options;
+
+	title="Menu", restante={height: 200, width: 100}
+	alert(restante.height);  // 200
+	alert(restante.width);   // 100
+	
+	
+	• Assim como em arrays quando não passávamos o número "necessário" de variáveis para "pegar" os valores dele,
+	podemos fazer o mesmo com um objeto, passando uma variável que contemple o restante das propriedades do objeto
+	A sintaxe é a mesma "...variavel"
+
+
+
+       ******************************************************************************************
+       *                                                     	       		 		*
+       *   	Sintaxe / Estrutura 14 - Utilizando variáveis previamente definidas             *
+       *	                         para deestruturar objeto             			*
+       *											*
+       ******************************************************************************************
+
+	
+	• O exemplo a seguir dá erro, já que o javascript interpreta tudo que está dentro de um {} no bloco de código principal (não dentro de outra expressão)
+	como um bloco de código. Blocos de código podem ser utilizados para agrupar as declarações.
+
+	let title, width, height;
+	{title, width, height} = {title: "Menu", width: 200, height: 100};
+
+	---------------------------------------------------------------------
+
+	• Exemplo de bloco de código usado para agrupar declarações :
+	
+	{
+  		let message = "Hello";
+ 		alert( message );
+	}
+
+	---------------------------------------------------------------------
+
+	• Para resolvermos esse "problema" basta colocarmos tudo dentro de um (), isso mostra que não é um bloco de código
+
+	let title, width, height;
+
+	( {title, width, height} = {title: "Menu", width: 200, height: 100} )
+
+	alert( title ); // Menu
+
+
+
+       ******************************************************************************************
+       *                                                     	       		 		*
+       *   	Sintaxe / Estrutura 15 - Deestruturação de objeto "aninhado"                    *
+       *	                                                           			*
+       *											*
+       ******************************************************************************************
+
+
+	• Vamos supor que temos um objeto e que dentro desse objeto tenha propriedades que possuam arrays ou outros objetos. 
+	Para realizarmos a deestruturação basta passarmos todas as propriedades normalmente, e os objetos/arrays normalmente.
+	O exemplo abaixo mostra isso de forma mais clara :
+	• De forma "objetiva" basta replicarmos os objetos/arrays dentro do objeto principal, só que sem os ":" e seus devidos valores
+	• Nesse caso nós só pegamos os valores das propriedades desses objetos/arrays. A referência em si (size e items)
+	 "são ignorados".
+	
+	• Objeto sendo definido :
+
+	let options = {
+ 	 size: {
+  	  width: 100,
+   	 height: 200
+  	},
+ 	 items: ["Cake", "Donut"],
+ 	 extra: true
+	};
+	
+	 
+	• Deestruturação acontecendo :
+
+	let {
+ 	 size: { // Deestruturação do objeto "size" dentro do objeto principal options 
+  	  width,
+   	 height
+ 	 },
+ 	 items: [item1, item2], // Deestruturação do array "items" dentro do objeto principal options
+	} = options;
+
+	
+	console.log(width);  // 100
+	console.log(height); // 200
+	console.log(item1);  // Cake
+	console.log(item2);  // Donut
+
+
+       ******************************************************************************************
+       *                                                     	       		 		*
+       *   	Sintaxe / Estrutura 17 - Parâmetros de Funções Inteligentes			*
+       *	                                                           			*
+       *											*
+       ******************************************************************************************	
+	
+

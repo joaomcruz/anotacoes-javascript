@@ -2,6 +2,9 @@
 
 • É colocado na assinatura do método (quando declaramos os parâmetros)
 
+• O valor default pode ser uma expressão ou uma chamada de função. Sendo que a mesma só será chamada quando o argumento/parâmetro
+em questão retornar esse valor default.
+
 
 	
 	Exemplo :
