@@ -348,6 +348,65 @@
 
 
 
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Criando um objeto a partir de um Map          	*
+	  *                                         				   	*
+	  *                                                                        	*
+	  *******************************************************************************
+
+
+• Podemos transformar um Map em um objeto simples
+ Para isso basta utilizarmos o método Object.fromEntries(map) passando o map como argumento e o mesmo criará um
+ objeto "simples" (não aninhado) a partir do mesmo.
+ O exemplo a seguir explica melhor :
+
+	let prices = Object.fromEntries(
+					[
+		  				['banana', 1],
+  						['orange', 2],
+  						['meat', 4]
+					]	
+					)
+
+	ou
+
+	let mapExemplo = new Map()
+	mapExemplo.set('banana',1)
+	mapExemplo.set('laranja',2)
+	mapExemplo.set(true,true)
+
+	let objetoDeMap = Object.fromEntries(mapExemplo.entries());
+
+	console.log(objetoDeMap) // {banana : 1 , laranja : 2 , true : true}
+
+
+	ou
+
+	let mapExemplo = new Map()
+	mapExemplo.set('banana',1)
+	mapExemplo.set('laranja',2)
+	mapExemplo.set(true,true)
+
+	let objetoDeMap = Object.fromEntries(mapExemplo);
+
+       	console.log(objetoDeMap) // {banana : 1 , laranja : 2 , true : true}
+
+
+• A chamada do método .entries() no exemplo 2 retorna um iterável the pares chave:valor no exato formato esperado
+  para Object.fromEntries().
+
+• Podemos omitir o .entries() pois Object.fromEntries() espera um objeto iterável como argumento. 
+  Não necessariamente um array. E o padrão de iteração para um map retorna o mesmo par de chave:valor que .entries() 
+  Por conta disso nós "pegamos" um objeto com as mesmas chave:valor que o map passado.
+
+• Lembrando que como um objeto só aceita propriedades no formato de String, automaticamente as propriedades
+  do mapa que não forem String serão convertidos automaticamente e passarão a ser String.
+
+
+
+
 ============================================================================================================================================================================================================================================
 
 
@@ -383,6 +442,113 @@ são sempre string, enquanto que o Map permite propriedade de qualquer tipo.
 
 	   let map = new Map();
 
+
+• Quando criamos um Map, nós podemos passar um array(ou outro iterável) com um par chave:valor para a sua inicialização
+
+
+	let map = new Map(
+			   [
+ 			     ['1',  'str1'],
+			     [1,    'num1'],
+			     [true, 'bool1']
+			   ]
+			 )
+
+
+
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Criando um Map a partir de um objeto "simples" 	*
+	  *                                         				   	*
+	  *                                                                        	*
+	  *******************************************************************************
+
+
+• Entendemos por objeto "simples" objetos que não tenham "aninhamento". 
+  Vamos supor que queremos criar um map a partir dessas chaves : valor
+  Para isso basta utilizarmos o método Object.entries(objeto) que recebe como parâmetro um objeto "simples". 
+  Esse método retorna um array de pares chave:valor para um objeto nesse exato formato.
+  Então podemos fazer o seguinte :
+
+   	let obj = {
+ 	 name: "John",
+ 	 age: 30,
+         isMarried : true,
+	}
+
+	let mapFromObj = new Map(Object.entries(obj))
+
+	console.log(map.get('name')) // retorna "John"
+	console.log(map.get('age')) // retorna 30
+	console.log(map.get('isMarried')) // retorna true
+
+
+• Vale ressaltar que como as propriedades vem de um objeto, todas elas serão automaticamente Strings.
+
+• Object.entries(obj) retorna um array de pares chave:valor da seguinte forma aplicado no exemplo acima :
+
+	[ ["name" , "John"] , ["age", 30] , ["isMarried" , true] ]
+	
+
+
+
+
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Transformando um Map em um objeto "simples" 	*
+	  *                                         				   	*
+	  *                                                                        	*
+	  *******************************************************************************
+
+
+• Acabamos de ver como transformar um objeto simples em um Map. 
+ Podemos também fazer o inverso, transformar um Map em um objeto simples
+ Para isso basta utilizarmos o método Object.fromEntries(map) passando o map como argumento e o mesmo criará um
+ objeto a partir do mesmo.
+ O exemplo a seguir explica melhor :
+
+	let prices = Object.fromEntries(
+					[
+		  				['banana', 1],
+  						['orange', 2],
+  						['meat', 4]
+					]	
+					)
+
+	ou
+
+	let mapExemplo = new Map()
+	mapExemplo.set('banana',1)
+	mapExemplo.set('laranja',2)
+	mapExemplo.set(true,true)
+
+	let objetoDeMap = Object.fromEntries(mapExemplo.entries());
+
+
+	ou
+
+	let mapExemplo = new Map()
+	mapExemplo.set('banana',1)
+	mapExemplo.set('laranja',2)
+	mapExemplo.set(true,true)
+
+	let objetoDeMap = Object.fromEntries(mapExemplo);
+
+	console.log(objetoDeMap) // {banana : 1 , laranja : 2 , true : true}
+
+
+• A chamada do método .entries() no exemplo 2 retorna um iterável the pares chave:valor no exato formato esperado
+  para Object.fromEntries().
+
+• Podemos omitir o .entries() pois Object.fromEntries() espera um objeto iterável como argumento. 
+  Não necessariamente um array. E o padrão de iteração para um map retorna o mesmo par de chave:valor que .entries() 
+  Por conta disso nós "pegamos" um objeto com as mesmas chave:valor que o map passado.
+
+
+• Lembrando que como um objeto só aceita propriedades no formato de String, automaticamente as propriedades
+  do mapa que não forem String serão convertidos automaticamente e passarão a ser String.
 
 
 	  *****************************************************************
