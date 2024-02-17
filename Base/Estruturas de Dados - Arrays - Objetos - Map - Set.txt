@@ -1,0 +1,508 @@
+
+		********************************
+		*                              *
+		*     Arrays ou Listas         *
+		*                              *
+		********************************
+
+
+• Lista é a "tradução" de array
+• É uma estrutura de dados, não é um tipo de valor
+• É uma forma de organizar dados de forma ordenada
+• A lista em javascript NÃO precisa conter dados do mesmo tipo,embora seja EXTREMAMENTE recomendável só conter dados do mesmo tipo.
+• A posição de cada elemento se chama index
+• Toda lista começa no index 0.
+• O index final é o número de elementos - 1. Uma vez que começa em 0. 
+• Para acessar um elemento específico da lista,basta digitar o nome da lista e passar a posição do elemento entre []
+
+
+
+
+	******************************************************
+	*                                                    *
+        *         Lista/Array Exemplo                        *
+        *                                                    *
+        *    listaExemplo = ["Tigre", "Gato" , "Cachorro"]   *
+        *                                                    *
+        *                                                    *
+        ******************************************************
+
+• Essa lista possui length (tamanho) 3
+• Sendo os index dela 0,1,2
+
+
+	**********************************************
+	*                                            *
+        *         Acessando um item no array         *
+        *                                            *
+        **********************************************
+
+• Basta passarmos o nome do array e o index que queremos acessar dentro de []
+
+	console.log(listaExemplo[0]) // imprime "Tigre
+
+
+	**********************************************
+	*                                            *
+        *         Adicionando um item no array       *
+        *                                            *
+        **********************************************
+
+• Podemos fazer isso através de métodos ou manualmente. Métodos iremos ver mais pra frente. 
+  Para adicionarmos de forma manual precisamos saber qual o tamanho do array (length). A partir daí,
+  basta passarmos o próximo número da sequência do index e o seu valor. 
+
+• listaExemplo possui length 3. No caso o último index atualmente é 2. O próximo é 3. Logo :
+
+	listaExemplo[3] = "Macaco"
+
+
+	**********************************************
+	*                                            *
+        *         Substituindo um item no array      *
+        *                                            *
+        **********************************************
+
+• Basta passarmos o index e o valor que queremos que seja atribuído aquele index. Isso irá substituir o valor "atual"
+
+	listaExemplo[1] = "Arara" // Irá substituir gato por Arara.
+
+
+	**********************************************
+	*                                            *
+        *         Criando uma Lista/Array            *
+        *                                            *
+        **********************************************
+       
+• Podemos criar um array já com itens dentro :
+	
+	listaExemplo = ["Item1","Item2","Item3"]
+
+• Podemos criar um array vazio de duas formas :
+
+          - Forma 1 : listaExemplo = []
+	  - Forma 2 : listaExemplo = new Array()
+
+
+	****************************************************************
+	*                                                              *
+        *         Criando uma Lista/Array que contém listas            *
+        *                                                              *
+        ****************************************************************
+
+• Podemos criar arrays que possuam array
+
+	 listaExemplo2 = [
+		["Tigre", "Gato" , "Cachorro"],
+		["Pavão","Hipopótamo", "Macaco"],
+		["Tucano","Arara","Gavião"]
+		]	
+
+	 listaExemplo2 = [
+				[],
+				[],
+				[]
+			]
+
+• Essa lista possui length (tamanho) 3
+• Sendo os index dela 0,1,2
+• Por se tratar de uma lista com listas dentro, para acessarmos os elementos devemos 
+  passar primeiramente o index de qual lista queremos acessar, depois passamos o elemento. 
+  Por exemplo : listaExemplo2[0][0] acessa tigre. listaExemplo2[2][1] acessa arara.
+
+
+
+	***********************************************************************************
+	*                                                                                 *
+        *        Pegando o último elemento de um array  de maneira otimizada              *
+        *                                                                                 *
+        ***********************************************************************************
+
+
+• Basta utilizarmos o método .at e passarmos o "index" -1
+
+	listaExemplo.at(-1) // Retorna cachorro.
+
+
+• O método .at é igual a passarmos a posição do index do array. Sendo que quando passamos valores negativos ele vai se
+	afastando do final do array.
+
+
+
+
+	***********************************************************************************
+	*                                                                                 *
+        *        Métodos e Propriedades disponíveis para Listas / Arrays                  *
+        *                                                                                 *
+        ***********************************************************************************
+
+
+
+ • Para utilizarmos uma propriedade/método usamos um ponto (.) e o nome da função/propriedade em sequência. Exemplo : listaExemplo.push("gavião")
+
+ 	- length -> Retorna o tamanho da lista
+ 	- push() -> Adiciona um item ao final do Array
+ 	- pop() -> Remove um item do final do Array (modifica o array original pois remove o item)
+ 	- shift() -> Remove do início do Array
+  	- unshift() -> Adiciona ao início do Array
+  	- indexOf() -> Procura o índice de um item no Array
+  	- splice(indiceInicio, quantidadeDeItens) -> Altera um array a partir da posição do índice. "Remove" os itens do array original a partir da posição passada e de acordo com a quantidade expressa.
+  	- toSpliced(indiceInicio, quantidadeDeItens) -> Mesmo do splice, porém retorna um novo array. Não muda o array original
+ 	- slice() > Retorna uma cópia de parte de um array a partir de um subarray criado entre as posições início e fim (fim não é incluído) de um array original. O Array original não é modificado
+ 	- sort() -> Retorna o array original em ordem ascendente por padrão.
+ 	- toSorted() -> Retorna um novo array em ordem ascendente.
+ 	- reverse() -> Reverte um array, ALTERA o array original.
+  	- toReversed() -> Reverte um array como o reverse(), porém retorna um novo array. Não muda o array original.
+  	- join() -> Cria e retorna uma nova string concatenando todos os elementos do array, separados por vírgula ou por um seletor específico passado dentro do método. 
+	Se o array só tiver um item, o mesmo irá ser retornado SEM usar o separador.
+  
+
+
+
+
+
+
+============================================================================================================================================================================================================================================
+
+
+
+		********************************
+		*                              *
+		*           Objeto             *
+		*                              *
+		********************************
+
+
+
+• Tem o formato -> propriedade : valor
+
+• O valor pode ser de qualquer tipo. Seja de estrutura de dados , seja dos tipos de valores básicos do javascript.
+
+• A propriedade sempre será uma string e o valor da mesma pode ser de qualquer tipo
+
+• Funções dentro de objetos são chamadas de métodos
+
+• A notação de acesso as propriedades de um objeto por meio do . só funciona caso não possua espaço, não comece com dígito
+ e não inclua caracteres especiais ($ e _ são permitidos)
+
+• O nome de uma propriedade de um objeto , ao contrário do que ocorre com variáveis , pode conter o nome de palavras reservadas
+
+  ************************************************************************
+  *                                                                      *
+  *             Exemplo de Objeto :                                      *
+  *                                                                      *
+  *            let usuario = {                                           *
+  *  		  nome: "Joao",                                          *
+  * 		 idade: 29,                                              *
+  *      	"sobrenome e apelido" : "Machado da Cruz"                *
+  *  		eMaiorDeIdade : true,                                    *
+  *  		falar: function () {                                     *
+  *  			console.log("Oi")                                *
+  *			}                                                *
+  *       	 }                                                       *
+  *                                                                      *
+  ************************************************************************
+
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Acessando valor de propriedade de um objeto  *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+• Para acessar o valor de uma propriedade , basta digitarmos : nomeDoObjeto.propriedade
+
+	console.log(usuario.nome) // imprime Joao
+
+
+• Caso seja um objeto com uma propriedade não simples  , precisamos utilizar nomeDoObjeto["nome da propriedade"] 
+
+        console.log(usuario["sobrenome e apelido"]) // imprime "Machado da Cruz" 
+
+
+• Para acessarmos uma função dentro de um objeto basta digitarmos : nomeDoObjeto.funcao()
+
+	usuario.falar() // imprime Oi
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Criando/Adicionando propriedade em um objeto *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+
+• Para criarmos/adicionarmos uma propriedade , basta digitarmos : nomeDoObjeto.nomeNovaPropriedade = valorNovaPropriedade
+
+	usuario.eCasado = true // já que não existe a propriedade "eCasado" no objeto usuario, a mesma seria criada/adicionada ao objeto
+
+
+• Para realizarmos isso com uma propriedade inexistente mas que queremos que tenha mais de uma palavra, basta :
+
+	usuario["possui investimento"] = true
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Alterando valor de propriedade em um objeto  *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+• Para alterarmos um valor de uma propriedade já existente, basta digitarmos : nomeDoObjeto.propriedade = novoValorPropriedade
+
+	usuario.idade = 30 // mudaria o valor da propriedade idade do objeto usuario de 29 para 30.
+
+
+• Para alterarmos um valor de uma propriedade já existente com mais de uma palavra, basta :
+	
+	usuario["sobrenome e apelido"] = "Joaozinho"	
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Deletando uma propriedade de um objeto       *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+• Para deletarmos uma propriedade basta usarmos "delete objeto.propriedade"
+
+	delete usuario.falar
+
+
+• Para deletarmos uma propriedade que tenha múltiplas palavras , basta :
+
+     	delete usuario["sobrenome e apelido"]
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Criação de um Objeto - Propriedade Simples   *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+• Por propriedade simples consideramos uma propriedade com nome único, sem espaços.
+
+• Podemos criar um objeto de duas formas. 
+
+• A primeira é conhecida como object literal. 
+
+	  let objeto = {
+	  propriedade1 : valorPropriedade1,
+	  propriedade2 : valorPropriedade2
+	  }	
+
+• A segunda é chamada de construtor do objeto
+
+	  let objeto = new Object()
+
+
+  ***************************************************************************
+  *                                                                         *
+  *  Sintaxe / Estrutura :  Criação de um Objeto - Propriedade Não simples  *
+  *                                                                         * 
+  *                                                                         *
+  ***************************************************************************
+
+• Podemos utilizar uma propriedade com mais de um nome, a mesma deve estar entre ""
+   
+     let objeto = {
+	  "propriedade 1" : valorPropriedade1,
+	  "propriedade 2" : valorPropriedade2
+	  }	
+	
+
+
+  ***************************************************************************
+  *                                                                         *
+  *        Sintaxe / Estrutura :  Testando existência de propriedade        *
+  *                                                                         * 
+  *                                                                         *
+  ***************************************************************************
+
+• Podemos testar a existência de uma propriedade tentando acessá-la. Caso a mesma não exista , retornará undefined
+
+	let user = {}
+	console.log(user["age"]) // Retorna undefined
+
+
+
+• Podemos também utilizar uma propriedade "especial" chamada "in" . "propriedade" in nomeDoObjeto
+
+	"age" in user // Retorna false
+
+
+
+• No caso de utilizarmos a sintaxe com "in" , é importante passarmos o nome da propriedade com "" uma vez que
+    se não passarmos estaremos comparando o VALOR daquela variável como se a mesma fosse uma propriedade.
+
+	
+	let user = { age: 30 };
+
+	let key = "age";
+	console.log( key in user ); // true, a propriedade "age" existe no objeto.
+
+
+
+============================================================================================================================================================================================================================================
+
+
+
+		********************************
+		*                              *
+		*           Map                *
+		*                              *
+		********************************
+
+
+• Assim como objeto, o Map é uma coleção de dados em par chave : valor . A maior diferença é que as propriedades de um objeto
+são sempre string, enquanto que o Map permite propriedade de qualquer tipo.
+
+• Ao contrário de objetos e arrays que acessamos, mudamos valores e etc com uma notação mais simples, o ideal com Maps
+é sempre utilizarmos os métodos disponíveis
+
+• Para compararmos propriedades de maps, NaN é considerado igual à NaN. Por conta disso, NaN pode ser utilizado como propriedade também
+
+
+	  *******************************************
+	  *                                         *
+	  *  Sintaxe / Estrutura :  Criando um Map  *
+	  *                                         *
+	  *                                         *
+	  *******************************************
+
+• Para criarmos um Map basta utilizarmos a palavra new Map() e associarmos isso à uma variável
+
+	   let map = new Map();
+
+
+
+	  *****************************************************************
+	  *          	                                                  *
+	  *  Sintaxe / Estrutura :  Adicionando/Alterando item em um Map  *
+	  *                                                    		  *
+	  *	                                                          *
+	  *****************************************************************
+
+• Para isso possuímos o método .set que recebe como parâmetros a chave/propriedade e o valor que queremos adicionar/alterar
+	     sendo a sintaxe nomeDoMap.set(chave,valor)
+
+• Como dito anteriormente, o map aceita qualquer tipo de valor como propriedade.
+  
+• O método .set pode ser encadeado
+
+	   let map = new Map()
+		
+	   map.set(1, 'str1')
+	   map.set('2', true)
+	   map.set(true,true)
+		
+		
+	  **************************************************************************
+	  *          	                                                           *
+	  *  Sintaxe / Estrutura :  Retornando valor de uma propriedade de um Map  *
+	  *                                                    		           *
+	  *	                                                                   *
+	  **************************************************************************
+
+• Para retornarmos o valor de um item a partir da sua propriedade usamos o método .get 
+  Esse método retornará undefined caso a propriedade/chave não exista no map.
+
+	   let map = new Map()
+		
+	   map.set(1, 'str1')
+	
+           console.log(map.get(1)) // retornará "str1"
+
+
+
+	  *********************************************************************************
+	  *          	                                                                  *
+	  *  Sintaxe / Estrutura :  Retornando a existência de uma propriedade de um Map  *
+	  *                                                    		                  *
+    	  *	                                                                          *
+	  *********************************************************************************
+
+• Para retornarmos a existência ou não de uma determinada propriedade de um map, 
+  basta usarmos o método .has que recebe a propriedade como parâmetro . Retorna verdadeiro ou falso.
+
+	   let map = new Map()
+		
+	   map.set(1, 'str1')
+
+	   console.log(map.has("1")) // Retornará falso, pois a string 1 não existe no mapa definido acima.
+
+
+	  ***********************************************************************************************
+	  *          	                                                                                *
+	  *  Sintaxe / Estrutura :  Deletando um elemento (propriedade : valor) através da propriedade  *
+	  *                                                    		                                *
+    	  *	                                                                                        *
+	  ***********************************************************************************************
+
+• Para deletarmos o par propriedade : valor de um map basta utilizarmos o método .delete passando como
+	    parâmetro da função a propriedade.
+
+	   let map = new Map()
+		
+	   map.set(1, 'str1')
+           map.set(2, 'str2')
+	   console.log(map) // retorna (1 : 'str1' , 2 : 'str2')
+	   map.delete(1) 
+	   console.log(map) // retorna (2 : 'str2')
+
+	
+
+	  *****************************************************************
+	  *          	                                                  *
+	  *  Sintaxe / Estrutura :  Removendo todos elementos de um map   *
+	  *                                                    		  *
+    	  *	                                                          *
+	  *****************************************************************
+
+• Para remover todos os elementos / limpar um map basta chamarmos a função .clear sobre o map.
+
+	
+	   let map = new Map()
+		
+	   map.set(1, 'str1')
+           map.set(2, 'str2')
+	   console.log(map) // Retorna {1 => 'str1', 2 => 'str2'}
+	   map.clear()
+	   console.log(map) // Retorna {} 
+
+
+	  *****************************************************************
+	  *          	                                                  *
+	  *  Sintaxe / Estrutura :  Pegando o tamanho de um map           *
+	  *                                                    		  *
+    	  *	                                                          *
+	  *****************************************************************
+
+• Para pegarmos o tamanho de um map basta utilizarmos a função .size sobre o map.
+
+  	   let map = new Map()
+		
+	   map.set(1, 'str1')
+           map.set(2, 'str2')
+	   console.log(map.size()) // Retornará 2
+
+
+
+
+
+
+============================================================================================================================================================================================================================================
+
+
+
+
+		********************************
+		*                              *
+		*           Set                *
+		*                              *
+		********************************
