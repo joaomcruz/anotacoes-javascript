@@ -362,6 +362,10 @@
 • Assim como objeto, o Map é uma coleção de dados em par chave : valor . A maior diferença é que as propriedades de um objeto
 são sempre string, enquanto que o Map permite propriedade de qualquer tipo.
 
+• O Map mantém a ordem em que os pares são inseridos, diferemente de um objeto. 
+
+• Não aceita chave : valor repetido (se do MESMO tipo). Nenhum erro ocorrerá, porém não será adicionado ao mesmo.
+
 • Ao contrário de objetos e arrays que acessamos, mudamos valores e etc com uma notação mais simples, o ideal com Maps
 é sempre utilizarmos os métodos disponíveis
 
@@ -493,6 +497,84 @@ são sempre string, enquanto que o Map permite propriedade de qualquer tipo.
 
 
 
+	  ****************************************************************************
+	  *          	                                                             *
+	  *  Sintaxe / Estrutura :  Iterando sobre as propriedades/chaves de um map  *
+	  *                                                			     *
+    	  *	                                           			     *
+	  ****************************************************************************
+
+	let receitasMap = new Map ( 
+					[
+						['filet mignon', 100], 
+						['batata frita',200], 	
+						['molho madeira',30]
+					]
+				 )
+
+
+• O método keys() retorna um iterável para as propriedades/chaves de um map. 
+  A sintaxe é for (let nomeDaVariavel of nomeDoMap.keys()) {}
+  Onde colocamos em nomeDaVariavel o que cada variável das propriedade desse map "significam"
+  Por nesse caso serem ingredientes de uma receita, utilizaremos ingrediente.
+
+
+		for ( let ingrediente of receitasMap.keys()	) {
+			console.log(ingrediente) // filet mignon, batata frita, molho madeira
+		}
+
+
+	  ****************************************************************************************
+	  *          	                                                                         *
+	  *  Sintaxe / Estrutura :  Iterando sobre os VALORES das propriedades/chaves de um map  *
+	  *                                                			                 *
+    	  *	                                           			                 *
+	  ****************************************************************************************
+
+• O método .values() retorna um iterável para os VALORES das propriedades/chaves
+  A sintaxe é for(let nomeDaVariavel of nomeDoMap.values()) {}
+  Onde colocamos em nomeDaVariavel o que cada cada valor dos valores das propriedades desse map "significam"
+  Por nesse caso serem as quantidades, utilizaremos "quantidadeIngrediente"
+
+
+		for (let quantidadeIngrediente of receitasMap.values() ) {
+			console.log(quantidadeIngrediente) // 100,200,30
+		}
+
+
+	  ********************************************************************************
+	  *          	                                                                 *
+	  *  Sintaxe / Estrutura :  Iterando sobre  propriedade : valor de um map        *
+	  *                                                			         *
+    	  *	                                           			         *
+	  ********************************************************************************
+
+	
+- O método .entries() retorna um iterável para as entradas em par propriedade/valor, é usado por padrão no for..of . 
+  Por conta disso podemos omitir o método .entries(). O resultado será o mesmo. 
+  Por ser tratar de uma chaveValor, acredito que mantermos esse nome de variável como padrão é interessante.
+
+		for (let chaveValor of receitasMap.entries() ) {
+		  console.log(chaveValor) // [filet mignon,100] ['batata frita',200] ['molho madeira',30]
+		}
+		
+
+		for (let chaveValor of receitasMap) {
+		  console.log(chaveValor) // [filet mignon,100] ['batata frita',200] ['molho madeira',30]
+		}
+		
+
+
+• Podemos utilizar também o método forEach, utilizado também para arrays. 
+  A ordem de parâmetros é : valor, chave/propriedade, nomeDoMap
+
+
+		receitasMap.forEach( (valor, chave , receitasMap)  => {
+		console.log(`${chave} : ${valor}`) // "filet mignon" : 100  - "batata frita" : 200 - "molho madeira" : 30
+		})
+
+	
+		
 
 
 
