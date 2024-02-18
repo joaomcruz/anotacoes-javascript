@@ -188,6 +188,9 @@
 
 • O nome de uma propriedade de um objeto , ao contrário do que ocorre com variáveis , pode conter o nome de palavras reservadas
 
+
+
+
   ************************************************************************
   *                                                                      *
   *             Exemplo de Objeto :                                      *

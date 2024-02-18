@@ -1,0 +1,190 @@
+• É importante entendermos que além das diferenças na hora da criação (falando especificamente de sintaxe), 
+  existem diferenças fundamentais entre as estruturas de dados e valores primitivos (boolean,int,string,symbol,etc)
+
+
+	************************************
+	*				   *
+	*  	Tipos Primitivos	   *
+	*                                  *
+	************************************
+
+
+• Os tipos primitivos "usam" internamente de uma "estrutura" chamada "passar por valor" 
+
+• Isso significa que os valores primitivos são imutáveis. Ou seja, se uma variável possui valor
+primitivo, para alterarmos o mesmo, precisamos remover o mesmo da memória para delegarmos um novo valor.
+
+• Quando um tipo primitivo é criado, nós copiamos o valor e criamos aquele valor em algum lugar na memória
+
+
+	Exemplo: 
+		
+	let a = 5
+	let b = a
+
+	b++
+
+	console.log(a) // 5
+	console.log(b) // 6
+
+
+• Isso acontece porquê b está referenciando o VALOR da variável a.
+
+
+
+	************************************
+	*				   *
+	*  	Estruturas de Dados	   *
+	*                                  *
+	************************************
+
+
+• As estruturas de dados, ao contrário , "utiliza" de uma "estrutura" chamada "passar por referência"
+
+• Isso significa que quando uma estrutura de dados (Objeto, Array, Map, Set) é criado, ao contrário do que acontece
+com tipos primitivos, nesse caso a variável APONTARÁ para um endereço na memória. O valor não será criado em algum lugar.
+A variável apenas indicará em qual espaço da memória teremos acesso àquela estrutura.
+
+• Isso é bom porquê salva espaço na memória, ao invés de ficar copiando novos valores e criando novos espaços na memória.
+
+
+	Exemplo :
+
+	let objeto1 = {
+			nome: "João",
+			idade: 29
+		      }
+
+
+	console.log(objeto1.idade) // 29
+
+	let objeto2 = objeto1
+
+	objeto2.idade = 30
+
+	console.log(objeto1.idade) // 30
+
+	console.log(objeto2.idade) // 30
+
+
+• Isso acontece porquê o objeto2 está apontando para o mesmo endereço do objeto1. Então se uma alteração é feita naquele 
+  endereço de memória, automaticamente afetará o objeto1 também.
+
+
+
+
+
+	************************************************************************************
+	*				   						   *
+	*  	Diferença prática entre as Estruturas de Dados e Tipos Primitivos	   *
+	*                                  						   *
+	************************************************************************************
+
+
+• Após as explicações anteriores , precisamos entender então, de fato, as implicações práticas dessas diferenças
+ entre "passar por valor" e "passar por referência".
+
+
+       ******************** 
+       * # Implicação 2 : * 
+       ********************
+	Quando comparamos igualdades de variáveis de tipo primitivo , recebemos um verdadeiro/falso
+	de acordo com o valor de fato . Quando comparamos estruturas de dados , estamos na verdade
+	comparando se os ENDEREÇOS de memória são iguais. O exemplo abaixo explica de forma prática: 
+
+
+		let a = 5
+		let b = 5
+
+		a === b // true
+
+
+		let objeto1 = {
+			nome: "João",
+			idade: 29
+		      }
+		
+		let objeto2 = {
+			nome: "João",
+			idade: 29
+		      }
+
+
+		objeto1 === objeto2 // false
+		
+
+• Para que o objeto1 seja de fato igual ao objeto2 e vice-versa, temos que fazer com que um dos dois aponte para
+o endereço de memória do outro, como o exemplo :
+		
+	let objeto1 = {
+			nome: "João",
+			idade: 29
+		      }
+
+	let objeto2 = objeto1
+
+
+	Dessa forma :
+
+	objeto1 === objeto2 // true , pois o objeto2 foi definido como o endereço de objeto1.
+
+
+
+       ******************** 
+       * # Implicação 2 : * 
+       ********************
+	Por conta de "tipo por referência" apontarem para um mesmo endereço de memória, caso 
+	possuírmos uma estrutura (ou mais) que é de fato igual a outra, qualquer alteração em um deles, irá 
+	reverberar em todas as demais. Já que apontam para o mesmo endereço de memória e não para o mesmo valor.
+	Desse modo :
+
+	
+	let objeto1 = {
+			nome: "João",
+			idade: 29
+		      }
+	
+	console.log(objeto1)
+
+	let objeto2 = objeto1
+	
+	objeto2.idade = 30
+
+	console.log(objeto1.idade) // 30 
+	console.log(objeto2.idade) // 30
+
+
+	Já os tipos primitivos :
+
+	let a = 5
+	let b = a
+	b++
+	console.log(a) // 5
+	console.log(b) // 6
+
+
+
+
+       ******************** 
+       * # Implicação 3 : * 
+       ********************
+	Podemos fazer a comparação de um valor de tipo primitivo dentro de uma estrutura de dado com outro valor
+	de tipo primitivo de outra estrutura de dado. Dessa forma, irá seguir a regra de "tipo por valor" , pois
+	apesar de fazer parte de uma estrutura de dados, é na verdade um tipo primitivo.
+	Dessa forma :
+
+	
+		let objeto1 = {
+			nome: "João",
+			idade: 29
+		      }
+
+		let objeto2 = {
+			nome: "João",
+			idade: 29
+		      }
+	
+
+		objeto1 === objeto2 // false , não apontam para o mesmo endereço de memória
+
+		objeto1.idade.value === objeto2.idade.value // true porquê são do tipo número e possuem de fato o mesmo valor

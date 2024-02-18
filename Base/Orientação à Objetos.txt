@@ -1,0 +1,62 @@
+• Em javascript a orientação à objetos (OOP) possui "syntax sugar"
+
+• A orientação à objetos "quase não é utilizada com JS" , por isso não vou me aprofundar muito nesse assunto por aqui
+
+• Em orientação à objetos possuímos alguns conceitos, como o de objeto.
+  O objeto nada mais é que a instanciação (representação) de uma classe.
+  A classe define os parâmetros(características) e comportamentos (métodos)
+  e o objeto os implementa de fato.
+  Dito isto , é importante entendermos algumas coisas:
+
+
+
+  	 *********************************
+ 	 *                               *
+ 	 *        Contexto VS Escopo     *	
+ 	 *                               *
+ 	 *                               *
+ 	 *********************************
+
+
+• O objeto possui contexto e não escopo (qualquer dúvida, ler o documento escopo.txt).
+  Para sabermos em que contexto estamos, usamos a palavra this que referenciará o 
+  objeto que "estamos dentro". De forma geral, é o que está ao lado esquerdo do "." (ponto)
+
+
+• No javascript tudo que está no escopo raíz faz parte do objeto window.
+  Se criarmos por exemplo uma função "a" e mandarmos imprimir a palavra "this"
+  Irá ser impresso a palavra "window". Porquê o contexto em que "a" está inserido
+  é o objeto window
+
+	const a = () => console.log(this) // window
+
+
+• Se criarmos essa função dentro de um outro objeto (ao invés de criarmos no escopo raíz), será impresso o nome do objeto
+  em que essa função está inserida/vive .
+
+	let obj1 = {
+			b : "Oi"
+			a : function ()  { console.log(this)  }
+		}
+
+	obj1.a() // { b : "Oi" , a : f() }
+
+
+
+
+ 	************************************
+	*                                  *
+ 	*       Palavra This               *
+ 	*                                  *
+ 	*                                  *
+ 	************************************
+
+
+• A palavra this serve , em suma, para referenciar uma propriedade/método do próprio objeto. "Só" temos
+  acesso a isso após a instanciação de uma classe.
+
+
+
+
+
+
