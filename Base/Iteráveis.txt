@@ -1,0 +1,11 @@
+• Tudo que podemos performar um laço é chamado de iterável (iterable)
+
+• Toda estrutura que podemos usar o laço 'for.. of '
+
+• Em javascript temos como iteráveis :
+
+	- Array
+	- String
+	- Map
+	- Set
+	
