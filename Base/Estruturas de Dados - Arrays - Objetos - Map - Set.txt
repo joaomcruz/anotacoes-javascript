@@ -155,6 +155,7 @@
   	- toReversed() -> Reverte um array como o reverse(), porém retorna um novo array. Não muda o array original.
   	- join() -> Cria e retorna uma nova string concatenando todos os elementos do array, separados por vírgula ou por um seletor específico passado dentro do método. 
 	Se o array só tiver um item, o mesmo irá ser retornado SEM usar o separador.
+	- concat() -> Cria uma cópia do array passado como argumento
   
 
 
@@ -405,6 +406,50 @@
   do mapa que não forem String serão convertidos automaticamente e passarão a ser String.
 
 
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Clonando um objeto a partir de outro Objeto        	*
+	  *                                         				   	*
+	  *                                                                        	*
+	  *******************************************************************************
+
+
+• Para isso temos o método Object.assign() que recebe como primeiro argumento um objeto vazio {} e como segundo argumento
+  o objeto que queremos clonar para a variável. É importante entendermos que a cópia é criada somente no primeiro nível
+  do objeto. É chamada de "shallow copy" . Ou seja, referencia o endereço de memória em que o objeto foi criado. 
+  Dessa forma :
+
+	let obj1 = {
+			a : 'a' ,
+			b: 'b' ,
+			 c: 'c'
+                   }
+
+	let cloneObj1 = Object.assign( {} , obj1 )
+
+
+• Podemos fazer essa cópia utilizando o spread operator também (para dúvidas verificar no arquivo Spread Operator.txt) :
+
+	
+	let cloneObj1 = {...obj1}
+
+
+• Para copiarmos "todos os níveis de um objeto" precisamos utilizar 2 métodos diferentes. 
+  Se o objeto for muito grande, isso pode implicar em problemas de performance
+  Da seguinte forma :
+
+
+	let obj1 = {
+			a : 1,
+			b : 2,
+			c : {
+				segundoNivel : 3
+			}
+		}
+
+	
+	letCopiaTotalObj1 = JSON.parse(JSON.stringify(obj1))
 
 
 ============================================================================================================================================================================================================================================
