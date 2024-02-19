@@ -1,6 +1,4 @@
 
-
-
 		********************************
 		*                              *
 		*           Objeto             *
@@ -287,4 +285,60 @@
 
 	
 	letCopiaTotalObj1 = JSON.parse(JSON.stringify(obj1))
+
+
+
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Performando um laço em um objeto  - for ...in     	*
+	  *                                         				   	*
+	  *                                                                        	*
+	  *******************************************************************************
+
+• Para podermos "andar" sobre todas as propriedades de um objeto temos um laço especial : for in
+
+• Através desse laço podemos também imprimir os valores das propriedades do objeto :
+
+	for (let propriedade in nomeDoObjeto) {
+  	
+	}
+	
+
+	let usuario = {
+ 	 nome: "Joao",
+  	idade: 30,
+	};
+
+	for(let propriedade in usuario) {
+		console.log(propriedade) // nome,idade
+		console.log(usuario[propriedade]) // Joao, 30
+	}
+
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Ordem dos itens de um objeto quando performamos     *
+	  *                         um laço                				*
+	  *                                                                        	*
+	  *******************************************************************************
+
+• Quando "loopamos" por um ojbeto, existe uma ordem em que os itens serão "retornados" para nós.
+  Sendo essa :
+
+	Números inteiros são enumerados do menor para maior
+	As outras propriedades aparecem na ordem de criação
+
+
+• Para fazer com que as propriedades no formato de números inteiros sigam a ordem que estão no objeto, basta colocarmos um "+" na 
+  frente do mesmo.
+
+	
+	let codes = {
+  	"+49": "Germany",
+ 	 "+41": "Switzerland",
+  	"+44": "Great Britain",
+	};
+	
+
 
