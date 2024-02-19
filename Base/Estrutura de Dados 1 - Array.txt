@@ -132,13 +132,130 @@
 
 	***********************************************************************************
 	*                                                                                 *
+        *        Laços Avançados disponíveis para Listas / Arrays - for...of              *
+        *                                                                                 *
+        ***********************************************************************************
+
+• O laço for...of não dá acesso ao index do elemento, somente ao valor de cada elemento em si (o que geralmente já é suficiente)
+• Serve para iterar sobre o array
+
+	let frutas = ['Banana', 'Maçã', 'Uva']
+
+	for(let fruta of frutas) {
+	console.log(fruta) // Banana , Maçã, Uva
+	}
+
+
+	***********************************************************************************
+	*                                                                                 *
+        *        Laços Avançados disponíveis para Listas / Arrays - forEach               *
+        *                                                                                 *
+        ***********************************************************************************
+
+• O laço forEach permite que acessemos tanto o valor, quanto o index, quanto o próprio array inteiro.
+
+• Serve para iterar sobre o array
+
+• Não modifica o array original.
+
+• Espera uma função SÍNCRONA. Ou seja, não utilizar funções assíncronas com o laço forEach
+
+• Não se importa em retornar alguma coisa. Só se importa em realizar a iteração/laço.
+
+• Uma vez que não retorna nada, é necessário criar um array vazio caso queiramos realizar uma cópia 
+  com a ação da função executada dentro do bloco de código
+
+• A função é que vai dizer o que fazer com o argumento
+
+
+
+	array.forEach(function(valor, index, array) {
+	 
+	});
+
+
+
+	***********************************************************************************
+	*                                                                                 *
+        *        Laços Avançados disponíveis para Listas / Arrays - map                   *
+        *                                                                                 *
+        ***********************************************************************************
+
+• Não modifica o array original, cria um novo(uma cópia)
+
+• Espera que algo seja retornado (obrigatório)
+
+• Serve para iterar sobre o array e retornar o dado de cada elemento
+
+• Toda vez que quiser realizar uma iteração em um array e fazer alguma ação sobre o mesmo
+
+
+	let resultado = array.map(function(valor, index, array) {
+ 	 
+	});
+
+
+	***********************************************************************************
+	*                                                                                 *
+        *        Laços Avançados disponíveis para Listas / Arrays - Filter                *
+        *                                                                                 *
+        ***********************************************************************************
+
+• Espera que algo seja retornado (obrigatório)
+
+• Filtra um array diante de uma condição
+
+• Não modifica o array original, cria um novo(uma cópia), retornando um novo array 
+  somente com os itens encontrados do array original
+
+
+	let resultado = array.filter(function(valor, index, array) {
+
+	});
+
+
+
+	***********************************************************************************
+	*                                                                                 *
+        *        Laços Avançados disponíveis para Listas / Arrays - Reduce                *
+        *                                                                                 *
+        ***********************************************************************************
+
+• Espera que algo seja retornado (obrigatório)
+
+• Utilizado para calcular/reduzir à um único valor baseado no array que está sendo passado.
+
+• Não modifica o array original, cria um novo(uma cópia)
+
+• A função é aplicada a todos os elementos do array, um após o outro e esse resultado é "carregado" a cada chamada.
+
+• O valor "[initial] é opcional
+
+• Acumulador vai ser a variável que carregará o resultado de cada chamada para a próxima
+
+
+	let valorArray = array.reduce(function(acumulador, valor, index, array) {
+	  // ...
+	}, [initial]);
+
+
+	let arr = [1, 2, 3, 4, 5];
+
+	let result = arr.reduce((sum, current) => sum + current, 0);
+
+	alert(result); // 15
+
+
+	***********************************************************************************
+	*                                                                                 *
         *        Métodos e Propriedades disponíveis para Listas / Arrays                  *
         *                                                                                 *
         ***********************************************************************************
 
 
 
- • Para utilizarmos uma propriedade/método usamos um ponto (.) e o nome da função/propriedade em sequência. Exemplo : listaExemplo.push("gavião")
+ • Para utilizarmos uma propriedade/método usamos um ponto (.) e o nome da função/propriedade em sequência.
+   Exemplo : listaExemplo.push("gavião")
 
  	- length -> Retorna o tamanho da lista
  	- push() -> Adiciona um item ao final do Array
@@ -146,6 +263,7 @@
  	- shift() -> Remove do início do Array
   	- unshift() -> Adiciona ao início do Array
   	- indexOf() -> Procura o índice de um item no Array
+	- includes() -> Procura um item no Array
   	- splice(indiceInicio, quantidadeDeItens) -> Altera um array a partir da posição do índice. "Remove" os itens do array original a partir da posição passada e de acordo com a quantidade expressa.
   	- toSpliced(indiceInicio, quantidadeDeItens) -> Mesmo do splice, porém retorna um novo array. Não muda o array original
  	- slice() > Retorna uma cópia de parte de um array a partir de um subarray criado entre as posições início e fim (fim não é incluído) de um array original. O Array original não é modificado
@@ -155,7 +273,7 @@
   	- toReversed() -> Reverte um array como o reverse(), porém retorna um novo array. Não muda o array original.
   	- join() -> Cria e retorna uma nova string concatenando todos os elementos do array, separados por vírgula ou por um seletor específico passado dentro do método. 
 	Se o array só tiver um item, o mesmo irá ser retornado SEM usar o separador.
-	- concat() -> Cria uma cópia do array passado como argumento
+	- concat() -> Cria uma cópia do array passado como argumento (cópia "rasa")
   
 
 
