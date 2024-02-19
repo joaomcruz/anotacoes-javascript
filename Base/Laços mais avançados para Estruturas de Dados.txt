@@ -1,0 +1,102 @@
+		******************
+		*    forEach     *
+ 		*                *
+		******************
+
+• O laço forEach funciona com as seguintes estruturas de dados :
+	- Array
+	- Map
+
+• Não aceita uma função assíncrona
+
+• Possui a seguinte sintaxe :
+
+	forEach((valor, index , estrutura) => { })
+
+
+
+		******************
+		*    for... of   *
+ 		*                *
+		******************
+
+• O laço for..of funciona com as seguintes estruturas de dados : 
+	- Array
+	- Map
+	- Set
+	- String (Não é estrutura de dados)
+	- Argumentos de Função (Não é estrutura de dados)
+	- TypedArray
+	- NodeList
+
+• Possui a seguinte sintaxe : 
+
+	for (let variavel of estruturaDeDados) {
+		bloco de código
+	}
+
+
+
+		******************
+		*    for... in   *
+ 		*                *
+		******************
+
+• O laço for..in funciona com as seguintes estruturas de dados : 
+	- Objeto
+
+
+• Possui a seguinte sintaxe : 
+
+	for (let variavel in objeto) {
+		bloco de código
+	}
+
+
+
+		******************
+		*      map	 *
+ 		*                *
+		******************
+
+
+• O laço map funciona com as seguintes estruturas de dados : 
+	- Array
+
+
+• Possui a seguinte sintaxe :
+
+	map((valor, index, array) => {})
+
+
+
+		******************
+		*     reduce	 *
+ 		*                *
+		******************
+
+• O laço reduce funciona com as seguintes estruturas de dados :
+	- Array
+
+
+• Possui a seguinte sintaxe :
+
+	reduce((acumulador, valorAtual, indexAtual , array) => {})
+
+
+
+		******************
+		*     filter	 *
+ 		*                *
+		******************
+
+• O laço filter funciona com as seguintes estruturas de dados :
+	- Array
+
+
+• Possui a seguinte sintaxe :
+
+	filter((valor, index, array) => {})
+
+
+
