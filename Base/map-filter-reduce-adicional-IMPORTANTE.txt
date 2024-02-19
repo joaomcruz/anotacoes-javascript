@@ -1,7 +1,0 @@
-
-
-.map / .filter / .reduce : utilizam o array inicial mas criam um novo -> Dessa forma , o array original não é modificado.
-
-map -> retorna um novo array -> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map#return_value
-reduce -> retorna o valor inicial -> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#return_value
-filter -> faz uma cópi "rasa" ( compartilhando a mesma referência --> então PODE modificar o array original ) : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#return_value
