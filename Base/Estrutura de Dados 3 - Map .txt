@@ -1,0 +1,328 @@
+
+		********************************
+		*                              *
+		*           Map                *
+		*                              *
+		********************************
+
+
+• Assim como objeto, o Map é uma coleção de dados em par chave : valor . A maior diferença é que as propriedades de um objeto
+são sempre string, enquanto que o Map permite propriedade de qualquer tipo.
+
+• O Map mantém a ordem em que os pares são inseridos, diferemente de um objeto. 
+
+• Não aceita chave : valor repetido (se do MESMO tipo). Nenhum erro ocorrerá, porém não será adicionado ao mesmo.
+
+• Ao contrário de objetos e arrays que acessamos, mudamos valores e etc com uma notação mais simples, o ideal com Maps
+é sempre utilizarmos os métodos disponíveis
+
+• Para compararmos propriedades de maps, NaN é considerado igual à NaN. Por conta disso, NaN pode ser utilizado como propriedade também
+
+
+	  *******************************************
+	  *                                         *
+	  *  Sintaxe / Estrutura :  Criando um Map  *
+	  *                                         *
+	  *                                         *
+	  *******************************************
+
+• Para criarmos um Map basta utilizarmos a palavra new Map() e associarmos isso à uma variável
+
+	   let map = new Map();
+
+
+• Quando criamos um Map, nós podemos passar um array(ou outro iterável) com um par chave:valor para a sua inicialização
+
+
+	let map = new Map(
+			   [
+ 			     ['1',  'str1'],
+			     [1,    'num1'],
+			     [true, 'bool1']
+			   ]
+			 )
+
+
+
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Criando um Map a partir de um objeto "simples" 	*
+	  *                                         				   	*
+	  *                                                                        	*
+	  *******************************************************************************
+
+
+• Entendemos por objeto "simples" objetos que não tenham "aninhamento". 
+  Vamos supor que queremos criar um map a partir dessas chaves : valor
+  Para isso basta utilizarmos o método Object.entries(objeto) que recebe como parâmetro um objeto "simples". 
+  Esse método retorna um array de pares chave:valor para um objeto nesse exato formato.
+  Então podemos fazer o seguinte :
+
+   	let obj = {
+ 	 name: "John",
+ 	 age: 30,
+         isMarried : true,
+	}
+
+	let mapFromObj = new Map(Object.entries(obj))
+
+	console.log(map.get('name')) // retorna "John"
+	console.log(map.get('age')) // retorna 30
+	console.log(map.get('isMarried')) // retorna true
+
+
+• Vale ressaltar que como as propriedades vem de um objeto, todas elas serão automaticamente Strings.
+
+• Object.entries(obj) retorna um array de pares chave:valor da seguinte forma aplicado no exemplo acima :
+
+	[ ["name" , "John"] , ["age", 30] , ["isMarried" , true] ]
+	
+
+
+
+
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Transformando um Map em um objeto "simples" 	*
+	  *                                         				   	*
+	  *                                                                        	*
+	  *******************************************************************************
+
+
+• Acabamos de ver como transformar um objeto simples em um Map. 
+ Podemos também fazer o inverso, transformar um Map em um objeto simples
+ Para isso basta utilizarmos o método Object.fromEntries(map) passando o map como argumento e o mesmo criará um
+ objeto a partir do mesmo.
+ O exemplo a seguir explica melhor :
+
+	let prices = Object.fromEntries(
+					[
+		  				['banana', 1],
+  						['orange', 2],
+  						['meat', 4]
+					]	
+					)
+
+	ou
+
+	let mapExemplo = new Map()
+	mapExemplo.set('banana',1)
+	mapExemplo.set('laranja',2)
+	mapExemplo.set(true,true)
+
+	let objetoDeMap = Object.fromEntries(mapExemplo.entries());
+
+
+	ou
+
+	let mapExemplo = new Map()
+	mapExemplo.set('banana',1)
+	mapExemplo.set('laranja',2)
+	mapExemplo.set(true,true)
+
+	let objetoDeMap = Object.fromEntries(mapExemplo);
+
+	console.log(objetoDeMap) // {banana : 1 , laranja : 2 , true : true}
+
+
+• A chamada do método .entries() no exemplo 2 retorna um iterável the pares chave:valor no exato formato esperado
+  para Object.fromEntries().
+
+• Podemos omitir o .entries() pois Object.fromEntries() espera um objeto iterável como argumento. 
+  Não necessariamente um array. E o padrão de iteração para um map retorna o mesmo par de chave:valor que .entries() 
+  Por conta disso nós "pegamos" um objeto com as mesmas chave:valor que o map passado.
+
+
+• Lembrando que como um objeto só aceita propriedades no formato de String, automaticamente as propriedades
+  do mapa que não forem String serão convertidos automaticamente e passarão a ser String.
+
+
+	  *****************************************************************
+	  *          	                                                  *
+	  *  Sintaxe / Estrutura :  Adicionando/Alterando item em um Map  *
+	  *                                                    		  *
+	  *	                                                          *
+	  *****************************************************************
+
+• Para isso possuímos o método .set que recebe como parâmetros a chave/propriedade e o valor que queremos adicionar/alterar
+	     sendo a sintaxe nomeDoMap.set(chave,valor)
+
+• Como dito anteriormente, o map aceita qualquer tipo de valor como propriedade.
+  
+• O método .set pode ser encadeado
+
+	   let map = new Map()
+		
+	   map.set(1, 'str1')
+	   map.set('2', true)
+	   map.set(true,true)
+		
+		
+	  **************************************************************************
+	  *          	                                                           *
+	  *  Sintaxe / Estrutura :  Retornando valor de uma propriedade de um Map  *
+	  *                                                    		           *
+	  *	                                                                   *
+	  **************************************************************************
+
+• Para retornarmos o valor de um item a partir da sua propriedade usamos o método .get 
+  Esse método retornará undefined caso a propriedade/chave não exista no map.
+
+	   let map = new Map()
+		
+	   map.set(1, 'str1')
+	
+           console.log(map.get(1)) // retornará "str1"
+
+
+
+	  *********************************************************************************
+	  *          	                                                                  *
+	  *  Sintaxe / Estrutura :  Retornando a existência de uma propriedade de um Map  *
+	  *                                                    		                  *
+    	  *	                                                                          *
+	  *********************************************************************************
+
+• Para retornarmos a existência ou não de uma determinada propriedade de um map, 
+  basta usarmos o método .has que recebe a propriedade como parâmetro . Retorna verdadeiro ou falso.
+
+	   let map = new Map()
+		
+	   map.set(1, 'str1')
+
+	   console.log(map.has("1")) // Retornará falso, pois a string 1 não existe no mapa definido acima.
+
+
+	  ***********************************************************************************************
+	  *          	                                                                                *
+	  *  Sintaxe / Estrutura :  Deletando um elemento (propriedade : valor) através da propriedade  *
+	  *                                                    		                                *
+    	  *	                                                                                        *
+	  ***********************************************************************************************
+
+• Para deletarmos o par propriedade : valor de um map basta utilizarmos o método .delete passando como
+	    parâmetro da função a propriedade.
+
+	   let map = new Map()
+		
+	   map.set(1, 'str1')
+           map.set(2, 'str2')
+	   console.log(map) // retorna (1 : 'str1' , 2 : 'str2')
+	   map.delete(1) 
+	   console.log(map) // retorna (2 : 'str2')
+
+	
+
+	  *****************************************************************
+	  *          	                                                  *
+	  *  Sintaxe / Estrutura :  Removendo todos elementos de um map   *
+	  *                                                    		  *
+    	  *	                                                          *
+	  *****************************************************************
+
+• Para remover todos os elementos / limpar um map basta chamarmos a função .clear sobre o map.
+
+	
+	   let map = new Map()
+		
+	   map.set(1, 'str1')
+           map.set(2, 'str2')
+	   console.log(map) // Retorna {1 => 'str1', 2 => 'str2'}
+	   map.clear()
+	   console.log(map) // Retorna {} 
+
+
+	  *****************************************************************
+	  *          	                                                  *
+	  *  Sintaxe / Estrutura :  Pegando o tamanho de um map           *
+	  *                                                    		  *
+    	  *	                                                          *
+	  *****************************************************************
+
+• Para pegarmos o tamanho de um map basta utilizarmos a função .size sobre o map.
+
+  	   let map = new Map()
+		
+	   map.set(1, 'str1')
+           map.set(2, 'str2')
+	   console.log(map.size()) // Retornará 2
+
+
+
+	  ****************************************************************************
+	  *          	                                                             *
+	  *  Sintaxe / Estrutura :  Iterando sobre as propriedades/chaves de um map  *
+	  *                                                			     *
+    	  *	                                           			     *
+	  ****************************************************************************
+
+	let receitasMap = new Map ( 
+					[
+						['filet mignon', 100], 
+						['batata frita',200], 	
+						['molho madeira',30]
+					]
+				 )
+
+
+• O método keys() retorna um iterável para as propriedades/chaves de um map. 
+  A sintaxe é for (let nomeDaVariavel of nomeDoMap.keys()) {}
+  Onde colocamos em nomeDaVariavel o que cada variável das propriedade desse map "significam"
+  Por nesse caso serem ingredientes de uma receita, utilizaremos ingrediente.
+
+
+		for ( let ingrediente of receitasMap.keys()	) {
+			console.log(ingrediente) // filet mignon, batata frita, molho madeira
+		}
+
+
+	  ****************************************************************************************
+	  *          	                                                                         *
+	  *  Sintaxe / Estrutura :  Iterando sobre os VALORES das propriedades/chaves de um map  *
+	  *                                                			                 *
+    	  *	                                           			                 *
+	  ****************************************************************************************
+
+• O método .values() retorna um iterável para os VALORES das propriedades/chaves
+  A sintaxe é for(let nomeDaVariavel of nomeDoMap.values()) {}
+  Onde colocamos em nomeDaVariavel o que cada cada valor dos valores das propriedades desse map "significam"
+  Por nesse caso serem as quantidades, utilizaremos "quantidadeIngrediente"
+
+
+		for (let quantidadeIngrediente of receitasMap.values() ) {
+			console.log(quantidadeIngrediente) // 100,200,30
+		}
+
+
+	  ********************************************************************************
+	  *          	                                                                 *
+	  *  Sintaxe / Estrutura :  Iterando sobre  propriedade : valor de um map        *
+	  *                                                			         *
+    	  *	                                           			         *
+	  ********************************************************************************
+
+	
+- O método .entries() retorna um iterável para as entradas em par propriedade/valor, é usado por padrão no for..of . 
+  Por conta disso podemos omitir o método .entries(). O resultado será o mesmo. 
+  Por ser tratar de uma chaveValor, acredito que mantermos esse nome de variável como padrão é interessante.
+
+		for (let chaveValor of receitasMap.entries() ) {
+		  console.log(chaveValor) // [filet mignon,100] ['batata frita',200] ['molho madeira',30]
+		}
+		
+
+		for (let chaveValor of receitasMap) {
+		  console.log(chaveValor) // [filet mignon,100] ['batata frita',200] ['molho madeira',30]
+		}
+		
+
+
+• Podemos utilizar também o método forEach, utilizado também para arrays. 
+  A ordem de parâmetros é : valor, chave/propriedade, nomeDoMap
+
+
+		receitasMap.forEach( (valor, chave , receitasMap)  => {
+		console.log(`${chave} : ${valor}`) // "filet mignon" : 100  - "batata frita" : 200 - "molho madeira" : 30
+		})

@@ -1,0 +1,290 @@
+
+
+
+		********************************
+		*                              *
+		*           Objeto             *
+		*                              *
+		********************************
+
+
+
+• Tem o formato -> propriedade : valor
+
+• O valor pode ser de qualquer tipo. Seja de estrutura de dados , seja dos tipos de valores básicos do javascript.
+
+• A propriedade sempre será uma string e o valor da mesma pode ser de qualquer tipo
+
+• Funções dentro de objetos são chamadas de métodos
+
+• A notação de acesso as propriedades de um objeto por meio do . só funciona caso não possua espaço, não comece com dígito
+ e não inclua caracteres especiais ($ e _ são permitidos)
+
+• O nome de uma propriedade de um objeto , ao contrário do que ocorre com variáveis , pode conter o nome de palavras reservadas
+
+
+
+
+  ************************************************************************
+  *                                                                      *
+  *             Exemplo de Objeto :                                      *
+  *                                                                      *
+  *            let usuario = {                                           *
+  *  		  nome: "Joao",                                          *
+  * 		 idade: 29,                                              *
+  *      	"sobrenome e apelido" : "Machado da Cruz"                *
+  *  		eMaiorDeIdade : true,                                    *
+  *  		falar: function () {                                     *
+  *  			console.log("Oi")                                *
+  *			}                                                *
+  *       	 }                                                       *
+  *                                                                      *
+  ************************************************************************
+
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Acessando valor de propriedade de um objeto  *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+• Para acessar o valor de uma propriedade , basta digitarmos : nomeDoObjeto.propriedade
+
+	console.log(usuario.nome) // imprime Joao
+
+
+• Caso seja um objeto com uma propriedade não simples  , precisamos utilizar nomeDoObjeto["nome da propriedade"] 
+
+        console.log(usuario["sobrenome e apelido"]) // imprime "Machado da Cruz" 
+
+
+• Para acessarmos uma função dentro de um objeto basta digitarmos : nomeDoObjeto.funcao()
+
+	usuario.falar() // imprime Oi
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Criando/Adicionando propriedade em um objeto *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+
+• Para criarmos/adicionarmos uma propriedade , basta digitarmos : nomeDoObjeto.nomeNovaPropriedade = valorNovaPropriedade
+
+	usuario.eCasado = true // já que não existe a propriedade "eCasado" no objeto usuario, a mesma seria criada/adicionada ao objeto
+
+
+• Para realizarmos isso com uma propriedade inexistente mas que queremos que tenha mais de uma palavra, basta :
+
+	usuario["possui investimento"] = true
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Alterando valor de propriedade em um objeto  *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+• Para alterarmos um valor de uma propriedade já existente, basta digitarmos : nomeDoObjeto.propriedade = novoValorPropriedade
+
+	usuario.idade = 30 // mudaria o valor da propriedade idade do objeto usuario de 29 para 30.
+
+
+• Para alterarmos um valor de uma propriedade já existente com mais de uma palavra, basta :
+	
+	usuario["sobrenome e apelido"] = "Joaozinho"	
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Deletando uma propriedade de um objeto       *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+• Para deletarmos uma propriedade basta usarmos "delete objeto.propriedade"
+
+	delete usuario.falar
+
+
+• Para deletarmos uma propriedade que tenha múltiplas palavras , basta :
+
+     	delete usuario["sobrenome e apelido"]
+
+
+  ************************************************************************
+  *                                                                      *
+  *  Sintaxe / Estrutura :  Criação de um Objeto - Propriedade Simples   *
+  *                                                                      * 
+  *                                                                      *
+  ************************************************************************
+
+• Por propriedade simples consideramos uma propriedade com nome único, sem espaços.
+
+• Podemos criar um objeto de duas formas. 
+
+• A primeira é conhecida como object literal. 
+
+	  let objeto = {
+	  propriedade1 : valorPropriedade1,
+	  propriedade2 : valorPropriedade2
+	  }	
+
+• A segunda é chamada de construtor do objeto
+
+	  let objeto = new Object()
+
+
+  ***************************************************************************
+  *                                                                         *
+  *  Sintaxe / Estrutura :  Criação de um Objeto - Propriedade Não simples  *
+  *                                                                         * 
+  *                                                                         *
+  ***************************************************************************
+
+• Podemos utilizar uma propriedade com mais de um nome, a mesma deve estar entre ""
+   
+     let objeto = {
+	  "propriedade 1" : valorPropriedade1,
+	  "propriedade 2" : valorPropriedade2
+	  }	
+	
+
+
+  ***************************************************************************
+  *                                                                         *
+  *        Sintaxe / Estrutura :  Testando existência de propriedade        *
+  *                                                                         * 
+  *                                                                         *
+  ***************************************************************************
+
+• Podemos testar a existência de uma propriedade tentando acessá-la. Caso a mesma não exista , retornará undefined
+
+	let user = {}
+	console.log(user["age"]) // Retorna undefined
+
+
+
+• Podemos também utilizar uma propriedade "especial" chamada "in" . "propriedade" in nomeDoObjeto
+
+	"age" in user // Retorna false
+
+
+
+• No caso de utilizarmos a sintaxe com "in" , é importante passarmos o nome da propriedade com "" uma vez que
+    se não passarmos estaremos comparando o VALOR daquela variável como se a mesma fosse uma propriedade.
+
+	
+	let user = { age: 30 };
+
+	let key = "age";
+	console.log( key in user ); // true, a propriedade "age" existe no objeto.
+
+
+
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Criando um objeto a partir de um Map          	*
+	  *                                         				   	*
+	  *                                                                        	*
+	  *******************************************************************************
+
+
+• Podemos transformar um Map em um objeto simples
+ Para isso basta utilizarmos o método Object.fromEntries(map) passando o map como argumento e o mesmo criará um
+ objeto "simples" (não aninhado) a partir do mesmo.
+ O exemplo a seguir explica melhor :
+
+	let prices = Object.fromEntries(
+					[
+		  				['banana', 1],
+  						['orange', 2],
+  						['meat', 4]
+					]	
+					)
+
+	ou
+
+	let mapExemplo = new Map()
+	mapExemplo.set('banana',1)
+	mapExemplo.set('laranja',2)
+	mapExemplo.set(true,true)
+
+	let objetoDeMap = Object.fromEntries(mapExemplo.entries());
+
+	console.log(objetoDeMap) // {banana : 1 , laranja : 2 , true : true}
+
+
+	ou
+
+	let mapExemplo = new Map()
+	mapExemplo.set('banana',1)
+	mapExemplo.set('laranja',2)
+	mapExemplo.set(true,true)
+
+	let objetoDeMap = Object.fromEntries(mapExemplo);
+
+       	console.log(objetoDeMap) // {banana : 1 , laranja : 2 , true : true}
+
+
+• A chamada do método .entries() no exemplo 2 retorna um iterável the pares chave:valor no exato formato esperado
+  para Object.fromEntries().
+
+• Podemos omitir o .entries() pois Object.fromEntries() espera um objeto iterável como argumento. 
+  Não necessariamente um array. E o padrão de iteração para um map retorna o mesmo par de chave:valor que .entries() 
+  Por conta disso nós "pegamos" um objeto com as mesmas chave:valor que o map passado.
+
+• Lembrando que como um objeto só aceita propriedades no formato de String, automaticamente as propriedades
+  do mapa que não forem String serão convertidos automaticamente e passarão a ser String.
+
+
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Clonando um objeto a partir de outro Objeto        	*
+	  *                                         				   	*
+	  *                                                                        	*
+	  *******************************************************************************
+
+
+• Para isso temos o método Object.assign() que recebe como primeiro argumento um objeto vazio {} e como segundo argumento
+  o objeto que queremos clonar para a variável. É importante entendermos que a cópia é criada somente no primeiro nível
+  do objeto. É chamada de "shallow copy" . Ou seja, referencia o endereço de memória em que o objeto foi criado. 
+  Dessa forma :
+
+	let obj1 = {
+			a : 'a' ,
+			b: 'b' ,
+			 c: 'c'
+                   }
+
+	let cloneObj1 = Object.assign( {} , obj1 )
+
+
+• Podemos fazer essa cópia utilizando o spread operator também (para dúvidas verificar no arquivo Spread Operator.txt) :
+
+	
+	let cloneObj1 = {...obj1}
+
+
+• Para copiarmos "todos os níveis de um objeto" precisamos utilizar 2 métodos diferentes. 
+  Se o objeto for muito grande, isso pode implicar em problemas de performance
+  Da seguinte forma :
+
+
+	let obj1 = {
+			a : 1,
+			b : 2,
+			c : {
+				segundoNivel : 3
+			}
+		}
+
+	
+	letCopiaTotalObj1 = JSON.parse(JSON.stringify(obj1))
+
