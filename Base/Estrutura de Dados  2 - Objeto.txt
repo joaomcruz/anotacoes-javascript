@@ -114,6 +114,32 @@
      	delete usuario["sobrenome e apelido"]
 
 
+
+  *****************************************************************************
+  *                                                                           *
+  *  Sintaxe / Estrutura :  Criação de um Objeto - A partir de outro objeto   *
+  *                                                                           * 
+  *                                                                           *
+  *****************************************************************************
+
+• Vamos supor que já temos um objeto . Podemos criar um objeto a partir desse objeto existente com o método .create()
+
+
+	const objetoPessoa = {
+	eHumano : true,
+	dizOi : function () {
+		console.log(`Meu nome é ${this.nome}.`}
+			    }
+	}
+
+	const eu = Object.create(objetoPessoa)
+	
+	eu.nome = "João"
+	
+	me.dizOi() // Meu nome é João
+
+
+
   ************************************************************************
   *                                                                      *
   *  Sintaxe / Estrutura :  Criação de um Objeto - Propriedade Simples   *
@@ -242,17 +268,40 @@
 
 
 
-	  *******************************************************************************
-	  *                                                                        	*
-	  *  Sintaxe / Estrutura :  Clonando um objeto a partir de outro Objeto        	*
-	  *                                         				   	*
-	  *                                                                        	*
-	  *******************************************************************************
+	  ***********************************************************************************************
+	  *                                                                        			*
+	  *  Sintaxe / Estrutura :  Clonando/Mergeando um objeto a partir de outro Objeto        	*
+	  *                                         				   			*
+	  *                                                                        			*
+	  ***********************************************************************************************
 
+
+• Temos várias formas de fazermos isso . Podemos clonar através de um laço for in , por exemplo :
+
+	let usuario = { 
+		nome : "João",
+		idade: 29
+		}
+
+	let clone = {}
+
+	for (let propriedade in usuario) {
+	clone[propriedade] = usuario[propriedade]
+	}
+
+	console.log(clone)
+
+	clone.name = "Pedro"
+
+	console.log(usuario.nome)
 
 • Para isso temos o método Object.assign() que recebe como primeiro argumento um objeto vazio {} e como segundo argumento
   o objeto que queremos clonar para a variável. É importante entendermos que a cópia é criada somente no primeiro nível
   do objeto. É chamada de "shallow copy" . Ou seja, referencia o endereço de memória em que o objeto foi criado. 
+
+• Podemos utilizar o Object.assign passando múltiplos parâmetros também 
+
+• Se o nome da propriedade copiada já existir, será substituida
   Dessa forma :
 
 	let obj1 = {
@@ -264,27 +313,44 @@
 	let cloneObj1 = Object.assign( {} , obj1 )
 
 
+	let usuario = { nome : "João" }
+	let permissoes = { podeEditar : true }
+	let permissoes 2 = { podeLogar : true }
+
+	Object.assign(usuario, permissoes, permissoes2)
+
+	console.log(usuario) // { nome : "João" , podeEditar : true , podeLogar : true }
+
+	
+
+
 • Podemos fazer essa cópia utilizando o spread operator também (para dúvidas verificar no arquivo Spread Operator.txt) :
 
 	
 	let cloneObj1 = {...obj1}
 
 
-• Para copiarmos "todos os níveis de um objeto" precisamos utilizar 2 métodos diferentes. 
-  Se o objeto for muito grande, isso pode implicar em problemas de performance
-  Da seguinte forma :
 
 
-	let obj1 = {
-			a : 1,
-			b : 2,
-			c : {
-				segundoNivel : 3
-			}
-		}
+• Para copiarmos "todos os níveis de um objeto" podemos utilizar o método structuredClone(objeto) . Ele 
+  copia um objeto com todas as propriedades aninhadas, de forma que caso alteremos uma , não afete a outra.
+  Funções não são suportadas caso estejam aninhadas em um objeto.
+  Para isso precisaríamos utilizar uma biblioteca do javascript chamada Lloadh que possui o método _.cloneDeep(objeto)
 
-	
-	letCopiaTotalObj1 = JSON.parse(JSON.stringify(obj1))
+
+
+	let user = {
+ 		 name: "John",
+  		 sizes: {
+   			 height: 182,
+   			 width: 50
+  		       }
+		   };
+
+
+	let clone = structuredClone(user)
+
+	console.log(user.sizes === clone.sizes) // false , são objetos diferentes
 
 
 
@@ -295,6 +361,9 @@
 	  *                                         				   	*
 	  *                                                                        	*
 	  *******************************************************************************
+
+• O laço for..in ignora propriedades que usam Symbol() como valor. 
+  Para retornarmos qualquer tipo de chave, precisamos usar o Reflect.ownKeys(obj)
 
 • Para podermos "andar" sobre todas as propriedades de um objeto temos um laço especial : for in
 
@@ -342,3 +411,111 @@
 	
 
 
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Retornando um array das propriedades de um objeto   *
+	  *                                                   				*
+	  *                                                                        	*
+	  *******************************************************************************
+
+• Assim como o laço for..in , esse método ignora propriedades que usam Symbol() como valor. 
+  Para retornarmos qualquer tipo de chave, precisamos usar o Reflect.ownKeys(obj)
+
+• Basta utilizarmos o método Object.keys(objeto)
+
+	let usuario = {
+		nome: "João",
+		idade: 29
+		}
+
+	Object.keys(usuario) // ["nome", "idade"]
+
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Retornando um array com os valores de um objeto     *
+	  *                                                   				*
+	  *                                                                        	*
+	  *******************************************************************************
+
+• Assim como o laço for..in , esse método ignora propriedades que usam Symbol() como valor. 
+  Para retornarmos qualquer tipo de chave, precisamos usar o Reflect.ownKeys(obj)
+
+• Basta utilizarmos o método Object.values(objeto)
+	
+
+	let usuario = {
+		nome: "João",
+		idade: 29
+		}
+
+	Object.values(usuario) // ["João", 29]
+
+
+	  *******************************************************************************
+	  *                                                                        	*
+	  *  Sintaxe / Estrutura :  Retornando um array com os pares propriedade/valor  *
+	  *			    de um objeto     					*
+	  *                                                   				*
+	  *                                                                        	*
+	  *******************************************************************************
+
+• Assim como o laço for..in , esse método ignora propriedades que usam Symbol() como valor. 
+  Para retornarmos qualquer tipo de chave, precisamos usar o Reflect.ownKeys(obj)
+
+• Basta utilizarmos o método Object.entries(objeto)
+
+
+
+	let usuario = {
+		nome: "João",
+		idade: 29
+		}
+
+	Object.entries(usuario) // [ ["nome", "João"] ,["idade", 30] ]
+
+
+
+
+	  *******************************************************
+	  *                                                   	*
+	  *     Sintaxe / Estrutura :  Transformando Objetos	*
+	  *                                                   	*
+	  *                                                     *
+	  *******************************************************
+
+• Já que os métodos para array não existem para objetos, o que podemos fazer é :
+
+	1 - Transformar o objeto em um array com pares de propriedade/valor
+	2 - Utilizar métodos de array nesse array
+	3 - Transformar o array em objeto novamente
+
+• Para fazermos o passo número 1, utilizaremos o método Object.entries()
+• Para o passo número 2 podemos utilizar os métodos disponíveis para arrays
+• Para transformarmos o array em um objeto basta utilizarmos o Object.fromEntries() 
+
+
+
+	let precos = {
+ 	 banana: 1,
+ 	 laranja: 2,
+ 	 carne: 3,
+	 maca : 4,
+         abacate: 5,
+         frango : 6,
+         alface: 7,
+         pepino : 8,
+         limao : 9,
+         abobrinha: 10
+	};
+	let dobroPreco = Object.fromEntries(
+  	Object.entries(precos).map(valor => [valor[0], valor[1] * 2])
+	);
+
+	console.log(dobroPreco.carne); // 6
+	console.log(dobroPreco)
+
+
+• valor corresponde ao par propriedade/valor (banana,1) (laranja,2) etc
+• valor[0] corresponde a propriedade
+• valor[1] corresponde ao valor

@@ -100,3 +100,43 @@
 
 
 
+
+
+		******************
+		*     .keys()	 *
+ 		*                *
+		******************
+
+• O laço filter funciona com as seguintes estruturas de dados :
+	- Array
+	- Map
+	- Set
+	- Objetos "planos"
+
+
+
+
+
+		******************
+		*    .values()	 *
+ 		*                *
+		******************
+
+• O laço filter funciona com as seguintes estruturas de dados :
+	- Array
+	- Map
+	- Set
+	- Objetos "planos"
+
+
+
+		******************
+		*   .entries()	 *
+ 		*                *
+		******************
+
+• O laço filter funciona com as seguintes estruturas de dados :
+	- Array
+	- Map
+	- Set
+	- Objetos "planos"

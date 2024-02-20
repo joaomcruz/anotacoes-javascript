@@ -246,6 +246,75 @@
 	alert(result); // 15
 
 
+
+	***********************************************************************************
+	*                                                                                 *
+        *        Retornando a o index de arrays em forma de string - Object.keys()        *
+        *                                                                                 *
+        ***********************************************************************************
+
+• Retorna um array cujo elementos são strings correspondentes para a propriedade enumerada encontrada diretamente no objeto 
+ (no caso do array, os index). A ordenação é a mesma que dada pelo loop sobre as propriedades do objeto manualmente (menor para maior)
+
+
+	Object.keys(array)	
+
+	let arr = ["a","b","c"]
+
+	console.log(Object.keys(arr)) // ['0','1','2']
+
+
+	***********************************************************************************
+	*                                                                                 *
+        *        Retornando os valores de um array - Object.values()                      *
+        *                                                                                 *
+        ***********************************************************************************
+
+• Retorna um array com os seus devidos valores (basicamente é um console.log(array))
+	
+	Object.values(arr)
+	
+	let arr = ['a', 'b', 'c']
+	
+	console.log(Object.values(arr)) // ['a', 'b' , 'c']
+
+
+	***********************************************************************************
+	*                                                                                 *
+        *        Retornando os valores de um array - Object.entries()                     *
+        *                                                                                 *
+        ***********************************************************************************
+
+• Retorna um array com o par index : valor de cada elemento do array. 
+
+	Object.entries(array)
+
+	let arr = ['a', 'b', 'c']
+	
+	console.log(Object.entries(arr)) // [Array(2), Array(2), Array(2)]
+
+• Por que Array(2), Array(2) , Array(2) ? Porquê no index 0 temos ['0', 'a'] , no index 1 ['1', 'b'] e no index 2 ['2', 'c']
+
+• Repare que o "primeiro" item é sempre o index e o segundo o valor.
+
+
+	******************************************************
+	*                                                    *
+        *        Transformando arrays em objetos             *
+        *                                                    *
+        ******************************************************
+
+• Só podemos transformar em objetos arrays que possuam pares de valor . Isso significa que precisa ser um array bidimensional (no mínimo)
+
+• Fazemos isso através do método Object.fromEntries(array)
+
+
+	let arr = [ ['a','b'] , ['1','2'] , ['!','@'] ]
+
+	
+	console.log(Object.fromEntries(arr)) // {1: '2', a: 'b', !: '@'}
+
+
 	***********************************************************************************
 	*                                                                                 *
         *        Métodos e Propriedades disponíveis para Listas / Arrays                  *
