@@ -139,6 +139,42 @@
 	me.dizOi() // Meu nome é João
 
 
+  *****************************************************************************
+  *                                                                           *
+  *  Sintaxe / Estrutura :  Criação de um Objeto - Maneira Dinâmica           *
+  *                                                                           * 
+  *                                                                           *
+  *****************************************************************************
+
+• Nós podemos criar um objeto de maneira dinâmica, ou seja : 
+  Uma variável definida no escopo raíz ser usada como propriedade do objeto.
+
+
+  const nome = "João Victor"
+
+  const usuario = {	
+	[nome] : "29 anos"
+	}
+
+  console.log(usuario) // { João Victor : "29 anos" }
+
+
+
+• Além disso, caso o valor da propriedade seja o mesmo do valor, basta colocarmos a variável responsável na criação do objeto:
+
+
+	const usuario1 = "João"
+
+	const usuario2 = "Roberta"
+
+
+	const usuarios = {	
+			a,
+			b
+			}
+
+	console.log(usuarios) // { usuario1 : "João" , usuario2 : "Roberta" }
+
 
   ************************************************************************
   *                                                                      *

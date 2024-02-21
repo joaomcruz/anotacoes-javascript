@@ -1,0 +1,16 @@
+• Na hora de criarmos strings para console.log() , alerts e etc, foi criada uma maneira de concatenação de variáveis 
+  chamada template string.
+
+• A sintaxe é bem simples, ao invés de utilizarmos as antigas "" ao darmos um console.log/alert/etc , iremos utilizar
+`` . E quando quisermos utilizar uma variável a envolveremos em {} com um $ antes . Dessa forma : ${nomeVariavel}
+
+
+	Sintaxe / Exemplo :
+
+
+	const nome = "João"
+	const idade = 29
+
+	const frase = `Oi , meu nome é ${nome} . Possuo ${idade} anos de idade. `
+
+	console.log(frase) // Oi, meu nome é João. Possuo 29 anos de idade.
