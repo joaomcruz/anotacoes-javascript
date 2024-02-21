@@ -5,4 +5,199 @@
 		*                              *
 		********************************
 
+• Assim como objeto, o Set é uma coleção de dados especial, no caso sem chave, somente valores que só podem ocorrer uma única vez
 
+• A principal característica de um Set é que chamadas repetidas do método .add (com o mesmo valor) não fazem nada.
+ Por isso os valores em um Set são únicos.
+
+• A iteração em um Set é sempre na ordem de inserção, então não podemos dizer que essa estrutura de dados é "desordenada".
+No entanto , não podemos reordenar os elementos ou diretamente retornar um elemento pelo seu número
+
+	  *******************************************
+	  *                                         *
+	  *  Sintaxe / Estrutura :  Criando um Set  *
+	  *                                         *
+	  *                                         *
+	  *******************************************
+
+• Para criarmos um Map basta utilizarmos a palavra new Set() e associarmos isso à uma variável
+
+	   let set = new Set();
+
+
+• Quando criamos um Set, nós podemos passar um array(ou outro iterável) para a sua inicialização
+
+
+	let array = ['a','b','b','c']
+
+	let set = new Set(  array  )
+
+
+
+	  *****************************************************************
+	  *          	                                                  *
+	  *  Sintaxe / Estrutura :  Adicionando/Alterando item em um Set  *
+	  *                                                    		  *
+	  *	                                                          *
+	  *****************************************************************
+
+• Para isso possuímos o método .set que recebe como parâmetros o valor que queremos adicionar/alterar
+	     sendo a sintaxe nomeDoSet.set(valor)
+
+ 
+• O método .set pode ser encadeado
+
+	   let set = new Set()
+		
+	   set.set(1)
+	   set.set(1)
+	   set.set(2)
+
+		console.log(set) //(1,2)
+		
+		
+
+
+	  *********************************************************************************
+	  *          	                                                                  *
+	  *  Sintaxe / Estrutura :  Retornando a existência de uma propriedade de um Set  *
+	  *                                                    		                  *
+    	  *	                                                                          *
+	  *********************************************************************************
+
+• Para retornarmos a existência ou não de uma determinada propriedade de um Set, 
+  basta usarmos o método .has que recebe a propriedade como parâmetro . Retorna verdadeiro ou falso.
+
+	   let set = new Set()
+		
+	   set.set(1)
+
+	   console.log(set.has(1)) // Retornará true
+
+
+	  **************************************************************************
+	  *          	                                                           *
+	  *  Sintaxe / Estrutura :  Deletando um elemento  através da propriedade  *
+	  *                                                    		           *
+    	  *	                                                                   *
+	  **************************************************************************
+
+• Para deletarmos o par propriedade : valor de um map basta utilizarmos o método .delete passando como
+	    parâmetro da função a propriedade.
+
+	   let set = new Set()
+		
+	   set.set(1)
+	   set.set(1)
+	   set.set(2)
+	   console.log(set) // retorna (1,2)
+	   set.delete(1) 
+	   console.log(map) // retorna (2)
+
+	
+
+	  *****************************************************************
+	  *          	                                                  *
+	  *  Sintaxe / Estrutura :  Removendo todos elementos de um Set   *
+	  *                                                    		  *
+    	  *	                                                          *
+	  *****************************************************************
+
+• Para remover todos os elementos / limpar um set basta chamarmos a função .clear sobre o set.
+
+	
+	   let set = new Set()
+		
+	   set.set(1)
+	   set.set(1)
+	   set.set(2)
+	   console.log(set) // retorna (1,2)	
+	   set.clear()
+	   console.log(map) // Retorna () 
+
+
+	  *****************************************************************
+	  *          	                                                  *
+	  *  Sintaxe / Estrutura :  Pegando o tamanho de um set           *
+	  *                                                    		  *
+    	  *	                                                          *
+	  *****************************************************************
+
+• Para pegarmos o tamanho de um set basta utilizarmos a função .size sobre o set.
+
+  	   let set = new Set()
+		
+	   set.set(1)
+           set.set(2)
+	   console.log(set.size()) // Retornará 2
+
+
+
+	  ***************************************************************************
+	  *          	                                                 	    *
+	  *  Sintaxe / Estrutura :  Iterando sobre os valores de um set  - for.. of *
+	  *                                                		 	    *
+    	  *	                                           		            *
+	  ***************************************************************************
+
+• A sintaxe é :  for (let valor of nomeDoSet) {}
+
+	let set = new Set(["laranja", "maçãs", "bananas"]);
+
+	for (let valor of set) {
+		console.log(valor) //laranja , maçãs , bananas
+		}
+
+
+	  ***************************************************************************
+	  *          	                                                 	    *
+	  *  Sintaxe / Estrutura :  Iterando sobre os valores de um set  - forEach  *
+	  *                                                		 	    *
+    	  *	                                           		            *
+	  ***************************************************************************
+
+
+• A sintaxe é nomeDoSet.forEach((valor, valorNovamente, set) => {
+	
+			})
+
+• O motivo pelo o qual o valor "se repete" é para a comaptibilidade com a estrutura de dados Map, onde o forEach
+possui três argumentos.
+
+		let setFrutas = new Set(["laranja", "maçãs", "bananas"]);
+
+		setFrutas.forEach((valor, valorNovamente, set) => {
+			console.log(valor) //laranja,maçãs,bananas
+		}
+
+
+
+
+
+	  ************************************************************************************
+	  *          	                                                 	    	     *
+	  *  Sintaxe / Estrutura :  Retornando objetos iteráveis para os valores de um Set   *
+	  *                                                		 	             *
+    	  *	                                           		                     *
+	  ************************************************************************************
+
+
+• Basta utilizarmos o método .keys() ou .values()
+
+• .values() é a mesma coisa do .keys(), é utilizável para compatibilidade com um Map
+
+	let setFrutas = new Set(["laranja", "maçãs", "bananas"]);
+
+	setFrutas.keys()
+
+	setFrutas.values()
+
+
+• .entries() retorna um objeto iterável para o par propriedade/valor . Como o Set só possui valor, ele retorna no formato
+  [valor,valor]. Existe , também, para compatibilidade com Map
+
+	
+	let setFrutas = new Set(["laranja", "maçãs", "bananas"]);
+
+	setFrutas.entries() //  {'laranja' => 'laranja', 'maçãs' => 'maçãs', 'bananas' => 'bananas'}
+	
