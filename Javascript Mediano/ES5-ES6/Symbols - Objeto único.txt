@@ -1,0 +1,14 @@
+• O symbols foi introduzido no ES5/ES6
+
+• Ele cria um "objeto" único , mesmo que outro seja criado possuindo o mesmo valor. É um princípio parecido com o de
+  passar por referência.
+
+
+	Sintaxe / Estrutura : 
+
+	let symbol1 = Symbol('Foo')
+	
+	let symbol2 = Symbol('Foo')
+
+
+	symbol1 === symbol2 // false
