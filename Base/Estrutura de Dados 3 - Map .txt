@@ -18,6 +18,9 @@ são sempre string, enquanto que o Map permite propriedade de qualquer tipo.
 
 • Para compararmos propriedades de maps, NaN é considerado igual à NaN. Por conta disso, NaN pode ser utilizado como propriedade também
 
+• A iteração em um Map é sempre na ordem de inserção, então não podemos dizer que essa estrutura de dados é "desordenada".
+No entanto , não podemos reordenar os elementos ou diretamente retornar um elemento pelo seu número
+
 
 	  *******************************************
 	  *                                         *
