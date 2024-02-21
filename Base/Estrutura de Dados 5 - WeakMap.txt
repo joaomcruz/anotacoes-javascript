@@ -12,4 +12,4 @@ acontece com o WeakMap
 • WeakMap tem apenas 4 métodos : set, get, delete e has.
 
 
-• Casos de uso : Dados Adicionais / Armazenamento de Cache
+• Casos de uso : Serve como uma "estrutura de Dados Adicionais" / Armazenamento de Cache
