@@ -5,3 +5,5 @@
 • O WeakSet suporta os métodos add,has e delete. Não aceita size() , keys() nem laços/iterações
 
 • Serve como um "armazenamento" extra de dados, não para dados arbitrários, mas para fatos sim/não
+
+• Qualquer dúvida em relação ao que foi falado em comparação com Set, conferir o arquivo "Estrutura de Dados 4 - Set.txt"

@@ -13,3 +13,6 @@ acontece com o WeakMap
 
 
 • Casos de uso : Serve como uma "estrutura de Dados Adicionais" / Armazenamento de Cache
+
+
+• Qualquer dúvida em relação ao que foi falado em comparação com Map, conferir o arquivo "Estrutura de Dados 3 - Map.txt"
