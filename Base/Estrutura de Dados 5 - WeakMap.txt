@@ -1,0 +1,15 @@
+• A primeira diferença entre o WeakMap e o Map , é que as propriedades/chaves devem ser obrigatoriamente objetos
+
+• Caso um objeto utilizado para definição da propriedade de um WeakMap não tiver mais referência (null por exemplo)
+ele será removido da memória e do WeakMap também automaticamente. Caso um objeto não tenha referência mas esteja sendo 
+utilizado dentro de um array/map, o mesmo continua existindo nessas estruturas de dados, ao contrário do que
+acontece com o WeakMap
+
+• WeakMap não suporta iteração e os métodos keys(), values() e entries(). Dessa forma, não tem como pegar todas as
+  propriedades/valores dele.
+
+
+• WeakMap tem apenas 4 métodos : set, get, delete e has.
+
+
+• Casos de uso : Dados Adicionais / Armazenamento de Cache
