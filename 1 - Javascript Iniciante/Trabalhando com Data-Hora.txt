@@ -1,0 +1,10 @@
+			******************
+			*                *
+			*      Date	 *
+			*       	 *
+			******************
+
+
+• O objeto Date armazena data, tempo e provém métodos para gerenciamento de datas/tempo.
+
+• Por exemplo , podemos utilizar para armazenar a criação/modificação de tempo, medir tempo ou só imprimir a data corrente
