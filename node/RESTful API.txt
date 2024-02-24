@@ -1,4 +1,0 @@
-• É stateless -> As chamadas/requisições podem ser feitas independentemente uma da outra
-
-
-• As requisições tem todo o dado necessário para completar a mesma com sucesso
