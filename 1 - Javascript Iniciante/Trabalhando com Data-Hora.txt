@@ -7,4 +7,366 @@
 
 • O objeto Date armazena data, tempo e provém métodos para gerenciamento de datas/tempo.
 
+• O fuso horário quando não passado é sempre ajustado à localidade em que o código está rodando
+
 • Por exemplo , podemos utilizar para armazenar a criação/modificação de tempo, medir tempo ou só imprimir a data corrente
+
+• Podemos criar o objeto Date com um dos seguintes argumentos :
+
+
+			**************************************************************************
+			*       	         		 				 *
+			* 	Sintaxe/Estrutura - Criação de objeto Date sem argumentos	 *
+			*       		 		 				 *
+			**************************************************************************
+
+- Quando criamos um objeto do tipo Date sem argumentos, estamos criando um objeto com a data e hora atual :
+
+			let agora = new Date()
+			console.log(agora) // Imprime Sat Feb 24 2024 06:22:44 GMT-0300 (Horário Padrão de Brasília)
+
+
+
+			******************************************************************************************
+			*       	         		 				 		 *
+			* 	Sintaxe/Estrutura - Criação de objeto Date passando como argumento milisegundos	 *
+			*       		 		 				 		 *
+			******************************************************************************************
+
+- Quando criamos um objeto do tipo Date com o tempo em número de milissegundos (1/1000 -> segundo)
+
+- Quando passamos milissegundos o tempo é contabilizado a partir de 1° de janeiro de 1970 UTC+0 (fuso)
+
+- Se passarmos como argumento 0, ele irá imprimir justamente 1° de janeiro de 1970 UTC+0
+
+- Quando passamos um inteiro representando o número de milissegundos que se passaram desde o início de 1970 , chamamos isso de timestamp ("carimbo de data/hora")
+
+- O timestamp é uma representação númerica de uma data . Sempre podemos criar uma data a partir de um timestamp utilizando new Date(timestamp) . 
+
+
+			let jan01_1970 = new Date(0) 
+			console.log(jan01_1970) // WED Dec 31 1969 21:00:00 GMT-0300 (Horário Padrão de Brasília) - Por conta do fuso horário do computador, acaba puxando para -3 horas, dando 31 de dezembro
+
+
+			let jan02_1970 = new Date(24 * 3600 * 1000) // aqui 24 horas estão sendo adicionadas a data de 1° de janeiro
+
+			console.log(jan02_1970) // Thu Jan 01 1970 21:00:00 GMT-0300 (Horário Padrão de Brasília) - Por conta do fuso horário do computador, acaba puxando para -3 horas, dando 1 de janeiro
+
+
+
+			******************************************************************************************
+			*       	         		 				 		 *
+			* 	Sintaxe/Estrutura - Convertendo uma Data existente para timestamp       	 *
+			*       		 		 				 		 *
+			******************************************************************************************
+
+
+- Podemos converter um objeto existente do tipo Date (data) para timestamp utilizando o método date.getTime()
+
+- Esse método retorna quantos milissegundos se passaram desde a data padrão (1 de janeiro de 1970)
+
+- Datas anteriores a 1° de janeiro de 1970 possuem timestamps negativos
+
+- Datas anteriores a 1970 tem timestamp negativo
+
+			let jan02_1970 = new Date(24 * 3600 * 1000)
+		
+			console.log(jan02_1970.getTime()) // 86400000
+
+
+
+
+			**************************************************************************************************
+			*       	         		 				 			 *
+			*     Sintaxe/Estrutura - Criação de objeto Date com único argumento sendo o mesmo uma string	 *
+			*       		 		 				 			 *
+			**************************************************************************************************
+
+
+- Se o objeto Date estiver sendo criado com um único argumento e o mesmo for uma string, então ele será "parseado" automaticamente.
+  O algoritmo seria o mesmo que utilizar o Date.parse , que iremos cobrir mais pra frente
+
+- Quando o tempo (horário) não é passado, é assumido que é meia noite, fuso GMT e é ajustado de acordo com o fuso em que o código está rodando
+
+		let data = new Date("2017-01-26")
+
+		console.log(data) // Wed Jan 25 2017 22:00:00 GMT-0200 (Horário de Verão de Brasília)
+
+
+
+
+			*****************************************************************************
+			*       	         		 				    *
+			*     Sintaxe/Estrutura - Criação de objeto Date com todos os argumentos    *
+			*       		 		 				    *
+			*****************************************************************************
+
+- O objeto Date aceita como argumentos (na seguinte ordem) - ano,mês,dia,hora,minuto,segundo,milissegundo
+
+- Apenas os dois primeiros argumentos são obrigatórios
+
+- É boa prática passar o ano com 4 dígitos, porém por compatibilidade 2 digitos são também aceitos e é considerado como se fosse 19xx. Ou seja, 98 é o mesmo que 1998.
+
+- A contagem de ano começa com 0 (janeiro) e vai até 11 (dezembro)
+
+- Caso o dia do mês não seja passado, é assumido que é 1.
+
+- Caso os argumentos hora,minuto,segundo e milissegundos não sejam passados, então são considerados como se fossem iguais a 0
+
+- A precisão máxima é de 1ms (1/1000 segundo) , ou seja , o valor máximo do último argumento é 1000.
+
+
+
+		let data = new Date(2011,0,1,0,0,0,0) // Sat Jan 01 2011 00:00:00 GMT-0200 (Horário de Verão de Brasília)
+
+
+		let data2 = new Date(2011,0,1) // Mesmo que data, já que os parâmetros não passados são considerados 0
+
+
+		let data3 = new Date(2011, 0, 1, 2, 3, 4, 567);  01.01.2011, 02:03:04.567
+
+
+
+			***********************************************************************************************
+			*       	         		 				                      *
+			*     Sintaxe/Estrutura - Acessando componentes de um objeto de data  - Fuso Horário Local    *
+			*       		 		 				                      *
+			***********************************************************************************************
+
+- getFullYear() retorna o ano com 4 dígitos
+
+- getMonth() retorna o mês , de 0 a 11
+
+- getDate() retorna o dia do mês, de 01 a 31. 
+
+- getHours() retorna o horário
+
+- getMinutes() retorna os minutos
+
+- getSeconds() retorna os segundos
+
+- getMilliseconds() retorna os milissegundos
+
+- getDay() retorna o dia da semana , vai de 0 (domingo) a 6 (sábado). O primeiro dia é SEMPRE domingo
+
+- Todos os métodos citados retornam os componentes relativos ao fuso horário LOCAL em que o código está sendo rodado.
+
+
+
+			let data = new Date(2011, 0, 1, 2, 3, 4, 567)
+
+			data.getFullYear() //2011
+
+			data.getMonth() // 0 (significa janeiro)
+
+			data.getDate() // 1
+		
+			data.getHours() // 2 
+
+			data.getMinutes() // 3 
+
+			data.getSeconds() // 4
+
+			data.getMilliseconds() // 567
+
+			data.getDay() // 6 (significa sábado)
+
+
+			*****************************************************************************************************
+			*       	         		 				                            *
+			*     Sintaxe/Estrutura - Acessando componentes de um objeto de data  - Fuso horário 0 (UTC+0)      *
+			*       		 		 				                            *
+			*****************************************************************************************************
+
+- getUTCFullYear() retorna o ano com 4 dígitos como se fosse no fuso UTC+0 (sem fuso)
+
+- getUTCMonth() retorna o mês , de 0 a 11 como se fosse no fuso UTC+0 (sem fuso)
+
+- getUTCDate() retorna o dia do mês, de 01 a 31. como se fosse no fuso UTC+0 (sem fuso)
+
+- getUTCHours() retorna o horário como se fosse no fuso UTC+0 (sem fuso)
+
+- getUTCMinutes() retorna os minutos como se fosse no fuso UTC+0 (sem fuso)
+
+- getUTCSeconds() retorna os segundos como se fosse no fuso UTC+0 (sem fuso)
+
+- getUTCMilliseconds() retorna os milissegundos como se fosse no fuso UTC+0 (sem fuso)
+
+- getUTCDay() retorna o dia da semana , vai de 0 (domingo) a 6 (sábado). O primeiro dia é SEMPRE domingo. Como se fosse no fuso UTC+0 (sem fuso)
+
+
+
+
+			let data = new Date(2011, 0, 1, 2, 3, 4, 567)
+
+			data.getUTCFullYear() //2011
+
+			data.getUTCMonth() // 0 (significa janeiro)
+
+			data.getUTCDate() // 1
+		
+			data.getUTCHours() // 4
+
+			data.getUTCMinutes() // 3 
+
+			data.getUTCSeconds() // 4
+
+			data.getUTCMilliseconds() // 567
+
+			data.getUTCDay() // 6 (significa sábado)
+
+
+
+			*******************************************************************************************************
+			*       	         		 				                              *
+			*     Sintaxe/Estrutura - Retornando a diferença do horário UTC+0 e o fuso horário local              *
+			*       		 		 				                              *
+			*******************************************************************************************************
+
+
+- O método getTimezoneOffset() retorna a diferença entre UTC+0 e o fuso horário local em que a máquina que está executando o código está, em minutos.
+
+			console.log(new Date().getTimezoneOffset()) // no caso do brasil, por sermos UTC-3, retorna 180. Caso fossemos +3 , retornaria -180
+
+
+
+			******************************************************************
+			*       	         		 			 *
+			*     Sintaxe/Estrutura - Setando os componentes de uma Data     *
+			*       		 		 			 *
+			******************************************************************
+
+• Os seguintes métodos nos permitem setar os componentes de um objeto Date
+
+• Os componentes não mencionados não são modificados quando utilizamos o método
+
+• setFullYear(ano, [mes] , [dia]) // setUTCFullYear(ano, [mes] , [dia])
+
+• setMonth(mes , [dia]) // setUTCMonth(mes , [dia])
+
+• setDate(dia) // setUTCDate(dia)
+
+• setHours(hora, [min], [seg] , [milissegundo]) // setsUTCHours(hora, [min], [seg] , [milissegundo])
+
+• setMinutes(min, [sec]) // setUTCMinutes(min, [sec])
+
+• setSeconds(seg, [milissegundo]) // setUTCSeconds(seg, [milissegundo])
+
+• setMilliseconds(milissegundo) // setUTCMilliseconds(milissegundo)
+
+• setTime(millisegundos) // seta toda a data para milissegundos desde 01-01-1970 UTC. Não possui método UTC por conta disso.
+
+
+
+			************************
+			*       	       *
+			*     Autocorreção     *
+			*       	       *
+			************************
+
+• A autocorreção é uma funcionalidade muito conveniente dos objetos Date. Toda vez que setarmos um valor fora do valor limite, o próprio objeto se auto ajusta.
+  Isso significa que se por exemplo passarmos uma data com 32 dias (inexistente) ele automaticamente joga para o próximo mês caso o mês anterior tiver 31 dias.
+
+			let data = new Date(2013, 0, 32); // 32 Jan 2013 ?!?
+			console.log(date); // É 1 de fevereiro de 2013 !
+
+
+
+			********************************************************************************
+			*       	         			                               *
+			*     Sintaxe/Estrutura - Conversão de Data para número & Diferença de Data    *
+			*       		 		 			               *
+			********************************************************************************
+
+- Quando um objeto do tipo Date é convertido para número, ele vira um timestamp, assim como quando usamos o método getTime()
+
+- Essa conversão pode ser feita utilizando o sinal de + 
+
+			let data = new Date()
+
+			console.log(+data) // 1708775523647 é o mesmo que usar getTime()
+			
+			console.log(data.getTime()) // 1708775523647
+
+
+- Um efeito colateral interessante é que datas podem ser subtraídas. O resultado é a diferença delas em milissegundos. Isso pode ser usado para medirmos tempo.
+			
+
+			let comeco = new Date(); // começa a medir o tempo de 1° de janeiro de 1970
+
+			// fazer alguma coisa
+			for (let i = 0; i < 100000; i++) {
+  				let fazAlgo = i * i * i;
+			}
+
+			let fim = new Date(); // finaliza medição de tempo
+
+			console.log( `O laço durou ${fim  - comeco} ms` ); // subtrai números , não datas
+
+
+
+			*****************************************
+			*       	         		*
+			*     Sintaxe/Estrutura - Date.now()    *
+			*       		 		*
+			*****************************************
+
+• Se apenas quisermos medir o tempo, não precisamos do objeto Date.
+
+• Existe um método especial chamado .now() que retorna o timestamp atual.
+
+• Semanticamente falando, é equivalente a new Date().getTime() , mas não cria um objeto Date intermediário. Por isso é mais rápido e não põe "pressão" no "coletor de  lixo" de memória do Javascript
+
+• É geralmente utilizado por conveniência, ou quando a performance da aplicação é importante, como em jogos desenvolvidos em Javascript ou outras aplicações especializadas.
+
+
+			let comeco = Date.now(); // começa a medir o tempo de 1° de janeiro de 1970
+
+			// fazer alguma coisa
+			for (let i = 0; i < 100000; i++) {
+ 			 let fazAlgo = i * i * i;
+			}
+
+			let fim = Date.now(); // finaliza medição de tempo
+
+			console.log( `O laço durou ${fim  - comeco} ms` ) // subtrai números , não datas
+
+
+
+			****************************************************************
+			*       	         		        	       *
+			*     Sintaxe/Estrutura - Date.parse a partir de uma string    *
+			*       		 			      	       *
+			****************************************************************
+
+
+• O método Date.parse(str) pode ler uma data a partir de uma string
+
+• O formato da string deve ser : YYYY-MM-DDTHH:mm:ss.sssZ onde :
+
+	- YYYY-MM-DD é a data : ano,mês,dia
+
+	- O "T" é utilizado como delimitador
+
+	- HH:mm:ss.sss é o tempo : horas , minutos, segundos e milissegundos
+
+	- O "Z" é opcional e denota o fuso horário no formato +-hh:mm. A letra Z significa UTC+0
+
+• Existem variações para isso, como YYYY-MM-DD / YYYY-MM ou até YYYY
+
+• A chamada para Date.parse(string) "parsea" a string no formato dado e retorna um timestamp (número em milissegundos desde 1° de janeiro de 1970 UTC+0). Se o formato for inválido NaN será retornado.
+
+
+	
+			let ms = Date.parse('2012-01-26T13:51:50.417-07:00');
+
+			console.log(ms); // 1327611110417  (timestamp)
+
+
+			Podemos criar instantaneamente um objeto Date através do timestamp gerado (ou seja, já transformar de milissegundos para uma data "real")
+
+			let date = new Date( Date.parse('2012-01-26T13:51:50.417-07:00') );
+
+			console.log(date); // Thu Jan 26 2012 18:51:50 GMT-0200 (Horário de Verão de Brasília)
+
+
