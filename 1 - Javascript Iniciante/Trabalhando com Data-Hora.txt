@@ -333,11 +333,11 @@
 
 
 
-			****************************************************************
-			*       	         		        	       *
-			*     Sintaxe/Estrutura - Date.parse a partir de uma string    *
-			*       		 			      	       *
-			****************************************************************
+			************************************************************************
+			*       	         		     		   	       *
+			*     Sintaxe/Estrutura - "Pegando" uma data a partir de uma string    *
+			*       		 			      	               *
+			************************************************************************
 
 
 • O método Date.parse(str) pode ler uma data a partir de uma string
