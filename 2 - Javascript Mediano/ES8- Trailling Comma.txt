@@ -1,0 +1,21 @@
+• Trailling comma é basicamente a vírgula nas chamadas de função/definição de função não dão erro caso esquecida
+
+• A vírgula também não dá erro em caso da definição de um objeto/array 
+
+
+		const funcao = (a,b,c,d,) => {
+				console.log(a)
+					     }
+
+		
+		fun(1,2,3,4,)
+
+
+		const obj1 = {
+			      a,
+			      b,
+			     }
+
+
+		const arr = [a,b,]
+
