@@ -1,0 +1,71 @@
+		*****************************************************************************************************************
+		*														*
+		*	Checando existência de uma Propriedade de Objeto, função , ou valor - Operador de Encadeamento		*
+		*														*
+		*														*
+		*****************************************************************************************************************
+
+• Por não achar algo muito legível, não irei aprofundar tanto no assunto , qualquer coisa basta referirmos a documentação oficial : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining#examples
+
+• O operador de encadeamento pode ser utilizado em Objetos, funções, Arrays e Maps 
+
+• Ele substitui o if/else na hora da verificação de se uma propriedade de um objeto, 
+  uma função, um item em um array ou uma propriedade de um map existem
+
+• Ao invés de retornarem um erro(ou false) , ele retorna undefined caso o mesmo não seja encontrado.
+
+• É representado por ?.
+
+• Esse operador pode ser encadeado. Ou seja, múltiplas verificações em uma linha.
+
+• Possui como sintaxe : objeto.valor?.propriedade
+			objeto.valor?.[expressão]
+			objeto.funcao?.(argumentos)
+
+		
+
+		******************************************************************************************
+		*						 					 *
+		*	Utilizando com Objetos	- Verificando a existência de uma propriedade		 *
+		*						 					 *
+		*						 					 *
+		******************************************************************************************
+
+
+		
+		let joao_pokemon  = {
+					pikachu: {
+						  especie: 'Rato',
+						  altura: 0.5,
+						  peso: 3
+						 }
+				    }
+
+
+		console.log(joao_pokemon?.pikachu?.peso) // 3
+
+		console.log(joao_pokemon?.pikachu?.forca) // undefined
+
+		- Irá checar se dentro do objeto joao_pokemon existe a propriedade/objeto pikachu.
+		- Encontrando, irá checar se dentro desse objeto/propriedade existe a propriedade/objeto peso.
+		- Encontrando irá imprimir seu valor. Se não encontrar, irá imprimir undefined (segundo console.log )
+
+
+		******************************************************************************************
+		*						 					 *
+		*	Utilizando com Map - Verificando a existência de uma propriedade		 *
+		*						 					 *
+		*						 					 *
+		******************************************************************************************	
+
+
+		const myMap = new Map();
+		
+		myMap.set("foo", { name: "baz", desc: "inga" });
+
+		console.log(myMap.get("bar")?.name) //undefined
+
+
+
+
+	
