@@ -1,0 +1,44 @@
+
+
+		***********************************
+		*				  *
+		*	Bloco Try/Catch 	  *
+		*				  *
+		*				  *
+		***********************************
+
+
+• Para lidarmos com possíveis erros que possam ocorrer no nosso código, existe o bloco try/catch
+
+• Esse bloco tenta executar uma certa ação,e caso não consiga, lida com esse "erro" executando um bloco
+  de código definido por nós. Isso serve para que a aplicação não quebre.
+
+• É possível "pegarmos" qual o erro deu na aplicação no bloco catch.
+
+• Só irá entrar no bloco do catch se algo errado ocorrer no bloco try. Como se fosse um if/else
+
+• Sendo assim, a sintaxe do bloco try/catch fica : try { //bloco de código que queremos evitar que quebre a aplicação }
+						   catch (erro) {
+							console.log(erro) // imprime o erro que foi capturado pelo try
+							//bloco de código que irá ser executado caso um erro tenha
+							 ocorrido no bloco try
+
+
+
+		try {
+			console.log(			bob + 10)
+		    }
+		catch(erro) {
+				console.log(erro) // ReferenceError: bob is not defined
+				console.log("Algo deu errado") // Algo deu errado
+				let bob = 5
+				console.log(bob + 10) // 15
+			    }
+
+
+		try {
+			console.log("Oi") // Oi
+		    }
+	        catch(erro) {
+				console.log(erro) // Não irá entrar nesse bloco
+			    }
