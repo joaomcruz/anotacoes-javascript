@@ -13,10 +13,10 @@
 		*                  *
 		********************
 
-		• Basicamente converter algo para número.
-		• Basta utilizarmos um "+" sobre uma variável que irá transformá-la em número
-		• Não possui efeito em números
-		• Mesmo efeito de Number()
+• Basicamente converter algo para número.
+• Basta utilizarmos um "+" sobre uma variável que irá transformá-la em número
+• Não possui efeito em números
+• Mesmo efeito de Number()
 
 
 		alert( +true) // 1
@@ -29,12 +29,12 @@
                 *                          *
 		****************************
 
-		• Aumentar ou diminuir um número de uma variável
-		• -- ou ++
-		• Podemos utilizar tanto antes da variável quanto depois
-		• Essa ordem importa pois tanto incremento quanto decremento RETORNAM algo
-		• Se quisermos incrementar/decrementar o valor e usar imediatamente o valor, precisamos utilizar antes da variável
-		• Caso isso não seja importante, podemos utilizar a forma no final da variável
+• Aumentar ou diminuir um número de uma variável
+• -- ou ++
+• Podemos utilizar tanto antes da variável quanto depois
+• Essa ordem importa pois tanto incremento quanto decremento RETORNAM algo
+• Se quisermos incrementar/decrementar o valor e usar imediatamente o valor, precisamos utilizar antes da variável
+• Caso isso não seja importante, podemos utilizar a forma no final da variável
 
 		let contador = 2
 		contador++
@@ -55,9 +55,22 @@
 		****************************
 
 
-		• A vírgula serve para avaliarmos diversas expressões dividas pela mesma, porém só o resultado
-		da última será retornado. O restante será descartado.
+• A vírgula serve para avaliarmos diversas expressões dividas pela mesma, porém só o resultado
+  da última será retornado. O restante será descartado.
 
 
 		let a = (1+2,3+4) 
 		console.log(a) // 7
+
+
+		****************************
+		*		           *
+		*       Exponencial        *
+                *                          *
+		****************************
+
+	
+• Basta usarmos o exponencial e depois colocarmos  número
+
+
+		console.log(2**2) // 2 ^ 2

@@ -332,7 +332,7 @@
  	- shift() -> Remove do início do Array
   	- unshift() -> Adiciona ao início do Array
   	- indexOf() -> Procura o índice de um item no Array
-	- includes() -> Procura um item no Array
+	- includes() -> Procura um item no Array e verifica se o array contém/inclui o que for passado entre os ()
   	- splice(indiceInicio, quantidadeDeItens) -> Altera um array a partir da posição do índice. "Remove" os itens do array original a partir da posição passada e de acordo com a quantidade expressa.
   	- toSpliced(indiceInicio, quantidadeDeItens) -> Mesmo do splice, porém retorna um novo array. Não muda o array original
  	- slice() > Retorna uma cópia de parte de um array a partir de um subarray criado entre as posições início e fim (fim não é incluído) de um array original. O Array original não é modificado
