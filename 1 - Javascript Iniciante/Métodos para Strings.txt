@@ -1,0 +1,648 @@
+
+• Todos os métodos para string geram uma nova string SEM alterar a string original.
+
+• Assim como arrays(qualquer dúvida, basta consultar Arrays.txt) , o primeiro item (no caso de uma string, o caractere)
+  sempre terá o index 0 e a mesma irá até o (length - 1) . No caso de uma string com length 3, ela terá index 0,1,2.
+  Correspondente ao primeiro,segundo e terceiro caractere.
+
+
+			**************************************************
+			*               		                 *
+			*   Métodos e Propriedades básicas para Strings  *
+			*               		  		 *
+			**************************************************
+
+
+			*****************************************************
+			*               				    *
+			*   Retornando o tamanho de uma string - length     *
+			*               				    *
+			*****************************************************
+
+• A propriedade .length retorna o tamanho de uma string. Por se tratar de uma propriedade, a chamamos através do .length
+
+• A sintaxe da propriedade fica então : string.length
+ 
+
+
+			let texto = "ABC"
+
+			console.log(texto.length) // Retorna 3
+
+
+
+			*****************************************
+			*               			*
+			*   Extraindo caracteres de uma String  *
+			*               			*
+			*****************************************
+
+• Existem 4 métodos para extrairmos caracteres de uma string :
+
+	• at()
+	
+	• charAt()
+	
+	• charCodeAt()
+
+	• Propriedade de acesso [] como arrays
+
+
+
+			*****************************************************
+			*               				    *
+			*  Extraindo caracteres de uma String - charAt()    *
+			*               			            *
+			*****************************************************
+
+• O método charAt() retorna o caractere em um index específico que será passado dentro do método.
+
+• A sintaxe no caso é : charAt(index)
+
+• Não aceita indexes negativos.
+
+
+
+			let texto = "ABC"
+
+			console.log(texto.charAt(0)) // "A"
+ 
+
+
+			*********************************************************
+			*               				        *
+			*  Extraindo caracteres de uma String - charCodeAt()    *
+			*               			                *
+			*********************************************************
+
+• O método charCodeAt() retorna o código do caractere em um index específico que será passado dentro do método. 
+
+• Esse método retorna um código UTF-16 (um inteiro entre 0 e 65535).
+
+• A sintaxe assim como como charAt é : charCodeAt(index)
+
+
+			let texto = "ABC"
+
+			console.log(texto.charCodeAt(0)) // 65
+
+
+
+
+			*************************************************
+			*               				*
+			*  Extraindo caracteres de uma String - at()    *
+			*               			        *
+			*************************************************
+
+• O método at() retorna o caractere em um index específico que será passado dentro do método.
+
+• A sintaxe no caso é : at(index)
+
+• Diferentemente do método charAt(), o método at() permite que utilizemos indexes negativos.
+
+
+			let texto = "ABC"
+
+			console.log(texto.at(-1)) // "C" (pois -1 é o último item)
+
+			console.log(texto.at(1)) // "B"
+
+
+
+			*********************************************************************************
+			*              				  				        *
+			*  Extraindo caracteres de uma String -  Propriedade de acesso [] como arrays   *
+			*                                          					*
+			*********************************************************************************
+
+• Acesso de propriedade pode ser um pouco imprevisível.
+
+• Faz com que strings sejam vistas como arrays (mas elas não são).
+
+• Se nenhum caractere for encontrado, irá retornar undefined, enquanto charAt() retorna uma string vazia.
+
+• Somente lê / retorna o caractere do index passado. Diferentemente de arrays que conseguimos modificar acessando
+  o index através da propriedade de acesso, com strings isso não é possível. 
+
+• Possui a sintaxe string[index]
+
+
+			let texto = "ABC"
+
+			console.log(texto[0]) // "A"
+
+			texto[0] = "Z" // Não funciona, uma vez que estamos tentando alterar a string através da propriedade de acesso como se a mesma fosse um array.
+
+
+
+
+			**************************************
+			*               		     *
+			*   Extraindo partes de uma string   *
+			*               		     *
+			**************************************
+
+• Existem 3 métodos para extrairmos partes de uma string :
+
+	• slice()
+
+	• substring()
+
+
+			***********************************************
+			*               		     	      *
+			*   Extraindo partes de uma string - slice()  *
+			*               		     	      *
+			***********************************************
+
+• O método slice extrai parte de uma string e retorna essa parte extraída em uma nova string.
+
+• O método recebe 2 parâmetros, sendo ele a posição inicial(index inicial incluído) e o index final(não incluído).
+
+• Isso significa que se passarmos o index inicial 0 e o final 2, na verdade estaremos pegando apenas o index 0 e 1 da string.
+
+• A sintaxe é , então : slice(indexInicialIncluido, indexFinalExcluido)
+
+• O segundo argumento do método , aonde definimos o indexFinal , não é obrigatório. Caso não passemos o mesmo,
+  ele irá pegar o restante da string.
+
+• Esse método também aceita argumentos negativos.
+
+• Se o argumento(index) for negativo, a posição será contada do final da string para o começo.
+
+	
+			let texto = "ABCD"
+
+			console.log(texto.slice(0,2)) // "AB"
+
+
+
+			***************************************************
+			*               		     	     	  *
+			*   Extraindo partes de uma string - substring()  *
+			*               		     	     	  *
+			***************************************************
+
+• É similar ao método slice.
+
+• A diferença é que valores menores que 0 (negativos) são tratados como 0 nesse método.
+
+• A sintaxe é , então : substring(indexInicialIncluido, indexFinalExcluido)
+
+• O segundo argumento do método , aonde definimos o indexFinal , não é obrigatório. Caso não passemos o mesmo,
+  ele irá pegar o restante da string.
+
+
+			let texto = "ABCD"
+
+			console.log(texto.substring(-1, 2)) // "AB"
+
+
+
+
+			************************************************************
+			*                                          		   *
+			*   Convertendo uma string para maíusculo - toUpperCase()  *
+			*                                          		   *
+			************************************************************
+
+• Basta utilizarmos o método toUpperCase(), que não recebe argumentos.
+
+
+			let texto = "abc"
+
+			console.log(texto.toUpperCase()) // "ABC"
+
+
+
+			************************************************************
+			*                                          		   *
+			*   Convertendo uma string para minúsculo - toLowerCase()  *
+			*                                          		   *
+			************************************************************
+
+• Basta utilizarmos o método toLowerCase(), que não recebe argumentos.
+
+
+			let texto = "ABC"
+
+			console.log(texto.toLowerCase()) // "abc"
+
+
+
+			*************************************************
+			*              			    	        *
+			*   Juntando duas ou mais strings  - concat()   *
+			*              			    	        *
+			*************************************************
+
+
+• O método concat() junta duas ou mais strings.
+
+• O método aceita quantas strings quisermos. Podemos passar como argumento uma string definida por variável ou não.
+
+• O método concat pode ser utilizado ao invés do operador de concatenação de strings.
+
+• Dessa forma, a sintaxe é : concat(string1,string2...stringN)
+
+
+			let texto = "ABC"
+		
+			let letraE = "E"
+
+			console.log(texto.concat("D")) // ABCD
+
+			console.log(texto.concat("D"," ",letraE)) // ABCD E
+		
+			let texto2 = "Hello".concat(" ", "World!") // Faz o mesmo que "Hello" + " " + "World!"
+
+
+
+			******************************************
+			*               		    	 *
+			*   Removendo espaços de uma string	 *
+			*               			 *
+			******************************************
+
+• Existem 3 métodos para remover espaços de uma string :
+
+
+	• trim()
+
+	• trimStart()
+
+	• trimEnd()
+
+
+
+			**************************************************************
+			*               					     *
+			*   Removendo espaços de ambos lados de uma string - trim()  *
+			*               					     *
+			**************************************************************
+
+• O método trim() remove os espaços (whitespace) de ambos lados de uma string.
+
+• Basta chamarmos o método, que não recebe nenhum argumento.
+
+• Dessa forma a sintaxe é : string.trim()
+
+			
+			let texto = "              OI                  "
+
+			console.log(texto.trim()) // "OI"
+
+
+
+			**************************************************************
+			*               					     *
+			*   Removendo espaços do início de uma string - trimStart()  *
+			*               					     *
+			**************************************************************
+
+• O método trimStart() remove os espaços do início de uma string.
+
+• Basta chamarmos o método, que não recebe nenhum argumento.
+
+• Dessa forma a sintaxe é : string.trimStart()
+
+
+			
+			let texto = "              OI                  "
+
+			console.log(texto.trimStart()) // "OI                  "
+
+
+
+			**************************************************************
+			*               					     *
+			*   Removendo espaços do fim de uma string - trimEnd()       *
+			*               					     *
+			**************************************************************
+
+• O método trimEnd() remove os espaços do início de uma string.
+
+• Basta chamarmos o método, que não recebe nenhum argumento.
+
+• Dessa forma a sintaxe é : string.trimEnd()
+
+
+
+			let texto = "              OI                  "
+
+			console.log(texto.trimEnd()) // "              OI"
+
+
+
+
+			*************************************************
+			*                                               *
+			*   Preenchimento de string com uma string 	*
+			*                                               *
+			*************************************************
+
+• Possuímos 2 métodos diferentes para preenchimento de string :
+
+	• padStart()
+
+	• padEnd()
+
+
+
+			*********************************************************************************
+			*                             		                              		*
+			*   Preenchimento a partir do início de string com uma string - padStart()	*
+			*                             		                                	*
+			*********************************************************************************
+
+• O método padStart() preenche uma string a partir do início com uma string.
+
+• A string passada será repetido até alcançar o length passado no primeiro argumento.
+
+• Dessa forma a sintaxe do método é : string.padStart(length, stringParaPreenchimento)
+
+			
+			let texto = "5"
+
+			console.log(texto.padStart(4,"0") // 0005 , ou seja, quando atingir o length 4 (index 3) irá parar de repetir a string passada
+
+
+
+
+
+			*************************************************************************
+			*                             		                                *
+			*   Preenchimento do fim de string com um caractere - padEnd()       	*
+			*                             		                                *
+			*************************************************************************
+
+
+• O método padEnd() preenche uma string a partir do fim com uma string.
+
+• A string passada será repetido até alcançar o length passado no primeiro argumento.
+
+• Dessa forma a sintaxe do método é : string.padEnd(length, stringParaPreenchimento)
+
+			
+			let texto = "5"
+
+			console.log(texto.padEnd(4,"0") // 5000 , ou seja, quando atingir o length 4 (index 3) irá parar de repetir a string passada
+
+
+
+
+			**************************************
+			*               	   	     *
+			*   Repetindo uma string - repeat()  *
+			*               	   	     *
+			**************************************
+
+• O método repeat() repete a string que está utilizando o método o número de vezes que é passado como argumento.
+
+• Ou seja, se utilizarmos o método repeat passando como argumento 3 , a string será repetida 3 vezes.
+
+• Vale ressaltar mais uma vez que o método retorna uma nova string e que a original não é modificada.
+
+• Dessa forma a sintaxe do método é : string.repeat(numeroDeVezes)
+
+
+			let texto = "Oi"
+		
+			console.log(texto.repeat(3)) // OiOiOi
+
+
+
+
+			*******************************************************************************
+			*               							      *
+			*   Substituindo o conteúdo de uma string através de uma string - replace()   *
+			*               							      *
+			*******************************************************************************
+
+• O método replace() substitui uma string específica por um outro valor de string.
+
+• O método replace substitui APENAS A PRIMEIRA OCORRÊNCIA DA STRING.
+
+• O método replace() é caso sensitive.
+
+• Para substituir com caso "insensitivo" ou substituir todas as ocorrências, temos que usar uma expressão regular.
+  Expressões regulares dentro desse método não acompanham "" e são cercadas de /
+  (vide arquivo Expressões Regulares - Regex.txt na pasta de conteúdo avançado)
+
+• Dessa forma a sintaxe do método é : string.replace(stringParaSubstituir, stringDeSubstituicao)
+
+
+			let texto = "Olá João"
+
+			console.log(texto.replace("João","Roberta")) // Olá Roberta
+
+
+
+			*********************************************************************************************
+			*               							      		    *
+			*   Substituindo o conteúdo de uma string através de uma expressão regular - replaceAll()   *
+			*               							                    *
+			*********************************************************************************************
+
+
+• Substitui uma string específica OU uma expressão regular especificada por um outro valor de string.
+
+• Substitui, também, APENAS A PRIMEIRA OCORRÊNCIA DA STRING.
+
+• Também é case senstitive.
+
+• Caso o argumento seja uma expressão regular, a "flag global" (g) deve ser setada, caso contrário um TypeError será lançado
+
+• O "termo" i na expressão regular (Regex) torna o caso "insensitivo". Por isso o exemplo 2 realiza a substituição da string. 
+Caso contrário não encontraria e a mesma não iria ocorrer.
+
+• Dessa forma a sintaxe do método é : string.replaceAll(stringParaSubstituir, stringDeSubstituicao)  ou string.replaceAll(expressaoRegularParaSubstituir, stringDeSubstituicao)
+
+			let texto = "Olá João"
+
+			console.log(texto.replaceAll("João","Roberta")) // Olá Roberta
+
+			
+			let texto2 = "Cats"
+			console.log(texto2.replaceAll(/Cats/g,"Dogs")) // Dogs
+
+			console.log(texto2.replaceAll(/cats/gi,"dogs")) // dogs
+			
+
+
+
+			******************************************************
+			*                                                    *
+			*   Convertendo uma String para um Array  - split()  *
+			*               			   	     *
+			******************************************************
+
+
+• Se quisermos trabalhar com uma string em forma de array, podemos fazer essa conversão com o método split()
+
+• Podemos escolher o separados dessa string como argumento do método.
+
+• Caso o separador seja omitido, o array irá conter a string inteira no index 0.
+
+• Caso o separador seja "", o array retornado será um array com caracteres simples.
+
+• Podemos passar o separador que quisermos : "," "" " | " " "
+
+• Caso o separador não seja encontrado, a string NÃO será splitada em um array.
+
+• Dessa forma a sintaxe do método é : string.split(separador)
+
+			
+			let texto2 = "Cats"
+
+			console.log(texto2.split("")) // [ 'C', 'a', 't', 's' ]
+
+			
+
+
+
+
+			*****************************************************
+			*               		                    *
+			*   Métodos e Propriedades de Procura para Strings  *
+			*               		  	            *
+			*****************************************************
+
+
+			*****************
+			*               *
+			*   indexOf()   *
+			*               *
+			*****************
+
+
+
+
+
+
+
+			*********************
+			*                   *
+			*   lastIndexOf()   *
+			*                   *
+			*********************
+
+
+
+
+
+
+			*****************
+			*               *
+			*   search()    *
+			*               *
+			*****************
+
+
+
+
+
+
+
+
+
+
+			*****************
+			*               *
+			*   match()     *  
+			*               *
+			*****************
+
+
+
+
+
+
+
+
+
+
+
+
+
+			******************
+			*                *
+			*   matchAll()   *
+			*                *
+			******************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			******************
+			*                *
+			*   includes()   *
+			*                *
+			******************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			********************
+			*                  *
+			*   startsWith()   *
+			*                  *
+			********************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			******************
+			*                *
+			*   endsWith()   *
+			*                *
+			******************
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
