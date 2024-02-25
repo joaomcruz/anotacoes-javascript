@@ -1,0 +1,14 @@
+			****************************
+			*			   *
+			*	BigInt		   *
+			*			   *
+			****************************
+
+• É um novo tipo introduzido no ES2020
+
+• Serve pra fazer cálculos com números muito grandes, maiores ou iguais ao MAX_SAFE_INTEGER (9007199254740991)
+
+• A notação de um BigInt é o número com um "n" ao lado
+
+
+	Exemplo : 900719925474099191919n

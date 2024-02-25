@@ -215,12 +215,12 @@
 	
 
 
-  ***************************************************************************
-  *                                                                         *
-  *        Sintaxe / Estrutura :  Testando existência de propriedade        *
-  *                                                                         * 
-  *                                                                         *
-  ***************************************************************************
+  *************************************************************************************************
+  *                                                                         			  *
+  *        Sintaxe / Estrutura :  Testando existência de propriedade  - propriedade in objeto     *
+  *                                                                         			  * 
+  *                                                                         			  *
+  *************************************************************************************************
 
 • Podemos testar a existência de uma propriedade tentando acessá-la. Caso a mesma não exista , retornará undefined
 
@@ -247,12 +247,12 @@
 
 
 
-	  *******************************************************************************
-	  *                                                                        	*
-	  *  Sintaxe / Estrutura :  Criando um objeto a partir de um Map          	*
-	  *                                         				   	*
-	  *                                                                        	*
-	  *******************************************************************************
+	  *******************************************************************************************************
+	  *                                                                        	                        *
+	  *  Sintaxe / Estrutura :  Criando um objeto a partir de um Map - Object.fromEntries()          	*
+	  *                                         				   	                        *
+	  *                                                                        				*
+	  *******************************************************************************************************
 
 
 • Podemos transformar um Map em um objeto simples
@@ -304,12 +304,12 @@
 
 
 
-	  ***********************************************************************************************
-	  *                                                                        			*
-	  *  Sintaxe / Estrutura :  Clonando/Mergeando um objeto a partir de outro Objeto        	*
-	  *                                         				   			*
-	  *                                                                        			*
-	  ***********************************************************************************************
+	  ***********************************************************************************************************************************************
+	  *                                                                        			                                                *
+	  *  Sintaxe / Estrutura :  Clonando/Mergeando um objeto a partir de outro Objeto - Laço for..in , Object.assign() , Spread Operator       	*
+	  *                                         				   			                                                *
+	  *                                                                        			                                                *
+	  ***********************************************************************************************************************************************
 
 
 • Temos várias formas de fazermos isso . Podemos clonar através de um laço for in , por exemplo :
@@ -447,12 +447,12 @@
 	
 
 
-	  *******************************************************************************
-	  *                                                                        	*
-	  *  Sintaxe / Estrutura :  Retornando um array das propriedades de um objeto   *
-	  *                                                   				*
-	  *                                                                        	*
-	  *******************************************************************************
+	  ***********************************************************************************************
+	  *                                                                        	                *
+	  *  Sintaxe / Estrutura :  Retornando um array das propriedades de um objeto - Object.keys()   *
+	  *                                                   				                *
+	  *                                                                        	                *
+	  ***********************************************************************************************
 
 • Assim como o laço for..in , esse método ignora propriedades que usam Symbol() como valor. 
   Para retornarmos qualquer tipo de chave, precisamos usar o Reflect.ownKeys(obj)
@@ -467,12 +467,12 @@
 	Object.keys(usuario) // ["nome", "idade"]
 
 
-	  *******************************************************************************
-	  *                                                                        	*
-	  *  Sintaxe / Estrutura :  Retornando um array com os valores de um objeto     *
-	  *                                                   				*
-	  *                                                                        	*
-	  *******************************************************************************
+	  **********************************************************************************************
+	  *                                                                        		       *
+	  *  Sintaxe / Estrutura :  Retornando um array com os valores de um objeto - Object.values()  *
+	  *                                                   				               *
+	  *                                                                        	               *
+	  **********************************************************************************************
 
 • Assim como o laço for..in , esse método ignora propriedades que usam Symbol() como valor. 
   Para retornarmos qualquer tipo de chave, precisamos usar o Reflect.ownKeys(obj)
@@ -491,7 +491,7 @@
 	  *******************************************************************************
 	  *                                                                        	*
 	  *  Sintaxe / Estrutura :  Retornando um array com os pares propriedade/valor  *
-	  *			    de um objeto     					*
+	  *			    de um objeto  - Object.entries()			*
 	  *                                                   				*
 	  *                                                                        	*
 	  *******************************************************************************
@@ -513,12 +513,12 @@
 
 
 
-	  *******************************************************
-	  *                                                   	*
-	  *     Sintaxe / Estrutura :  Transformando Objetos	*
-	  *                                                   	*
-	  *                                                     *
-	  *******************************************************
+	  ***********************************************************************************************
+	  *                                                   						*
+	  *     Sintaxe / Estrutura :  Transformando Objetos - Object.entries() e Object.fromEntries()	*
+	  *                                                   						*
+	  *                                                  						*
+	  ***********************************************************************************************
 
 • Já que os métodos para array não existem para objetos, o que podemos fazer é :
 
