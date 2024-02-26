@@ -510,139 +510,250 @@ Caso contrário não encontraria e a mesma não iria ocorrer.
 			*****************************************************
 
 
-			*****************
-			*               *
-			*   indexOf()   *
-			*               *
-			*****************
+			****************************************************************************
+			*               							   *
+			*  Retornando a posição da primeira ocorrência de uma string - indexOf()   *
+			*               							   *
+			****************************************************************************
 
+• O método indexOf() retorna o index(posição) da primeira ocorrência de uma string em uma string. 
+  Retornará -1 caso a string não seja encontrada
 
+• Por conta disso, devemos passar uma string como argumento do método.
 
+• O método aceita um segundo parâmetro, que seria a partir de qual index começaria a procura pela string. 
 
+• Esse segundo parâmetro/argumento não é necessário para funcionamento do método. Podendo ser omitido.
 
+• A procura do método indexOf() começa pelo index 0 automaticamente, caso não especificado.
 
+• A string passada é caso sensitive
 
-			*********************
-			*                   *
-			*   lastIndexOf()   *
-			*                   *
-			*********************
+• Dessa forma a sintaxe do método é : string.indexOf("string para verificacao", indexInicioProcura)
 
 
+			let texto = "Olá, João"
 
+			console.log(texto.indexOf("João")) // 4
 
+			console.log(texto.indexOf("João",2)) // 4
 
+			console.log(texto.indexOf("Ana")) // -1
 
-			*****************
-			*               *
-			*   search()    *
-			*               *
-			*****************
 
+			****************************************************************************
+			*               							   *
+			*  Retornando a posição da última ocorrência de uma string - lastIndexOf() *
+			*               							   *
+			****************************************************************************
 
+• O método lastIndexOf() retorna o index(posição) da última ocorrência de uma string em uma string. 
+  Retornará -1 caso a string não seja encontrada
 
+• Por conta disso, devemos passar uma string como argumento do método.
 
+• O método aceita um segundo parâmetro, que seria a partir de qual index começaria a procura pela string.
 
+• Esse segundo parâmetro/argumento não é necessário para funcionamento do método. Podendo ser omitido.
 
+• Ao contrário de indexOf() que começa pelo index 0 automaticamente, caso não especificado,
+  lastIndexOf() começa pelo último index da string sobre a qual o método está sendo utilizado.
+  Isso significa que caso passemos o index 15,por exemplo, ele irá começar do index 15 até o index 0 da string.
 
+• A string passada é caso sensitive
 
+• Dessa forma a sintaxe do método é : string.lastIndexOf("string para verificacao", indexInicioProcura)
 
 
-			*****************
-			*               *
-			*   match()     *  
-			*               *
-			*****************
 
+			let texto = "Olá João"
 
+			console.log(texto.lastIndexOf("João",6)) // 4
 
 
+			****************************************************************************
+			*               							   *
+			*  Retornando a posição da primeira ocorrência de uma string - search ()   *
+			*               							   *
+			****************************************************************************
 
+• Esse método procura uma string(ou expressão regular, Regex) em uma string e retorna a posição dessa correspondência
 
+• A string passada é caso sensitive
 
+• Parecido com indexOf() , a diferença é que : Não aceita um segundo argumento (sempre começará do index 0), aceita uma expressão regular.
 
+• Dessa forma a sintaxe do método é : string.search("string para verificacao") ou string.search(/expressao regular/)
 
+			
+			let texto = "Olá João"
 
+			console.log(texto.search("joão")) // 4
 
 
+			console.log(texto.search(/João/)) // As / denotam uma expressão regular
 
-			******************
-			*                *
-			*   matchAll()   *
-			*                *
-			******************
 
 
 
+			*********************************************************************************************************
+			*               										        *
+			*  Retornando array contendo resultados que correspondem a uma string comparada a uma string - match()  *  
+			*               										        *
+			*********************************************************************************************************
 
+• Retorna um array contendo os resultados que correspondem a string passada comparada a uma string (ou uma expressão regular)
 
+• Ao utilizarmos uma expressão regular, caso não incluirmos o modificador de acesso g(global search),
+  apenas a primeira correspondência será retornada
 
+• Dessa forma a sintaxe do método é : string.match("string para verificacao") ou string.match(/expressao regular/)
 
 
 
 
+			let text = "The rain in SPAIN stays mainly in the plain"
 
+			console.log(text.match("ain")) // [
+							  'ain',
+							  index: 5,
+							  input: 'The rain in SPAIN stays mainly in the plain',
+ 							  groups: undefined
+							  ]
 
+			
+			console.log(text.match(/ain/)) // [
+							  'ain',
+							  index: 5,
+							  input: 'The rain in SPAIN stays mainly in the plain',
+ 							  groups: undefined
+							  ]
 
 
+			console.log(text.match(/ain/g)) // [ 'ain', 'ain', 'ain' ]
+			
 
-			******************
-			*                *
-			*   includes()   *
-			*                *
-			******************
 
+			********************************************************************************************
+			*               									   *
+			*  Retornando um iterável correspondente a uma string comparada a uma string - matchAll()  *  
+			*               									   *
+			********************************************************************************************
 
 
+• O método matchAll() retorna um iterável contendo os resultados de correspondência de uma string comparada a uma string (ou expressão regular).
 
+• Caso uma expressão regular seja utilizada, a flag global (g) deve ser utilizada. Caso contrário o erro TypeError será lançado.
 
+• Para transformar o resultado em algo legível,precisamos englobar o resultado no método Array.from()
 
+• Dessa forma a sintaxe do método é : string.matchAll("string para verificacao") ou string.matchAll(/expressao regular/g)
 
 
 
+			let texto = "Gatos"
+	
+			console.log(texto.matchAll("Gatos")) // Object [RegExp String Iterator] {}
 
+			console.log(texto.matchAll(/Gatos/g)) // Object [RegExp String Iterator] {}
 
+			console.log(Array.from(texto.matchAll(/Gatos/g))) // [ 
+										[ 'Gatos', index: 0, input: 'Gatos', groups: undefined ]
+									     ]
 
 
 
+			****************************************************************
+			*                					       *
+			*   Verificando se uma string possui uma string - includes()   *
+			*                					       *
+			****************************************************************
 
+• O método includes() retorna true caso uma string contenha uma determinada string . Caso contrário retorna falso.
 
+• Por conta disso, precisamos passar como argumento a string que queremos comparar.
 
-			********************
-			*                  *
-			*   startsWith()   *
-			*                  *
-			********************
+• É caso sensitivo.
 
+• Podemos passar um segundo argumento, que indicará a partir de qual index a procura irá começar a ser efetuada.
+  Caso não passemos nada, começará no index 0. 
 
+• O segundo argumento é opcional, como mencionado anteriormente.
 
+• Dessa forma a sintaxe do método é : string.includes("string para verificacao", inicioDaProcura)
 
 
 
+			let texto = "Olá João , quero comer picanha hoje"
 
+			console.log(texto.includes("banana")) // false
 
+			console.log(texto.includes("picanha")) // true
 
+			console.log(texto.includes("picanha",10)) // true
 
+			
 
+			********************************************************************************
+			*                  							       *
+			*   Verificando se uma string começa com um string específica - startsWith()   *
+			*                  							       *
+			********************************************************************************
 
+• O método startsWith() retorna true caso a string em comparação comece com a string passada. Caso contrário retorna falso.
 
+• Por conta disso, precisamos passar como argumento a string que queremos comparar.
 
-			******************
-			*                *
-			*   endsWith()   *
-			*                *
-			******************
+• É caso sensitivo.
 
+• Podemos passar um segundo argumento, que indicará a partir de qual index a procura irá começar a ser efetuada.
+  Caso não passemos nada, começará no index 0. 
 
+• O segundo argumento é opcional, como mencionado anteriormente.
 
+• Dessa forma a sintaxe do método é : string.startsWith("string para verificacao", inicioDaProcura)
 
 
 
+			let texto = "Olá João , quero comer picanha hoje"
 
+			console.log(texto.startsWith("picanha")) // false
 
+			console.log(texto.startsWith("Olá")) // true
 
+			console.log(texto.startsWith("Olá", 1)) // false
 
 
 
 
-		
+			********************************************************************************
+			*                  							       *
+			*   Verificando se uma string termina com um string específica - endsWith()   *
+			*                  							       *
+			********************************************************************************
+
+• O método endssWith() retorna true caso a string em comparação termine com a string passada. Caso contrário retorna falso.
+
+• Por conta disso, precisamos passar como argumento a string que queremos comparar.
+
+• É caso sensitivo.
+
+• Podemos passar um segundo argumento, que indicará a partir de qual index a procura irá PARAR de ser efetuada.
+  Caso não passemos nada,irá varrer a string inteira. 
+
+• O segundo argumento é opcional, como mencionado anteriormente.
+
+• Dessa forma a sintaxe do método é : string.endsWith("string para verificacao", finalDaProcura)
+
+
+
+			let texto = "Olá João , quero comer picanha hoje"
+
+			console.log(texto.endsWith("picanha")) // false
+
+			console.log(texto.endsWith("hoje")) // true
+
+			console.log(texto.endsWith("hoje", 35)) // true
+
+			console.log(texto.endsWith("hoje", 34)) // false
+
