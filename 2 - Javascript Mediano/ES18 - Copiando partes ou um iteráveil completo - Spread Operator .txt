@@ -1,0 +1,136 @@
+• Ele funciona com QUALQUER iterável (referir ao documento Iteráveis.txt em caso de dúvidas)
+
+• Ele expande um iterável em mais elementos
+
+• Isso nos permite rapidamente copiar todas ou apenas partes de um iterável em outro iterável.
+
+• O spread operator é representado por ... (três pontos seguidos)
+
+• Alinhado ao destructuring , se torna uma ferramenta muito poderosa
+
+
+
+
+		***********************************************
+		*				    	      *
+		*	Combinando arrays em um único array   *
+		*				    	      *
+		***********************************************
+
+• Nesse caso, quando usamos o spread operator, ele irá pegar o arrayNumeros1 e colocar como primeiro item do combinacaoArrays
+  Depois fará o mesmo, só que para o segundo item, com o arrayNumeros2
+  Isso resulta em uma combinação dos arrays.
+
+
+		const arrayNumeros1 = [1,2,3]
+		
+		const arrayNumeros2 = [4,5,6]
+
+		const combinacaoArrays = [...arrayNumeros1 , ...arrayNumeros2]
+
+		console.log(combinacaoArrays) // [ 1, 2, 3, 4, 5, 6 ]
+
+
+
+		*****************************************************
+		*				    	            *
+		*   Extraindo apenas o que precisamos de um array   *
+		*				    	            *
+		*****************************************************
+
+• Para isso ,basta igualarmos a variável que referencia o array a um array com variáveis.
+  Onde utilizarmos o spread operator, irá extrair todo o restante do array.
+
+• Nesse caso, a sintaxe fica : const [item1, item2, ...restanteDoArray] = arrayParaOperacao
+
+
+		const arrayParaOperacao = [1,2,3,4,5,6]
+
+		const [item1, item2 , ...restanteDoArray] = arrayParaOperacao
+
+
+		console.log(item1) //  1
+
+		console.log(item2) //  2
+
+		console.log(restanteDoArray) // [ 3, 4, 5, 6 ]
+
+
+
+		*****************************************************
+		*				    	            *
+		*   Combinando objetos em um único objeto           *
+		*				    	            *
+		*****************************************************
+
+• É feito da mesma maneira que com arrays. A diferença é que se existirem propriedades iguais, a última passada
+  substituirá o valor da anterior.
+
+• No exemplo a seguir, por exemplo, o resultado da propriedade cor será amarelo. As propriedades que não existem são adicionadas
+
+
+
+
+		const veiculo1 = {
+ 				    marca: 'Ford',
+				    modelo: 'Mustang',
+				    cor: 'vermelho'
+				  }
+
+		
+		const atualizarVeiculo= {
+				  	   tipo: 'carro',
+					   ano: 2021,
+					   cor: 'amarelo'
+					}
+
+
+		const combinacaoVeiculos = {...veiculo1, ...atualizarVeiculo}
+
+
+		console.log(combinacaoVeiculos) // {marca: 'Ford',   modelo: 'Mustang',   cor: 'amarelo',   tipo: 'carro',   ano: 2021 }
+
+
+
+		*****************************************************
+		*				    	            *
+		*   Copiando um objeto com o spread operator        *
+		*				    	            *
+		*****************************************************
+
+• Podemos realizar a cópia de um objeto com o spread operator.
+
+• Essa cópia só será realizada no primeiro nível. Caso existam objetos/arrays em alguma propriedade do objeto,
+precisamos fazer essa cópia de uma outra forma (referir ao Objetos.txt para mais informações sobres isso)
+
+• Caso utilizemos algum método sobre essa cópia, a cópia irá refletir no objeto inicial.
+
+• Caso alteremos alguma propriedade com a notação de . , essa alteração será realizada somente na cópia do objeto
+
+• A sintaxe é igual como se estívessemos realizando a cópia de um array. A diferença será que já que um objeto utiliza {},
+passaremos a variável que aponta para o objeto que queremos copiar entre {}
+
+		
+		const usuario = {
+				  nome: "João",
+			          idade: 30,
+				  interesses: ['livros', 'computador']
+				}
+
+
+		const usuario2 = {...usuario}
+
+		console.log(usuario2) // { nome: "João",idade: 30, interesses: ['livros', 'computador']	}
+
+		usuario2.idade = 21
+
+		console.log(usuario2.idade) // 21
+
+		console.log(usuario.idade) // 30
+
+		usuario2.interesses.push("Yoga")
+		
+		console.log(usuario) // { nome: "João",idade: 30, interesses: ['livros', 'computador','Yoga']	}
+
+		console.log(usuario2) // { nome: "João",idade: 21, interesses: ['livros', 'computador','Yoga']	}
+		

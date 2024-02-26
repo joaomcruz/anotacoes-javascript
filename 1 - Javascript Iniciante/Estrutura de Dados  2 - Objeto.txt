@@ -215,12 +215,12 @@
 	
 
 
-  *************************************************************************************************
-  *                                                                         			  *
-  *        Sintaxe / Estrutura :  Testando existência de propriedade  - propriedade in objeto     *
-  *                                                                         			  * 
-  *                                                                         			  *
-  *************************************************************************************************
+  ****************************************************************************************
+  *                                                                         		 *
+  *        Sintaxe / Estrutura :  Testando existência de propriedade  - propriedade in   *
+  *                                                                         		 *
+  *                                                                         		 *
+  ****************************************************************************************
 
 • Podemos testar a existência de uma propriedade tentando acessá-la. Caso a mesma não exista , retornará undefined
 

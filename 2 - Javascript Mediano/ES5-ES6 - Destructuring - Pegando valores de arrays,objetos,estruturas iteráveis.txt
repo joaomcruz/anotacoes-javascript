@@ -1,8 +1,14 @@
 • Facilita pegarmos valores das propriedades de um objeto/array,estrutura que seja iterável e até argumentos de funções.
+
 • Ao pegarmos esses valores, os mesmos são designados à variáveis tornando a utilização mais fácil
+
 • O que o destructuring faz é simplmente copiar itens de uma estrutura para variáveis. O array/objeto/estrutura original não é modificado.
+
 • Se passarmos um número menor de variáveis em relação ao tamanho da estrutura, salvo o caso de utilizarmos recursos
 que peguem o restante dos valores, somente aquele número de valores será atribuído as variáveis ( ver Sintaxe/Estrutura 3)
+
+• Podemos utilizar os valores deestruturados em combinação com um spread operator como argumento de função
+
 
 
        ## Utilizações : 
