@@ -114,7 +114,7 @@
 
 	***********************************************************************************
 	*                                                                                 *
-        *        Pegando o último elemento de um array  de maneira otimizada              *
+        *        Pegando o último elemento de um array  de maneira otimizada  - at()      *
         *                                                                                 *
         ***********************************************************************************
 
@@ -298,11 +298,11 @@
 • Repare que o "primeiro" item é sempre o index e o segundo o valor.
 
 
-	******************************************************
-	*                                                    *
-        *        Transformando arrays em objetos             *
-        *                                                    *
-        ******************************************************
+        ****************************************************************************
+	*                                                                          *
+        *        Transformando arrays em objetos - Object.fromEntries()            *
+	*                                                                          *
+        ****************************************************************************
 
 • Só podemos transformar em objetos arrays que possuam pares de valor . Isso significa que precisa ser um array bidimensional (no mínimo)
 
@@ -315,34 +315,5 @@
 	console.log(Object.fromEntries(arr)) // {1: '2', a: 'b', !: '@'}
 
 
-	***********************************************************************************
-	*                                                                                 *
-        *        Métodos e Propriedades disponíveis para Listas / Arrays                  *
-        *                                                                                 *
-        ***********************************************************************************
-
-
-
- • Para utilizarmos uma propriedade/método usamos um ponto (.) e o nome da função/propriedade em sequência.
-   Exemplo : listaExemplo.push("gavião")
-
- 	- length -> Retorna o tamanho da lista
- 	- push() -> Adiciona um item ao final do Array
- 	- pop() -> Remove um item do final do Array (modifica o array original pois remove o item)
- 	- shift() -> Remove do início do Array
-  	- unshift() -> Adiciona ao início do Array
-  	- indexOf() -> Procura o índice de um item no Array
-	- includes() -> Procura um item no Array e verifica se o array contém/inclui o que for passado entre os ()
-  	- splice(indiceInicio, quantidadeDeItens) -> Altera um array a partir da posição do índice. "Remove" os itens do array original a partir da posição passada e de acordo com a quantidade expressa.
-  	- toSpliced(indiceInicio, quantidadeDeItens) -> Mesmo do splice, porém retorna um novo array. Não muda o array original
- 	- slice() > Retorna uma cópia de parte de um array a partir de um subarray criado entre as posições início e fim (fim não é incluído) de um array original. O Array original não é modificado
- 	- sort() -> Retorna o array original em ordem ascendente por padrão.
- 	- toSorted() -> Retorna um novo array em ordem ascendente.
- 	- reverse() -> Reverte um array, ALTERA o array original.
-  	- toReversed() -> Reverte um array como o reverse(), porém retorna um novo array. Não muda o array original.
-  	- join() -> Cria e retorna uma nova string concatenando todos os elementos do array, separados por vírgula ou por um seletor específico passado dentro do método. 
-	Se o array só tiver um item, o mesmo irá ser retornado SEM usar o separador.
-	- concat() -> Cria uma cópia do array passado como argumento (cópia "rasa")
-  
 
 

@@ -1,0 +1,282 @@
+	***************************************************************
+	*                                                             *
+        *       Métodos básicos disponíveis para Listas / Arrays      *
+        *                                                             *
+        ***************************************************************
+
+
+
+
+		*************************************************************************
+		*                                                            		*
+		*      Retornando o tamanho de uma lista/array - Propriedade length     *
+		*                                                            		*
+		*************************************************************************
+
+• A propriedade length retorna o tamanho de um array, ou seja, quantos itens nele estão inseridos.
+
+• Por ser uma propriedade a sintaxe fica : array.length
+
+	
+		const frutas = ["Banana", "Maçã", "Uva", "Morango"]
+
+		console.log(frutas.length) // 4
+
+
+
+		**********************************************************************************************************
+		*                                                            						 *
+		*      Convertendo um array para uma string dos valores do array (separado por vírgula) - toString()     *
+		*                                                            						 *
+		**********************************************************************************************************
+
+• O método toString() converte um array para uma string de valores do array separado por vírgula.
+
+• É como se só removessemos o conteúdo do array e tranformássemos em strings separando cada item por vírgula
+
+• Tem como sintaxe : array.toString()
+
+
+		const frutas = ["Banana", "Maçã", "Uva", "Morango"]
+
+		console.log(frutas.toString()) // Banana,Maçã,Uva,Morango
+
+
+
+		*************************************************
+		*                                               *
+		*      Acessando um item de um array - at()     *
+		*                                               *
+		*************************************************
+
+• O método at() retorna o elemento indexado do array
+
+• O método at() retorna o mesmo que passar o index entre []
+
+• array.at(1) é o mesmo que array[1]
+
+• A diferença do método at() para passarmos o index através de [], é que o método at() aceita indexes negativos. 
+  Quando passamos indexes negativos ele começa no -1(último item) até o seu length (negativo).
+  Caso tenhamos um array de length 4, então, poderíamos utilizar o método at() de -1 até o -4.
+  
+
+• Tem como sintaxe : array.at(indexDoArray)
+
+
+
+		const frutas = ["Banana", "Maçã", "Uva", "Morango"]
+
+		frutas.at(0) // Banana
+		
+		frutas[0] // Banana
+
+		frutas.at(-1) // Morango
+
+
+
+		**********************************************************************************************************
+		*                                                            						 *
+		*      Convertendo um array para uma string dos valores do array (escolhendo o separador) - join()       *
+		*                                                            						 *
+		**********************************************************************************************************
+
+• É parecido com o toString() a diferença é que ao converter um array para uma string de valores do array, nós podemos
+  passar qual o separador que será utilizado.
+
+• É como se só removessemos o conteúdo do array e tranformássemos em strings separando cada item por um separador especificado
+  por nós mesmos.
+
+• Tem como sintaxe : array.join("-")
+
+
+
+		const frutas = ["Banana", "Maçã", "Uva", "Morango"]
+
+
+		console.log(frutas.join("-")) // Banana-Maçã-Uva-Morango
+
+		console.log(frutas.join("")) // BananaMaçãUvaMorango
+
+
+
+ 		********************************************************
+		*						       *
+		*    Removendo o primeiro item de um array - shift()   *
+		*						       *
+ 		********************************************************
+
+• O método shift() remove o primeiro item de um array e consequentemente move todos os outros elementos
+  para o index em que estão -1. Ou seja, um item que estava no index 4, passa a ficar no index 3 e assim sucessivamente.
+
+• O retorno do método vai ser justamente esse valor que foi removido.
+
+• Tem como sintaxe : array.shift()
+
+
+		const frutas = ["Banana", "Maçã", "Uva", "Morango"]
+
+
+		console.log(frutas.shift()) // Banana
+
+
+ 		********************************************************
+		*						       *
+		*      Removendo o último item de um array - pop()     *
+		*						       *
+ 		********************************************************
+
+• O método pop remove o último item de um array
+
+• O retorno do método vai ser justamente o valor que foi removido
+
+• Tem como sintaxe : array.pop()
+
+
+		const frutas = ["Banana", "Maçã", "Uva", "Morango"]
+
+
+		console.log(frutas.pop()) // Morango
+
+
+
+ 		**********************************************************
+		*						      	 *
+		*   Adicionando um item ao início do array - unshift()   *
+		*						         *
+ 		**********************************************************
+
+• O método unshift() adiciona um item ao array, na posição inicial (index 0).
+
+• O retorno do método vai ser o novo length(tamanho) do array.
+
+• Por conta do método adicionar um item ao index 0 do array ele consequentemente move todos os outros elementos
+  para o index em que estão +1. Ou seja, um item que estava no index 4, passa a ficar no index 5 e assim sucessivamente.
+
+• Como o método adiciona um item, devemos passar como argumento o valor que queremos adicionar ao array.
+
+• Tem como sintaxe : array.unshift(valor)
+
+
+		const frutas = ["Banana", "Maçã", "Uva", "Morango"]
+
+
+		console.log(frutas.unshift("Kiwi")) // 5
+
+
+ 		********************************************************
+		*						       *
+		*     Adicionando um item ao final do array - push()   *
+		*						       *
+ 		********************************************************
+
+• O método push adiciona um item ao array, na posição(index) final.
+
+• O retorno do método vai ser o novo length(tamanho) do array.
+
+• Como o método adiciona um item, devemos passar como argumento o valor que queremos adicionar ao array.
+
+• Tem como sintaxe : array.push(valor)
+
+
+		const frutas = ["Banana", "Maçã", "Uva", "Morango"]
+
+
+		console.log(frutas.push("Kiwi")) // 5
+
+
+ 		****************************************************************************
+		*						       			   *
+		*   Adicionando um item ao final do array através da propriedade length    *
+		*						                           *
+ 		****************************************************************************
+
+• A propriedade .length anteriormente vista pode também servir para adicionarmos um elemento em um array.
+
+• Isso é realizado acessando o length (tamanho) do array e associando a esse length um valor.
+
+• Tem como sintaxe : array[array.length] = valor
+
+
+
+		const frutas = ["Banana", "Maçã", "Uva", "Morango"]
+
+		frutas[frutas.length] = "Kiwi"
+
+		console.log(frutas) // [ 'Banana', 'Maçã', 'Uva', 'Morango', 'Kiwi' ]
+
+
+
+ 		*********************************************
+		*				    	    *
+		*   Deletando um item de um array - delete  *
+		*				    	    *
+ 		*********************************************
+
+• Não é recomendado utilizar esse método, uma vez que ele deixa valores undefined ao longo do caminho.
+
+• Ao invés disso ,o ideal é utilizar pop() ou shift()
+
+• Tem como sintaxe : delete array[index]
+
+
+		const frutas = ["Banana", "Maçã", "Uva", "Morango"]
+
+		delete frutas[0]
+
+		console.log(frutas) // [ <1 empty item>, 'Maçã', 'Uva', 'Morango' ]
+
+
+
+ 		**********************************************************
+		*				    		      	 *
+		*  Mergeando/Concatenando um ou mais arrays - concat() 	 *
+		*				    		      	 *
+ 		**********************************************************
+
+• Concatenar significa juntar strings do início ao fim. Concatenar arrays é a mesma coisa, juntar arrays do início ao fim.
+
+• O método concat() cria um novo array concatenando arrays existentes.
+
+• Podemos passar quantos arrays quisermos como argumento desse método.
+
+• Podemos passar também strings como argumentos desse método.
+
+• Esse método nunca altera os arrays existentes e SEMPRE retorna um novo array.
+
+• Por retornar um novo array, é uma boa prática sempre criarmos uma variável para armazenar esse array concatenado.
+
+• Tem como sintaxe : array1.concat(arr2,arr3,arr4,arrN,"string1","string N")
+
+
+		const mulheresArray = ["Emilia", "Roberta"];
+	
+		const homensArray = ["João"];
+
+		const juncaoArrays = mulheresArray.concat(homensArray,"Paulo")
+
+		console.log(juncaoArrays) // ["Emilia", "Roberta", "João", "Paulo"]
+		
+		console.log(mulheresArray.concat(homensArray,"Paulo")) // ["Emilia", "Roberta", "João", "Paulo"]
+
+
+
+
+
+
+
+
+
+
+
+  
+  	- indexOf() -> Procura o índice de um item no Array
+	- includes() -> Procura um item no Array e verifica se o array contém/inclui o que for passado entre os ()
+  	- splice(indiceInicio, quantidadeDeItens) -> Altera um array a partir da posição do índice. "Remove" os itens do array original a partir da posição passada e de acordo com a quantidade expressa.
+  	- toSpliced(indiceInicio, quantidadeDeItens) -> Mesmo do splice, porém retorna um novo array. Não muda o array original
+ 	- slice() > Retorna uma cópia de parte de um array a partir de um subarray criado entre as posições início e fim (fim não é incluído) de um array original. O Array original não é modificado
+ 	- sort() -> Retorna o array original em ordem ascendente por padrão.
+ 	- toSorted() -> Retorna um novo array em ordem ascendente.
+ 	- reverse() -> Reverte um array, ALTERA o array original.
+  	- toReversed() -> Reverte um array como o reverse(), porém retorna um novo array. Não muda o array original.
+
+  
