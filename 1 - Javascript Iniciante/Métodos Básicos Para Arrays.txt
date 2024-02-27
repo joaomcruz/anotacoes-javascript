@@ -533,18 +533,3 @@
 
 		console.log(citrus) // [ 'Lemon', 'Apple', 'Mango' ]
 
-
-
-
-
-
-
-  
-- indexOf() -> Procura o índice de um item no Array
-- includes() -> Procura um item no Array e verifica se o array contém/inclui o que for passado entre os ()
-- sort() -> Retorna o array original em ordem ascendente por padrão.
-- toSorted() -> Retorna um novo array em ordem ascendente.
-- reverse() -> Reverte um array, ALTERA o array original.
-- toReversed() -> Reverte um array como o reverse(), porém retorna um novo array. Não muda o array original.
-
-  
