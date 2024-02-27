@@ -30,9 +30,15 @@
 		*                                                            						 *
 		**********************************************************************************************************
 
+• Todos os objetos javascript possuem o método toString()
+
+• O javascript converte automaticamente um array em string separada por vírgulas quando um valor primitivo é aguardado.
+
 • O método toString() converte um array para uma string de valores do array separado por vírgula.
 
 • É como se só removessemos o conteúdo do array e tranformássemos em strings separando cada item por vírgula
+
+• Não altera o array original, sendo uma boa prática criarmos uma variável para armazenar esse resultado retornado
 
 • Tem como sintaxe : array.toString()
 
@@ -83,6 +89,8 @@
 • É parecido com o toString() a diferença é que ao converter um array para uma string de valores do array, nós podemos
   passar qual o separador que será utilizado.
 
+• Não altera o array original, sendo uma boa prática criarmos uma variável para armazenar o resultado retornado
+
 • É como se só removessemos o conteúdo do array e tranformássemos em strings separando cada item por um separador especificado
   por nós mesmos.
 
@@ -110,6 +118,8 @@
 
 • O retorno do método vai ser justamente esse valor que foi removido.
 
+• Altera o array original.
+
 • Tem como sintaxe : array.shift()
 
 
@@ -128,6 +138,8 @@
 • O método pop remove o último item de um array
 
 • O retorno do método vai ser justamente o valor que foi removido
+
+• Altera o array original.
 
 • Tem como sintaxe : array.pop()
 
@@ -154,6 +166,8 @@
 
 • Como o método adiciona um item, devemos passar como argumento o valor que queremos adicionar ao array.
 
+• Altera o array original.
+
 • Tem como sintaxe : array.unshift(valor)
 
 
@@ -172,6 +186,8 @@
 • O método push adiciona um item ao array, na posição(index) final.
 
 • O retorno do método vai ser o novo length(tamanho) do array.
+
+• Altera o array original.
 
 • Como o método adiciona um item, devemos passar como argumento o valor que queremos adicionar ao array.
 
@@ -193,6 +209,8 @@
 • A propriedade .length anteriormente vista pode também servir para adicionarmos um elemento em um array.
 
 • Isso é realizado acessando o length (tamanho) do array e associando a esse length um valor.
+
+• Altera o array original.
 
 • Tem como sintaxe : array[array.length] = valor
 
@@ -260,7 +278,260 @@
 
 
 
+ 		******************************************************************************************
+		*				    		      	 				 *
+		*  Copiando elementos do array para uma outra posição do mesmo array - copyWithin() 	 *
+		*				    		      	 				 *
+ 		******************************************************************************************
 
+• O método copyWithin() copia elementos de um array para uma outra posição dentro do mesmo array.
+
+• Altera o array original.
+
+• O método sobrescreve valores existentes.
+
+• O método NÃO adiciona itens ao array.
+
+• Esse método copia os valores, sobrescreve a partir do index citado, e empurra os itens do index citado para os próximos indexes
+
+• Não altera o tamanho do array.
+
+• Aceita ATÉ 3 argumentos. Sendo o primeiro o index para qual index copiar, o segundo a partir de qual index copiar 
+ e o terceiro até qual index copiar (excluído).
+
+• Caso não passemos o terceiro argumento, ele copia até o index em que passamos para colar a cópia.
+
+• Tem como sintaxe: array.copyWithin(indexParaColarACopia, indexInicialDeCopia , indexFinalDeCopia)
+
+
+
+		const frutas = ["Banana", "Maçã", "Uva", "Morango", "Kiwi"]
+
+		console.log(frutas.copyWithin(2, 0, 2)) // [ 'Banana', 'Maçã', 'Banana', 'Maçã', 'Kiwi' ]
+
+		
+		const frutas = ["Banana", "Maçã", "Uva", "Morango", "Kiwi", "Jamelão"]
+
+		onsole.log(frutas.copyWithin(2, 0)) //[ 'Banana', 'Maçã', 'Banana', 'Maçã', 'Uva', 'Morango' ]
+
+
+
+ 		***************************************************************************
+		*				    		   	   	 	  *
+		*   Reduzindo a profundidade/limpando espaços vazios de um array - flat() *
+		*									  *
+                *									  *
+ 		***************************************************************************
+
+• O método flat() cria um novo array com todos elementos sub-arrays concatenados nele de forma recursiva até a 
+  profundidade especificada
+
+• Não altera o array original, sendo uma boa prática criarmos uma variável para armazenar esse novo array retornado
+
+• Podemos especificar até qual profundidade queremos "achatar" / reduzir a dimensionalidade do array. 
+  Podemos utilizar a palavra Infinity para reduzir a nível uni-dimensional não importando quantos níveis
+  o array possua.
+
+• O argumento do método é opcional , sendo o padrão "1" , ou seja, apenas um nível.
+
+• O método flat() também remove espaços vazios em um array .
+
+• Tem como sintaxe : array.flat(profundidade) 
+
+
+		let arr1 = [1, 2, [3, 4]];
+		
+		arr1.flat(); // [1, 2, 3, 4]
+
+
+
+		let arr2 = [1, 2, [3, 4, [5, 6]]];
+		
+		arr2.flat(); // [1, 2, 3, 4, [5, 6]]
+
+
+
+
+		let arr3 = [1, 2, [3, 4, [5, 6]]];
+		
+		arr3.flat(2); // [1, 2, 3, 4, 5, 6]
+
+
+
+		const arr4 = [1, 2, [3, 4, [5, 6, [7, 8]]]];
+		
+		arr4.flat(Infinity); // [1, 2, 3, 4, 5, 6, 7, 8]
+
+
+		let arr5 = [1, 2, , 4, 5];
+ 
+		arr5.flat(); // [1, 2, 4, 5]
+
+
+
+
+
+ 		*************************************************************************************
+		*				                                                    *
+		*  Adicionando/Removendo elementos de um array na posição que quisermos - splice()  *
+		*		                                       				    *				    		      			                         *
+ 		*************************************************************************************
+
+• Podemos utilizar o método splice() para adicionar/remover elementos em um array na posição desejada.
+
+• Esse método aceita 2 argumentos "fixos", e o terceiro como "variante"(não obrigatório e contendo quantos elementos quisermos)
+  O primeiro argumento é a posição aonde um ou mais elementos serão adicionados 
+  O segundo argumento é quantos elementos serão removidos 
+  Do terceiro em diante é a definição dos novos elementos que serão adicionados (não obrigatório)
+
+• Caso passemos 1 ou mais como segundo argumento, o método irá retornar um array com os itens deletados/removidos
+
+• O array original É alterado.
+
+• Podemos utilizar esses métodos tanto para adicionarmos elementos quanto para removermos.
+
+• Para adicionarmos, vamos passar como segundo argumento 0, uma vez que não queremos remover nenhum item do array, 
+  e sim apenas adicionar.
+
+• Para removermos , como segundo argumento selecionaremos quantos elementos queremos remover. Podemos nesse caso 
+  passar como primeiro argumento tanto 0 (quando não queremos adicionar nenhum, somente remover), quanto podemos
+  passar um número de itens que também serão adicionados. Dessa forma itens serão adicionados e excluídos
+  ao mesmo tempo.
+
+• A vantagem de remover itens de um array com esse método é que ele não deixa "buraco" no array.
+
+• Caso passemos 0 no segundo argumento, o método não retornará nada,uma vez que nenhum item foi removido do array.
+
+• A sintaxe fica : array.splice(posicaoElementosAdicionados, quantosElementosRemover, elementosAdicionar) 
+						  
+
+		const fruits = ["Banana", "Orange", "Apple", "Mango"];
+	
+		fruits.splice(2, 0, "Lemon", "Kiwi") 
+
+		console.log(fruits) // [ 'Banana', 'Orange', 'Lemon', 'Kiwi', 'Apple', 'Mango' ]
+
+		
+		const fruits = ["Banana", "Orange", "Apple", "Mango"];
+		
+		console.log(fruits.splice(2, 2, "Lemon", "Kiwi")) // [ 'Apple', 'Mango' ]
+
+		console.log(fruits) // [ 'Banana', 'Orange', 'Lemon', 'Kiwi' ]
+
+
+		const fruits = ["Banana", "Orange", "Apple", "Mango"];
+		
+		console.log(fruits.splice(0, 1)) // [ 'Banana' ]
+
+		console.log(fruits) // [ 'Orange', 'Apple', 'Mango' ]
+
+
+
+
+ 		***************************************************************************************
+		*				                                                      *
+		*  Adicionando/Removendo elementos de um array na posição que quisermos - toSpliced() *
+		*				    		      	 	 	              *
+ 		***************************************************************************************
+
+• Em contrapartida ao splice que ALTERA o array original, o método toSpliced não altera o array original,
+  retornando um novo array, sendo uma boa prática criarmos uma variável para armazenar esse novo array retornado.
+
+• Podemos utilizar o método toSpliced() para adicionar/remover elementos em um array na posição desejada.
+
+• Esse método aceita 2 argumentos "fixos", e o terceiro como "variante"(não obrigatório e contendo quantos elementos quisermos)
+  O primeiro argumento é a posição aonde um ou mais elementos serão adicionados 
+  O segundo argumento é quantos elementos serão removidos 
+  Do terceiro em diante é a definição dos novos elementos que serão adicionados (não obrigatório)
+
+• Caso passemos 1 ou mais como segundo argumento, o método irá retornar o array inteiro sem os itens que foram
+ removidos. Ao invés de retornar um array com os itens que foram removidos como o splice()
+
+• Podemos utilizar esses métodos tanto para adicionarmos elementos quanto para removermos.
+
+• Para adicionarmos, vamos passar como segundo argumento 0, uma vez que não queremos remover nenhum item do array, 
+  e sim apenas adicionar.
+
+• Para removermos , como segundo argumento selecionaremos quantos elementos queremos remover. Podemos nesse caso 
+  passar como primeiro argumento tanto 0 (quando não queremos adicionar nenhum, somente remover), quanto podemos
+  passar um número de itens que também serão adicionados. Dessa forma itens serão adicionados e excluídos
+  ao mesmo tempo.
+
+• A vantagem de remover itens de um array com esse método é que ele não deixa "buraco" no array.
+
+• Caso passemos 0 no segundo argumento, o método não retornará nada,uma vez que nenhum item foi removido do array.
+
+•  A sintaxe fica : array.toSpliced(posicaoElementosAdicionados, quantosElementosRemover, elementosAdicionar)
+						  
+
+		const fruits = ["Banana", "Orange", "Apple", "Mango"];
+	
+		fruits.toSpliced(2, 0, "Lemon", "Kiwi") 
+
+		console.log(fruits) // [ 'Banana', 'Orange', 'Apple', 'Mango' ]
+
+		
+		const fruits = ["Banana", "Orange", "Apple", "Mango"];
+		
+		console.log(fruits.toSpliced(2, 2, "Lemon", "Kiwi")) // [ 'Banana', 'Orange', 'Lemon', 'Kiwi' ]
+
+		console.log(fruits) // [ 'Banana', 'Orange', 'Apple', 'Mango' ]
+
+
+		const fruits = ["Banana", "Orange", "Apple", "Mango"];
+		
+		console.log(fruits.toSpliced(0, 1)) // [ 'Orange', 'Apple', 'Mango' ]
+
+		console.log(fruits) // [ 'Banana', 'Orange', 'Apple', 'Mango' ]
+
+
+
+ 		*******************************************************************
+		*				                                  *
+		*  "Recortando" um pedaço de um array em um novo array - slice()  *
+		*				    		      	 	  *
+ 		*******************************************************************
+
+• O método slice() "corta" um pedaço de um array em um novo array
+
+• Cria um novo array.
+
+• Não remove elemento algum do array de origem (ou seja, não altera o array original). Por conta disso, é uma 
+  boa prática criarmos uma variável para receber esse novo array gerado.
+
+• Recebe até 2 argumentos. Sendo o primeiro o index de onde começará o recorte e o segundo até aonde irá recortar
+ sendo esse segundo não incluído. Ou seja, caso passemos 0 e 2, ele irá recortar somente os indexes 0 e 1.
+
+• Apenas o primeiro argumento é obrigatório.
+
+• Caso o segundo argumento seja omitido, irá começar o recorte do index informado e irá até o final do array.
+
+•  A sintaxe fica : array.slice(indexComeçoRecorte, indexFimRecorte)
+
+
+		const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+		
+		const citrus = fruits.slice(3);
+
+		console.log(fruits) // ["Banana", "Orange", "Lemon", "Apple", "Mango"]
+
+		console.log(citrus) // ["Apple", "Mango"]
+
+
+
+		const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+		
+		const citrus = fruits.slice(1, 3)
+
+		console.log(citrus) // ["Orange","Lemon"]
+
+
+
+		const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+		
+		const citrus = fruits.slice(2)
+
+		console.log(citrus) // [ 'Lemon', 'Apple', 'Mango' ]
 
 
 
@@ -269,14 +540,11 @@
 
 
   
-  	- indexOf() -> Procura o índice de um item no Array
-	- includes() -> Procura um item no Array e verifica se o array contém/inclui o que for passado entre os ()
-  	- splice(indiceInicio, quantidadeDeItens) -> Altera um array a partir da posição do índice. "Remove" os itens do array original a partir da posição passada e de acordo com a quantidade expressa.
-  	- toSpliced(indiceInicio, quantidadeDeItens) -> Mesmo do splice, porém retorna um novo array. Não muda o array original
- 	- slice() > Retorna uma cópia de parte de um array a partir de um subarray criado entre as posições início e fim (fim não é incluído) de um array original. O Array original não é modificado
- 	- sort() -> Retorna o array original em ordem ascendente por padrão.
- 	- toSorted() -> Retorna um novo array em ordem ascendente.
- 	- reverse() -> Reverte um array, ALTERA o array original.
-  	- toReversed() -> Reverte um array como o reverse(), porém retorna um novo array. Não muda o array original.
+- indexOf() -> Procura o índice de um item no Array
+- includes() -> Procura um item no Array e verifica se o array contém/inclui o que for passado entre os ()
+- sort() -> Retorna o array original em ordem ascendente por padrão.
+- toSorted() -> Retorna um novo array em ordem ascendente.
+- reverse() -> Reverte um array, ALTERA o array original.
+- toReversed() -> Reverte um array como o reverse(), porém retorna um novo array. Não muda o array original.
 
   
