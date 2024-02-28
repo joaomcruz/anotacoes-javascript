@@ -1,53 +1,311 @@
-	***************************************************************
-	*                                                             *
-        *       Métodos de Busca disponíveis para Listas / Arrays     *
-        *                                                             *
-        ***************************************************************
+					***************************************************************
+					*                                                             *
+       					*       Métodos de Busca disponíveis para Listas / Arrays     *
+       					*                                                             *
+       			        	***************************************************************
+
+
+	*************************************************************************************************************
+	*                                                            	       		    			    *
+	*       Procurando a primeira ocorrência de elemento no array e retornando sua posição(index) -  indexOf()  *
+	*                                                            	       		    			    *
+	*************************************************************************************************************
+
+• O método indexOf() procura por um elemento no array e retorna a sua posição (index)
+
+• Retorna -1 caso não encontre o item
+
+• Podemos passar como segundo argumento a posição inicial que a procura irá iniciar.
+
+• Caso passemos um index negativo a procura irá começar no dado index (de frente pra trás) e irá até o final na ordem natural.
+  Ou seja, ao contrário de alguns métodos em que a busca se dava do fim para o começo , nesse método ela começa do fim e 
+  vai até o fim. Exemplo : Caso passemos -1 como index, só irá procurar pelo último item. Caso passemos -2, irá procurar
+  pelo penúltimo e último item.
+
+• A busca é caso sensisitive.
+
+• Não permite busca por valores NaN
+
+• Caso o item esteja presente mais de uma vez no array, apenas a primeira ocorrência é retornada.
+
+• É importante lembrar que a CONTAGEM é realizada de acordo com os itens, ou seja, 1,2,3 etc.
+  O index que será retornado que começa em 0.
+
+• Tem como sintaxe então :  array.indexOf(itemParaProcura, indexInicioProcura)
+
+
+	const frutas = ["Maçã","Limão", "Banana", "Laranja", "Manga", "Abacate", "Limão"]
+
+
+	console.log(frutas.indexOf("Manga", -4)) // Começa a busca em "Laranja" e retorna 4 que é o index da manga
+
+			
+	console.log(frutas.indexOf("Mamão", -4)) // -1 não encontrará.
+
+
+	console.log(frutas.indexOf("Limão") // 1
+		
+
+
+	*****************************************************************************************************************
+	*                                                            	       		    			        *
+	*       Procurando a última ocorrência de elemento no array e retornando sua posição(index) -  lastIndexOf()    *
+	*                                                            	       		    			        *
+	*****************************************************************************************************************
+
+• O método lastIndexOf() procura por um elemento no array e retorna a posição (index) da sua última ocorrência.
+
+• Retorna -1 caso não encontre o item
+
+• Podemos passar como segundo argumento a posição inicial que a procura irá iniciar.
+
+• Caso passemos um index negativo a procura irá começar no dado index (de frente pra trás) e irá até o início do array 
+  procurando. Ao contrário de indexOf().
+
+• A busca é caso sensisitive.
+
+
+• É importante lembrar que a CONTAGEM é realizada de acordo com os itens, ou seja, 1,2,3 etc.
+  O index que será retornado que começa em 0.
+
+• Tem como sintaxe então :  array.lastIndexOf(itemParaProcura, indexInicioProcura)
 
 
 
-		*************************************************************************
-		*                                                            		*
-		*                                                            indexOf()  *
-		*                                                            		*
-		*************************************************************************
+	const frutas = ["Maçã", "Limão", "Banana", "Laranja", "Manga", "Abacate", "Limão"]
 
 
-		*************************************************************************
-		*                                                            		*
-		*                                                        lastIndexOf()  *
-		*                                                            		*
-		*************************************************************************
-
-		*************************************************************************
-		*                                                            		*
-		*                                                            includes() *
-		*                                                            		*
-		*************************************************************************
+	console.log(frutas.lastIndexOf("Manga", -2)) // Começa a busca em "Abacate" e retorna 4 que é o index da manga
 
 
-		*************************************************************************
-		*                                                            		*
-		*                                                            find()     *
-		*                                                            		*
-		*************************************************************************
+	console.log(frutas.lastIndexOf("Mamão", -4)) // -1 não encontrará.
 
 
-		*************************************************************************
-		*                                                            		*
-		*                                                          findIndex()  *
-		*                                                            		*
-		*************************************************************************
-
-		*************************************************************************
-		*                                                            		*
-		*                                                            findLast() *
-		*                                                            		*
-		*************************************************************************
+	console.log(frutas.lastIndexOf("Limão")) // 6
 
 
-		*******************************************************************************
-		*                                                            		      *
-		*                                                            findLastIndex()  *
-		*                                                            		      *
-		*******************************************************************************
+	****************************************************************************
+	*                                                            		   *
+	*     Retornando a existência ou não de um item em um array - includes()   *
+	*                                                            		   *
+	****************************************************************************
+
+• Esse método procura por um item em um array e retorna a sua existência ou não. Caso encontre o item, irá retornar
+  true, caso contrário retornará false.
+
+• Permite busca por valores NaN
+
+• Tem como sintaxe então : array.includes(itemParaProcura)
+
+
+
+	const frutas = ["Maçã", "Limão", "Banana", "Laranja", "Manga", "Abacate", NaN]
+
+
+	console.log(frutas.includes(NaN)) // true
+
+
+	console.log(frutas.includes("Mamão")) // false
+
+
+	console.log(frutas.includes("Limão")) // true
+
+
+
+	*****************************************************************************************************************************
+	*                                                            							            *
+	*    Retornando o valor do primeiro elemento do array que satisfizer a condição de uma função de teste provida - find()     *
+	*                                                            			                	            	    *
+	*****************************************************************************************************************************
+
+• O método retorna o valor do primeiro elemento do array que satisfizer a função de teste (callback) provida.
+
+• Caso não encontre, retornará undefined
+
+• Não altera o array.
+
+• Recebe como argumento uma função de callback que aceita 3 argumentos : o elemento que está sendo processado
+  no array, o index do elemento atualmente sendo processado no array, e o array de qual estamos performando a busca.
+
+• O método executa a função callback uma vez para cada elemento presente no array até que encontre um onde 
+  callback retorne o valor true. Se o elemento é encontrado, find retorna imediatamente o valor deste elemento. 
+  Caso contrário, find retorna undefined. O callback é acionado para todos os índices do array de 0 a tamanho-1, 
+  não apenas para aqueles que possuem valores atribuídos. Sendo assim, ele pode ser menos eficiente para arrays
+  muito grandes em que existem outros métodos que só visitam os índices que tenham valor atribuído
+
+• O conjunto de elementos que será visitado pelo método é definido antes do primeiro acionamento do callback.
+  Caso elemento(s) sejam anexado(s) ao array após o início da chamada do método, esse(s) elemento(s) não serão
+ "visitados" pelo callback. O valor passado ao callback quando visitar o(s) index(es) em que esse(s) elemento(s) deveria(m)
+  estar será o valor original pré adição desse(s) elemento(s). Elementos excluídos ainda sim são visitados.
+
+• Tanto o segundo quanto o terceiro argumento da função callback são opcionais.
+
+• O valor do elemento é caso sensitive.
+
+• Tem como sintaxe então : array.find( funcaoCallback(valorElemento, indexElemento, arrayExecutando) )
+
+
+	const inventory = [
+				  { name: "apples", quantity: 2 },
+				  { name: "bananas", quantity: 0 },
+				  { name: "cerejas", quantity: 5 },
+			  ]
+
+       
+
+	function isCherries(fruit,index,array) {
+					console.log(index)
+					console.log(array)
+  					return fruit.name === "cerejas";
+				   }
+
+	console.log(inventory.find(isCherries));  // { name: 'cerejas', quantity: 5 }
+
+
+	console.log(inventory.find((fruit) => fruit.name === "cherries")); // { name: 'cherries', quantity: 5 }
+
+
+
+
+	**********************************************************************************************************************************
+	*                                                            							                 *
+	*    Retornando o index do primeiro elemento do array que satisfizer a condição de uma função de teste provida - findIndex()     *
+	*                                                            			                	            	         *
+	**********************************************************************************************************************************
+
+• O método findIndex() retorna o index do primeiro elemento do array que satisfizer a função de teste (callback) provida.
+
+• Caso não encontre, retornará -1.
+
+• Não altera o array.
+
+• Recebe como argumento uma função de callback que aceita 3 argumentos : o elemento que está sendo processado
+  no array, o index do elemento atualmente sendo processado no array, e o array de qual estamos performando a busca.
+
+• O método executa a função callback uma vez para cada elemento presente no array até que encontre um onde 
+  callback retorne o valor true. Se o elemento é encontrado, retorna imediatamente o index deste elemento. 
+  Caso contrário, find retorna undefined. O callback é acionado para todos os índices do array de 0 a tamanho-1, 
+  não apenas para aqueles que possuem valores atribuídos. Sendo assim, ele pode ser menos eficiente para arrays
+  muito grandes em que existem outros métodos que só visitam os índices que tenham valor atribuído.
+
+• O conjunto de elementos que será visitado pelo método é definido antes do primeiro acionamento do callback.
+  Caso elemento(s) sejam anexado(s) ao array após o início da chamada do método, esse(s) elemento(s) não serão
+ "visitados" pelo callback. O valor passado ao callback quando visitar o(s) index(es) em que esse(s) elemento(s) deveria(m)
+  estar será o valor original pré adição desse(s) elemento(s). Elementos excluídos ainda sim são visitados.
+
+• Tanto o segundo quanto o terceiro argumento da função callback são opcionais.
+
+• O valor do elemento é caso sensitive.
+
+• Tem como sintaxe então : array.findIndex( funcaoCallback(valorElemento, indexElemento, arrayExecutando) )
+
+
+	const inventory = [
+    				{ name: "apples", quantity: 2 },
+   				{ name: "bananas", quantity: 0 },
+			        { name: "cerejas", quantity: 5 },
+			  ]
+
+
+	function isCherries(fruit) {
+				    return fruit.name === "cerejas";
+				   }
+
+	console.log(inventory.findIndex(isCherries));  // 2
+
+
+	console.log(inventory.findIndex((fruit) => fruit.name === "ABC")) // -1
+
+
+
+
+
+	*****************************************************************************************************************************
+	*                                                            							            *
+	*    Retornando o valor do último elemento do array que satisfizer a condição de uma função de teste provida - findLast()   *
+	*                                                            			                	            	    *
+	*****************************************************************************************************************************
+
+• O método findLast() retorna o valor do último elemento do array que satisfizer a função de teste (callback) provida.
+
+• Por conta de retornar o último valor, ele começará pelo final do array e o percorrerá até o primeiro item.
+
+• Caso não encontre, retornará undefined
+
+• Não altera o array.
+
+• Recebe como argumento uma função de callback que aceita 3 argumentos : o elemento que está sendo processado
+  no array, o index do elemento atualmente sendo processado no array, e o array de qual estamos performando a busca.
+
+• O método executa a função callback uma vez para cada elemento presente no array até que encontre um onde 
+  callback retorne o valor true. Se o elemento é encontrado, find retorna imediatamente o valor deste elemento. 
+  Caso contrário, find retorna undefined. O callback é acionado para todos os índices do array de -1 a 0, 
+  não apenas para aqueles que possuem valores atribuídos. Sendo assim, ele pode ser menos eficiente para arrays
+  muito grandes em que existem outros métodos que só visitam os índices que tenham valor atribuído
+
+• O conjunto de elementos que será visitado pelo método é definido antes do primeiro acionamento do callback.
+  Caso elemento(s) sejam anexado(s) ao array após o início da chamada do método, esse(s) elemento(s) não serão
+ "visitados" pelo callback. O valor passado ao callback quando visitar o(s) index(es) em que esse(s) elemento(s) deveria(m)
+  estar será o valor original pré adição desse(s) elemento(s). Elementos excluídos ainda sim são visitados.
+
+• Tanto o segundo quanto o terceiro argumento da função callback são opcionais.
+
+• O valor do elemento é caso sensitive.
+
+• Tem como sintaxe então : array.findLast( funcaoCallback(valorElemento, indexElemento, arrayExecutando) )
+
+
+	const inventario = [
+				  { name: "apples", quantity: 2 },
+				  { name: "bananas", quantity: 0 },
+				  { name: "fish", quantity: 1 },
+				  { name: "cherries", quantity: 5 },
+			  ]
+
+
+	function naoSuficiente(item) {
+					  return item.quantity < 2;
+				   }
+
+	console.log(inventario.findLast(naoSuficiente)); // { name: "fish", quantity: 1 }
+	
+
+	*****************************************************************************************************************************
+	*                                                            							            *
+	*    Retornando o index do último elemento do array que satisfizer a condição de uma função de teste provida - findLast()   *
+	*                                                            			                	            	    *
+	*****************************************************************************************************************************
+
+• O método findLastIndex() retorna o index do último elemento do array que satisfizer a função de teste (callback) provida.
+
+• Por conta de retornar o último index,ele começará pelo final do array e o percorrerá até o primeiro item.
+
+• Caso não encontre, retornará -1.
+
+• Não altera o array.
+
+• Recebe como argumento uma função de callback que aceita 3 argumentos : o elemento que está sendo processado
+  no array, o index do elemento atualmente sendo processado no array, e o array de qual estamos performando a busca.
+
+• O método executa a função callback uma vez para cada elemento presente no array até que encontre um onde 
+  callback retorne o valor true. Se o elemento é encontrado, find retorna imediatamente o valor deste elemento. 
+  Caso contrário, find retorna undefined. O callback é acionado para todos os índices do array de -1 a 0, 
+  não apenas para aqueles que possuem valores atribuídos. Sendo assim, ele pode ser menos eficiente para arrays
+  muito grandes em que existem outros métodos que só visitam os índices que tenham valor atribuído
+
+• O conjunto de elementos que será visitado pelo método é definido antes do primeiro acionamento do callback.
+  Caso elemento(s) sejam anexado(s) ao array após o início da chamada do método, esse(s) elemento(s) não serão
+ "visitados" pelo callback. O valor passado ao callback quando visitar o(s) index(es) em que esse(s) elemento(s) deveria(m)
+  estar será o valor original pré adição desse(s) elemento(s). Elementos excluídos ainda sim são visitados.
+
+• Tanto o segundo quanto o terceiro argumento da função callback são opcionais.
+
+• O valor do elemento é caso sensitive.
+
+• Tem como sintaxe então : array.findLastIndex( funcaoCallback(valorElemento, indexElemento, arrayExecutando) )
+
+
+	const numeros = [27, 28, 30, 40, 42,42, 35, 30];
+	
+	console.log(numeros.findLastIndex(x => x > 40)) // 5
+
