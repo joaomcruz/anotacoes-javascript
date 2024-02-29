@@ -4,11 +4,11 @@
 					*                                        *
 					******************************************
 
-       		************************************************************
-		*                                                          * 
-		*     Ordenando um array em ordem alfabética -  sort()     *
-		*                                                          *
-		************************************************************
+       		*****************************************
+		*                                       * 
+		*     Ordenando um array  -  sort()     *
+		*                                       *
+		*****************************************
 
 • O método sort() sem passarmos uma função de comparação como argumento (forma padrão) ordena
   um array por ordem alfabética, de acordo com a pontuação de código unicode
@@ -20,18 +20,41 @@
 
 • Aceita como argumento uma função anônima de comparação. Essa função aceita 2 argumentos, sendo eles
   os elementos que serão comparados. Dentro dessa função irá conter a implementação da comparação.
-  Se funcaoDeComparacao(a, b) for menor que 0, ordena a para um índice anterior a b, i.e. a vem primeiro.
-  Se funcaoDeComparacao(a, b) retornar 0, deixa a e b inalterados em relação um ao outro, 
-  mas ordenado em relação a todos os outros elementos. 
-  Se funcaoDeComparacao(a, b) é maior que 0, ordena b para um índice anterior que a.
-  funcaoDeComparacao(a, b) sempre deve retornar o mesmo valor dado um par específico de elementos a e b 
-  como seus dois parametros. Se resultados inconsistentes são retornados, então a ordenação é indefinida.
+  
+• O propósito da função de comparação é definir uma alternativa para o método sort ordenar.
+  Essa função DEVE retornar negativo,zero ou um valor positivo dependendo dos argumentos.
+  Quando o método sort() compara dois valores, ele envia esses dois valores para a função de comparação e 
+  ordena de acordo com o resultado retornado (negativo,zero e positivo).
+  Se o resultado for negativo, então o primeiro argumento irá ser ordenado para antes do segundo.
+  Se o resultado for positivo, então o segundo argumento irá ser ordenado para antes do primeiro.
+  Se o resultado for zero, então não se mexe na ordem dos valores.
+
+• A função de comparação (e o método sort() ) sempre irão comparar os valores de 2 em 2 .
+  1° elemento com 2°
+  2° elemento com 3° etc..
+
  
 • Para ordenar strings com caracteres não-ASCII, i.e. strings com caracteres acentuados (e, é, è, a, ä, etc.), 
   strings de línguas diferentes do Inglês: use String.localeCompare. Esta função pode comparar estes caracteres, 
   então eles aparecerão na ordem correta.
 
+• Podemos também ordenar um array de números com esse método sort() . Basta passarmos a função de comparação
+  retornando o primeiro argumento - segundo argumento (para ordem crescente).
+  Para ordem decrescente basta invertermos a ordem.
+
 • A sintaxe fica : array.sort(function funcaoDeComparacao(a, b) {})
+
+
+• Também podemos ordenar objetos dentro de um array. Para isso basta passarmos a propriedade como retorno da função
+  de comparação (caso seja um número). Para string é um pouco mais complexo e ficaria :
+	
+  array.sort(function(a, b){
+  let x = a.propriedadeComparacao.toLowerCase();
+  let y = b.propriedadeComparacao.toLowerCase();
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
+  })
 
 
 • A função de comparação tem o seguinte formato :
@@ -47,11 +70,10 @@
   }
 
 
-		
+
 		const fruits = ["Banana", "Orange", "Apple", "Mango"];
 		
 		console.log(fruits.sort()) // [ 'Apple', 'Banana', 'Mango', 'Orange' ]
-
 
 
 
@@ -62,9 +84,23 @@
 					  })) // ['adieu', 'café', 'cliché', 'communiqué', 'premier', 'réservé']
 
 
+
 		const items2 = ["réservé", "premier", , , ,"communiqué", "café", "adieu", "éclair"]
 
 		items2.sort((a, b) => a.localeCompare(b)) // [ 'adieu',  'café',  'communiqué',  'éclair',  'premier',  'réservé',  <1 empty item> ]
+
+
+		
+		const points = [40, 100, 1, 5, 25, 10]
+		
+		points.sort(function(a, b){return a - b}) // [1,5,10,25,40,100]
+
+		Quando estiver comparando 40 com 100 o método sort() irá chamar a função de comparação passando
+                como argumentos 40,100.
+		A função então irá calcular 40 - 100 (a-b) e já que o resultado é negativo, a função irá
+                ordenar 40 como um valor menor que 100. Permanecendo do jeito que está.
+
+		points.sort(function(a, b){return b - a}) // [ 100, 40, 25, 10, 5, 1 ]
 
 		
 	
@@ -166,12 +202,13 @@
 
 
 
-
 		*************************************************************************
 		*                                                            		*
 		*        Ordenando objetos dentro de um array			 	*
 		*                                                            		*
 		*************************************************************************
+
+
 
 
 
@@ -184,46 +221,106 @@
 
 
 
+		***********************************************************
+		*                                                	  *
+		*      Ordenando um array numérico em ordem aleatória     *
+		*                                               	  *
+		***********************************************************
 
-		*************************************************************************
-		*                                                            		*
-		*     Ordenação Numérica						*
-		*                                                            		*
-		*************************************************************************
+• Existe um método (que consiste na verdade em uma função) chamada "Fisher Yates Shuffle".
 
+• O algoritmo funciona da seguinte forma :
 
+		const points = [40, 100, 1, 5, 25, 10];
 
-
-		*************************************************************************
-		*                                                            		*
-		*     Ordenação Randômica 						*
-		*                                                            		*
-		*************************************************************************
-
-
-
-		*************************************************************************
-		*                                                            		*
-		*     Math.min()							*
-		*                                                            		*
-		*************************************************************************
-
-
-		*************************************************************************
-		*                                                            		*
-		*     Math.max()							*
-		*                                                            		*
-		*************************************************************************
-
-		*************************************************************************
-		*                                                            		*
-		*     Home made min()							*
-		*                                                            		*
-		*************************************************************************
+		for (let i = points.length -1; i > 0; i--) {
+	        	
+		let j = Math.floor(Math.random() * (i+1));
+		
+		let k = points[i];
+		
+		points[i] = points[j];
+		
+		points[j] = k;
+		
+		}
 
 
-		*************************************************************************
-		*                                                            		*
-		*     Home made max()							*
-		*                                                            		*
-		*************************************************************************
+
+
+		*****************************************************************************
+		*                                                                           *
+		*     Encontrando o maior/menor valor em um array - Math.min/max.apply()    *
+		*                                                           		    *
+		*****************************************************************************
+
+• Infelizmente não existe uma built in function para achar o maior/menor valor em um array.
+
+• Para fazermos isso temos 3 opções :
+
+       **********************************************************
+       *							*
+       *  - Ordenar o array e ler o primeiro ou último elemento *
+       *							*
+       **********************************************************
+		
+• Método bem ineficiente se quisermos apenas encontrar o maior/menor valor
+
+		const points = [40, 100, 1, 5, 25, 10];
+		
+		points.sort(function(a, b){return a - b});
+		
+		// now points[0] contains the lowest value
+		
+		// and points[points.length-1] contains the highest value
+		
+
+       ***********************************
+       *			         *
+       * - Usar Math.min() ou Math.max() *
+       *				 *
+       ***********************************
+
+	function myArrayMin(arr) {
+	  return Math.min.apply(null, arr);
+	}
+
+	function myArrayMax(arr) {
+ 	 return Math.max.apply(null, arr);
+	}
+
+
+
+       **************************************************
+       *				                *
+       *  - Escrever uma função própria que faça isso.  *
+       *				                *
+       **************************************************
+
+	• Para encontrar o menor valor :
+
+		function myArrayMin(arr) {
+ 		 let len = arr.length;
+		 let min = Infinity;
+		  while (len--) {
+		  if (arr[len] < min) {
+		  min = arr[len];
+    		}
+ 		}
+		 return min;
+		}
+
+
+
+	• Para encontrar o maior valor :
+       	 
+		function myArrayMax(arr) {
+		  let len = arr.length;
+		  let max = -Infinity;
+		  while (len--) {
+		  if (arr[len] > max) {
+		  max = arr[len];
+		  }
+		  }
+		  return max;
+		  }
