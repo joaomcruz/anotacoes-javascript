@@ -4,25 +4,141 @@
 					*                                        *
 					******************************************
 
-       		*************************************************************************
-		*                                                            		*
-		*                                                            sort()     *
-		*                                                            		*
-		*************************************************************************
+       		************************************************************
+		*                                                          * 
+		*     Ordenando um array em ordem alfabética -  sort()     *
+		*                                                          *
+		************************************************************
+
+• O método sort() sem passarmos uma função de comparação como argumento (forma padrão) ordena
+  um array por ordem alfabética, de acordo com a pontuação de código unicode
+  de cada um dos caracteres, de acordo com a conversão de cada elemento para string.
+  Elementos undefined serão colocados para o fim do array.
+  O método preserva espaços vazios e os coloca após os elementos com valores undefined.
+
+• Retorna o próprio array ordenado. Ou seja, altera o array original.
+
+• Aceita como argumento uma função anônima de comparação. Essa função aceita 2 argumentos, sendo eles
+  os elementos que serão comparados. Dentro dessa função irá conter a implementação da comparação.
+  Se funcaoDeComparacao(a, b) for menor que 0, ordena a para um índice anterior a b, i.e. a vem primeiro.
+  Se funcaoDeComparacao(a, b) retornar 0, deixa a e b inalterados em relação um ao outro, 
+  mas ordenado em relação a todos os outros elementos. 
+  Se funcaoDeComparacao(a, b) é maior que 0, ordena b para um índice anterior que a.
+  funcaoDeComparacao(a, b) sempre deve retornar o mesmo valor dado um par específico de elementos a e b 
+  como seus dois parametros. Se resultados inconsistentes são retornados, então a ordenação é indefinida.
+ 
+• Para ordenar strings com caracteres não-ASCII, i.e. strings com caracteres acentuados (e, é, è, a, ä, etc.), 
+  strings de línguas diferentes do Inglês: use String.localeCompare. Esta função pode comparar estes caracteres, 
+  então eles aparecerão na ordem correta.
+
+• A sintaxe fica : array.sort(function funcaoDeComparacao(a, b) {})
 
 
-		*************************************************************************
-		*                                                            		*
-		*                                                            reverse()  *
-		*                                                            		*
-		*************************************************************************
+• A função de comparação tem o seguinte formato :
+   function funcaoDeComparacao(a, b) {
+   if (a é menor que b em algum critério de ordenação) {
+    return -1;
+  }
+  if (a é maior que b em algum critério de ordenação) {
+    return 1;
+  }
+  // a deve ser igual a b
+  return 0;
+  }
 
 
-		*************************************************************************
-		*                                                            		*
-		*                                                            toSorted() *
-		*                                                            		*
-		*************************************************************************
+		
+		const fruits = ["Banana", "Orange", "Apple", "Mango"];
+		
+		console.log(fruits.sort()) // [ 'Apple', 'Banana', 'Mango', 'Orange' ]
+
+
+
+
+		var items = ["réservé", "premier", "cliché", "communiqué", "café", "adieu"]
+
+		console.log(items.sort(function (a, b) {
+		  return a.localeCompare(b)
+					  })) // ['adieu', 'café', 'cliché', 'communiqué', 'premier', 'réservé']
+
+
+		const items2 = ["réservé", "premier", , , ,"communiqué", "café", "adieu", "éclair"]
+
+		items2.sort((a, b) => a.localeCompare(b)) // [ 'adieu',  'café',  'communiqué',  'éclair',  'premier',  'réservé',  <1 empty item> ]
+
+		
+	
+
+		**************************************************************
+		*                                                            *
+		*  Invertendo a ordem dos elementos de um array - reverse()  *
+		*                                                            *
+		**************************************************************
+
+• O método reverse() inverte os itens de um array. O primeiro elemento do array se torna o último 
+  e o último torna-se o primeiro.
+
+• Altera o array original.
+
+• Tem como sintaxe : array.reverse()
+
+
+		
+		const numeros = [ 1 , 2, 3 ]
+
+		console.log(numeros.reverse()) // [3,2,1]
+
+
+
+
+		********************************************************
+		*                                                      *
+		*  Ordenando um array em ordem alfabética - toSorted() *
+		*                                                      *
+		********************************************************
+
+• Ao contrário do sort() , não altera o array original, retornando um novo array.
+
+• O método toSorted() sem passarmos uma função de comparação como argumento (forma padrão) ordena
+  um array por ordem alfabética, de acordo com a pontuação de código unicode
+  de cada um dos caracteres, de acordo com a conversão de cada elemento para string
+
+• Quando utilizado em arrays com valores vazios ([,,]) ele irá considerar esses valores como undefined.
+
+• Valores undefined serão jogados para o fim do array e não são considerados caso uma função de comparação
+  seja passada
+
+• Aceita como argumento uma função anônima de comparação. Essa função aceita 2 argumentos, sendo eles
+  os elementos que serão comparados. Dentro dessa função irá conter a implementação da comparação.
+  Se funcaoDeComparacao(a, b) for menor que 0, ordena a para um índice anterior a b, i.e. a vem primeiro.
+  Se funcaoDeComparacao(a, b) retornar 0, deixa a e b inalterados em relação um ao outro, 
+  mas ordenado em relação a todos os outros elementos. 
+  Se funcaoDeComparacao(a, b) é maior que 0, ordena b para um índice anterior que a.
+  funcaoDeComparacao(a, b) sempre deve retornar o mesmo valor dado um par específico de elementos a e b 
+  como seus dois parametros. Se resultados inconsistentes são retornados, então a ordenação é indefinida.
+ 
+• Para ordenar strings com caracteres não-ASCII, i.e. strings com caracteres acentuados (e, é, è, a, ä, etc.), 
+  strings de línguas diferentes do Inglês: use String.localeCompare. Esta função pode comparar estes caracteres, 
+  então eles aparecerão na ordem correta.
+
+• A sintaxe fica : array.toSorted(function funcaoDeComparacao(a, b) {})
+
+
+		const items1 = 	["a", "c", , "b"]
+
+		const items2 = items1.toSorted()	
+
+		console.log(items1) // ["a", "c", , "b"]
+		
+		console.log(items2) // ['a', 'b', 'c', undefined]
+
+		const items3 = [, undefined, "a", "b"]
+
+		const items4 = items3.toSorted()
+		
+		console.log(items4) // ["a", "b", undefined, undefined]
+
+
 
 
 		****************************************************************************
