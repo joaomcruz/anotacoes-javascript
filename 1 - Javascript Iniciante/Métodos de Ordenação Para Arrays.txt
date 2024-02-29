@@ -141,11 +141,30 @@
 
 
 
-		****************************************************************************
-		*                                                            		   *
-		*                                                            toReversed()  *
-		*                                                            		   *
-		****************************************************************************
+		*******************************************************************
+		*                                                            	  *
+		*   Invertendo a ordem dos elementos de um array -  toReversed()  *
+		*                                                            	  *
+		*******************************************************************
+
+• O método toReversed() inverte os itens de um array. O primeiro elemento do array se torna o último 
+  e o último torna-se o primeiro.
+
+• Ao invés de alterar o array original, retorna um novo array e o array original permanece sem alterações.
+
+• Tem como sintaxe : array.toReversed()
+
+
+		
+		const numeros = [ 1 , 2, 3 ]
+
+		const numeros2 = numeros.toReversed()
+
+		console.log(numeros) // [1,2,3]
+		
+		console.log(numeros2) // [3,2,1]
+
+
 
 
 		*************************************************************************
