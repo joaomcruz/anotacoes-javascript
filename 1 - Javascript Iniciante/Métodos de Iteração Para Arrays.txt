@@ -17,9 +17,11 @@
 
 • Ele não é invocado em propriedades de índices deletados ou que não foram inicializados (um espaço vazio de um array por ex)
 
-• Retorna undefined (ou seja ,não retorna nada)
+• Retorna undefined 
 
-• Altera o array original
+• Não modifica o array original, entretanto o retorno da função chamada por ele pode fazer isso
+
+• Não é encadeável, uma vez que retorna undefined.
 
 • Tem como sintaxe : array.forEach((valorDoItem, indexDoItem, arrayIteracao) =>  { })
 
@@ -37,7 +39,10 @@
  		   // 5 3 [ 40, 100, 1, 5, 25, 10 ]
 		   // 25 4 [ 40, 100, 1, 5, 25, 10 ]
 		  //  10 5 [ 40, 100, 1, 5, 25, 10 ]
-	
+
+
+		
+		numbers.forEach((itemValue, indexItem, arrayIteracao) =>  itemValue * 2 ) // undefined
 
 
 		*************************************************************************
@@ -58,34 +63,82 @@
   Se os elementos existentes forem modificados, os valores que serão repassados serão os do momento em que o 
   método map invocar o callback. Elementos removidos não serão visitados.
 
-• Não altera o array original. Porém a função callback pode mudar.
+• Não altera o array original. Porém a função callback, se invocada, pode mudar.
+
+• É encadeável, ou seja, podemos chamar outros métodos após executar um map() em um array.
 
 • Retorna um novo array performando a função callback uma vez em cada elemento do array original
 
-• Deve SEMPRE ter um retorno, já que retorna um novo array.
+• Tem como sintaxe : array.map((valor,index,array) => {})
+
 
 
 		const numbers = [40, 100, 1, 5, 25, 10]
 
-	        numbers.map((valor,index,array) => console.log(valor * 2)) // 80 200 2 10 50 20
+	        numbers.map((valor,index,array) => valor * 2) // 80 200 2 10 50 20
 
 		
 
+		**************************************************************
+		*                                                            *
+		*  Iterando e reduzindo o nível de um array -  flatMap()     *
+		*                                                            *
+		**************************************************************
+
+• O método chama uma função callback uma vez para cada elemento do array
+
+• O método flatMap() primeiro mapeia cada elemento usando uma função de mapeamento e, em seguida,
+  nivela o resultado em um novo array. É idêntico a um map seguido por um flat de profundidade 1,
+  mas flatMap é bastante útil e mescla ambos em um método um pouco mais eficiente.
+
+• Aceita três argumentos : o valor do item, o index do item, o array em iteração
+
+• Retorna um novo array com cada elemento sendo o resultado da função callback e achatado ao valor de 1.
+
+• Ele itera sobre o array e concatena arrays internos a ele caso existam.
+
+• Caso possua mais de um nível de array interno, o correto é usarmos o flatMap e depois usarmos o flat para reduzirmos
+  o nível do array retornado.
+
+• Tem como sintaxe : array.flatMap((valor,index,array) => {})
+
 		
+		const arr = [1, 2, [3, [4, 5, [6, 7]]]] ;
 
-		*************************************************************************
-		*                                                            		*
-		*     flatMap()								*
-		*                                                            		*
-		*************************************************************************
+		console.log(arr.flatMap((element) => element).flat(2)) ; // [1, 2, 3, 4, 5, 6, 7]
 
 
 
-		*************************************************************************
-		*                                                            		*
-		*     filter()								*
-		*                                                            		*
-		*************************************************************************
+
+		****************************************************************************************
+		*                                                            			       *
+		*   Criando um novo array a partir de um filtro nos elementos de um array -  filter()  *								*
+		*                                                            			       *
+		****************************************************************************************
+
+• O método filter() cria um novo array com elementos do array original que "passam de um teste"
+
+• O método chama uma função callback uma vez para cada elemento do array
+
+• Retorna um novo array com os elementos que passaram no teste descrito na função callback
+
+• filter() chama a função callback fornecida, uma vez para cada elemento do array, e constrói
+  um novo array com todos os valores para os quais o callback retornou o valor true ou um valor
+  que seja convertido para true. O callback é chamado apenas para índices do array que possuem 
+  valores atribuídos; Ele não é invocado para índices que foram excluídos ou para aqueles que 
+  não tiveram valor atribuído. Elementos do array que não passaram no teste do callback são 
+  simplesmente ignorados, e não são incluídos no novo array.
+
+• Não altera o array original
+
+• Aceita três argumentos : o valor do item, o index do item, o array em iteração
+
+• Tem como sintaxe : array.filter((valor,index,array) => {})
+
+		
+                let arr = [10,1,50,100,20,30,40]
+		
+		let arrayFiltrado = arr.filter((valor) => valor > 10) // 50,100,20,30,40
 
 
 
@@ -95,15 +148,63 @@
 		*                                                            		*
 		*************************************************************************
 
+• O método reduce roda uma função de callback em cada elemento do array com a intenção de produzir (reduzir) esse array
+  a um único valor.
+
+• O método funciona do lado esquerdo do array até o lado direito. 
+
+• Não altera o array original, na verdade ele retorna um novo array com o resultado produzido.
+
+• Aceita 4 argumentos : valor inicial/ valor retornado do calll back anteriormente também chamado de acumulador,
+			o valor atual do item ,o index atual do item, o array em iteração
+
+• Além disso, fora da função callback é aceito um valor inicial também. 
+
+• A primeira vez que o callback é chamado, o acumulador e o valorAtual podem ter um de dois valores possíveis. 
+  Se o valorInicial tiver sido fornecido na chamada à função reduce(), então o acumulador será igual ao valorInicial 
+  e o valorAtual será igual ao primeiro valor no array. Caso nenhum valorInicial seja fornecido, acumulador 
+  será igual ao primeiro valor no array, e valorAtual será igual ao segundo.
+
+•  Se o valorInicial não tiver sido passado como argumento, então reduce() executará o callback da função 
+   começando a partir do índice 1 (index 1), pulando o primeiro índice (index 0). Se o valorInicial for
+   passado como argumento, a função irá começar no index 0
 
 
+• Se o array estiver vazio e o valorInicial não tiver sido informado, uma exceção do tipo TypeError será lançada.
 
-		*************************************************************************
-		*                                                            		*
-		*     reduceRight()							*
-		*                                                            		*
-		*************************************************************************
+• Se o array possuir somente um elemento (independente da posição) e o valorInicial não tiver sido fornecido,
+  ou se valorInicial for fornecido, mas a array estiver vazia, o valor será retornado sem que a função de callback
+  seja chamada.
 
+• É mais seguro prover um valorInicial, porque existem até quatro possíveis saídas sem o valorInicial
+
+• O valor de retorno da sua função reducer é atribuída ao acumulador.
+  O acumulador, com seu valor atualizado, é repassado para cada iteração subsequente pelo array, que por fim,
+  se tornará o valor resultante, único, final
+
+
+• Usar Array.filter() seguido por Array.map() faz com que o array seja percorrido duas vezes. 
+  Você pode obter o mesmo resultado percorrendo o array apenas uma vez com Array.reduce(), o que é,
+  portanto, mais eficiente
+
+
+• O método reduceRight() faz a mesma coisa e possui as mesmas características. A diferença é que ao invés
+  de iterar da esquerda para direita, ele faz da direita para a esquerda.
+
+• Tem como sintaxe : array.reduce((acumulador,valorAtual,indexAtual,array) => {} , valorInicial)
+
+
+		
+		const numbers = [45, 4, 9, 16, 25];
+
+		let soma = numbers.reduce((acumulador, valor) => acumulador + valor)
+
+		console.log(soma) // 99
+
+		let soma = numbers.reduce((acumulador, valor) => acumulador + valor,10)
+
+		console.log(soma) // 109
+		
 
 
 
