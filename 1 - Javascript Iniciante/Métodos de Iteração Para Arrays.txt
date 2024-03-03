@@ -208,26 +208,167 @@
 
 
 
-		*************************************************************************
-		*                                                            		*
-		*     every()								*
-		*                                                            		*
-		*************************************************************************
+		***************************************************************************************************
+		*                                                            					  *
+		*   Testando se todos os elementos passam pelo teste passado pela função fornecida -  every()	  *
+		*                                                            					  *
+		***************************************************************************************************
+
+• Retorna true ou false
+
+• Não modifica o array original
+
+• O método every executa a função callback fornecida uma vez para cada elemento presente no array, até encontrar
+ algum elemento em que a função retorne um valor false (valor que se torna false quando convertido para boolean). 
+ Se esse elemento é encontrado, o método every imediatamente retorna false. Caso contrário, se a função callback 
+ retornar true para todos elementos, o método retorna true. A função callback é chamada apenas para os elementos
+ do array original que tiverem valores atribuídos; os elementos que tiverem sido removidos ou os que nunca tiveram 
+ valores atribuídos não serão considerados.
+
+• A função callback é chamada com três argumentos: o valor do elemento corrente, o índice do elemento corrente e o 
+  array original que está sendo percorrido
+
+• Somente o primeiro argumento é obrigatório
+
+• A lista de elementos que serão processados pelo every é montada antes da primeira chamada da função callback.
+  Se um elemento for acrescentado ao array original após a chamada ao every , ele não será visível para o callback. 
+  Se os elementos existentes forem modificados, os valores que serão repassados serão os do momento em que o método 
+  every chamar o callback. Elementos removidos não serão considerados.
+
+• every funciona como o qualificador "for all" em matemática. Particularmente, para um vetor vazio, é retornado true.
+  (É verdade por vacuidade que todos os elementos do conjunto vazio satisfazem qualquer condição.)
+
+• Tem como sintaxe : array.every((valorElementoAtual , index , array) => condição) 
+
+
+		
+		let arr = [12, 5, 8, 130, 44]
+		
+		arr.every((elem) => elem >= 10); // false
+		
+		arr.every((elem) => elem >= 10); // true
 
 
 
-		*************************************************************************
-		*                                                            		*
-		*     some()								*
-		*                                                            		*
-		*************************************************************************
+		*******************************************************************************************************************
+		*                                                            							  *
+		*   Testando se ao menos um dos elementos do array passam pelo teste passado pela função fornecida -  some()	  *
+		*                                                            						  	  *
+		*******************************************************************************************************************
+
+• O método some() testa se ao menos um dos elementos no array passa no teste implementado pela função atribuída
+  e retorna um valor true ou false.
+
+• Não modifica o array original
+
+• some() executa a função callback uma vez para cada elemento presente no array até achar um onde o callback retorne
+  um valor true. Se em qualquer dos elementos o valor for encontrado, some() imediatamente retorna true. Caso contrario, 
+  some() retorna false. callback é invocado somente para índices do array que contenham valor definido; não é 
+  invocado para índices que foram deletados ou os quais nunca tiveram valor definido.
+
+• A função callback é chamada com três argumentos: o valor do elemento corrente, o índice do elemento corrente e o 
+  array original que está sendo percorrido
+
+• Somente o primeiro argumento é obrigatório
+
+• O intervalo de elementos processado por some() é definido antes da primeira invocação da callback. 
+  Elementos contidos no array antes da chamada some() ser iniciada não serão testados pela callback. 
+  Se algum elemento pertencente ao array for alterado pela callback, o valor passado para a callback 
+  será o valor do momento em que a função some() encontra o índice daquele elemento.
+  Elementos deletados não são testados.
 
 
-		*************************************************************************
-		*                                                            		*
-		*     from()								*
-		*                                                            		*
-		*************************************************************************
+• Tem como sintaxe : array.some((valorElementoAtual , index , array) => condição) 
+
+
+		let arr = [2,5,8,1,4]
+				
+		arr.some((elem) => elem > 10); // false
+
+		arr.some((elem) => elem > 10); // true
+
+
+
+
+		**************************************************************************************
+		*                                                            			     *
+		*   Criando um array a partir de um "Array Like" ou um Objeto Iterável -   from()    *
+		*                                                            			     *
+		**************************************************************************************
+
+• O método Array.from() cria uma nova instância de um Array quando for passado um array-like ou um iterable object 
+  como argumento.
+
+• No ES6, a sintaxe de classe permite a subclassificação de classes nativas e classes definidas pelo usuário;
+  como resultado, os métodos estáticos pertencentes a classe, como Array.from, são "herdadas" por subclasses 
+  do Array e criam novas instâncias da subclasse, não do Array
+
+• Pode receber como argumentos um array like e uma funçõa map que será chamada para cada elemento do array
+
+• Somente o primeiro argumento (array like) que é obrigatório
+
+• Array.from() deixa você criar um Array de:
+  - objetos array-like (objetos com a propriedade length e elementos indexados); ou
+  - Objetos iteráveis (objetos onde você pode coletar seus elementos, assim como Map e Set)
+
+• Array.from() tem um parametro opcional mapFn, que permite executar a função map para cada elemento do array 
+ (ou subclasse de objeto) que está sendo criado. Simplificando, Array.from(obj, mapFn, thisArg) é o mesmo que
+  Array.from(obj).map(mapFn, thisArg), com a excessão de não cria um array intermediário . 
+ Isso é importante, principalmente para certas subclasses de array, como typed array, no qual o array 
+ intermediário iria necessáriamente ter o valor truncado para encaixar-se no tipo apropriado.
+
+• A propriedade length do método from() é 1
+
+• No ES2015, a sintaxe de class permite a definição de subclasses tanto internas quando definidas pelo usuário. 
+ Como resultado, métodos estáticos como Array.from() são "herdados" pelas subclasses de Array, e cria novas 
+ instâncias da subclasse, não de Array.
+
+
+• Tem como sintaxe : Array.from(objetoArrayLike, funcaoMap)
+
+
+		// Array-like object (arguments) para um Array
+		function f() {
+  		return Array.from(arguments);
+		}
+
+		f(1, 2, 3); // [1, 2, 3]
+
+		
+
+		// Qualquer iterable object ...
+		// com Set
+		var s = new Set(["foo", window]);
+		Array.from(s); // ["foo", window]
+
+		
+
+		// Map
+		
+		var m = new Map([
+				  [1, 2],
+				  [2, 4],
+				  [4, 8],
+			       ]);
+		
+		Array.from(m); // [[1, 2], [2, 4], [4, 8]]
+
+
+
+		// String
+		
+		Array.from("foo"); // ["f", "o", "o"]
+
+
+		
+		// Usando um arrow function como função map para manipular os elementos
+		
+		Array.from([1, 2, 3], (x) => x + x); // [2, 4, 6]
+
+		
+		// Gerando uma sequência de números
+		
+		Array.from({ length: 5 }, (v, k) => k); // [0, 1, 2, 3, 4]
 
 
 
