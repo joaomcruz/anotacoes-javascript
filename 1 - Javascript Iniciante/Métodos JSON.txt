@@ -1,0 +1,39 @@
+			*********************************************************************
+			*                                                                   *
+			*   Convertendo objetos javascript para JSON - JSON.stringify()     *
+			*                                                        	    *
+			*                                                                   *
+			*********************************************************************
+
+• Podemos converter um objeto javascript para um JSON através do método JSON.stringify()
+
+• Nesse método, passamos o objeto que queremos converter para JSON como argumento .
+
+• Esse método pega um objeto e o converte para string no formato JSON.
+
+• Pode ser aplicado a tipos primitivos também
+
+• Um JSON suporta os seguintes tipos : Objetos, arrays/listas, strings,números,booleans e null.
+
+• Pelo fato de JSON ser apenas dados independente de linguagem especificada, algumas propriedades de um objeto
+ javascript serão "puladas" com esse método. Sendo eles : Funções, propriedades e valor Symbol, propriedades
+ que armazenem undefined.
+
+• Objetos aninhados são suportados e convertidos automaticamente
+
+• Uma limitação importante é que não devem ocorrer referências "circulares" . Ou seja, uma propriedade de um objeto ter
+  o valor atribuído a partir de um outro objeto e vice versa. Nesse caso teríamos uma falha.
+
+
+• Tem como sintaxe : JSON.stringify(objeto[,replacer, espaço) onde : 
+  No lugar do replacer podemos passar um array de propriedades para fazer o encoding OU uma função de mapeamento 
+  (function (chave,valor) {} ) . Em espaço podemos definir a quantidade de espaço que será utilizada na formatação.
+
+
+
+			*********************************************************************
+			*                                                                   *
+			*   Convertendo JSON para objetos javascript - JSON.parse()         *
+			*                                                        	    *
+			*                                                                   *
+			*********************************************************************
