@@ -1,0 +1,41 @@
+• JSON é um formato para armazenar e transportar dados
+
+• JSON é geralmente utilizado quando dados são enviados de um servidor para uma Web Page.
+
+
+• Significa "Javascript Object Notation" , ou  Notação de objeto javascript
+
+• É um formato de troca de dados bem leve
+
+• É independente de qualquer linguagem de programação
+
+• É "auto descritivo" e fácil de entender.
+
+• É bem parecido com um objeto javascript, sintaticamente falando. A diferença é que tanto as 
+  propriedades quanto os valores tem que estar entre ""
+
+• É muito fácil converter JSON's em objetos javascript e vice versa (por conta da similaridade)
+
+• Regras de sintaxe : O dado sempre andará em pares propriedade/valor , os dados são separados por vírgulas,
+		      {} envolvem objetos e [] envolvem arrays. 
+
+
+
+• Tem como sintaxe :  {
+			"propriedade" : "valor"
+ 
+			} 
+
+
+
+
+		Exemplo de um JSON que contém um array que contém objetos.
+
+
+		"employees":[
+  				{"firstName":"John", "lastName":"Doe"},
+  				{"firstName":"Anna", "lastName":"Smith"},
+  				{"firstName":"Peter", "lastName":"Jones"}
+			    ]
+
+
