@@ -29,6 +29,29 @@
   No lugar do replacer podemos passar um array de propriedades para fazer o encoding OU uma função de mapeamento 
   (function (chave,valor) {} ) . Em espaço podemos definir a quantidade de espaço que será utilizada na formatação.
 
+• Na maioria das vezes, é utilizado somente com o primeiro argumento, mas se precisarmos melhorar o processo de mudança, 
+  como filtrar referências circulares podemos usar o segundo argumento.
+
+• Caso passemos um array de propriedades, apenas essas propriedades serão convertidas.
+
+• No caso de passarmos uma propriedade que é um objeto, precisamos passar também as propriedades desse objeto interno,
+  caso contrário as mesmas não serão convertidas
+
+
+• A função replacer é chamada para cada par de propriedade/valor e deve retornar o valor "substituído"
+  que será utilizado ao invés do original. Ou undefined caso o valor tenha que ser "pulado". O primeiro
+  valor tem sempre uma propriedade/chave vazia, e o valor é o objeto que está sendo passado para conversão
+
+• O terceiro argumento, espaço , é utilizado para deixar a formatação "mais bonita". Antigamente,
+  os objetos que eram transformados em strings não tinham identação ou espaços extras. 
+  Esse argumento pode aceitar um inteiro ou uma string, no caso de número, é utilizado para dar espaçamento
+  enquanto a string é utilizada para identação.
+  O único propósito do espaço é para deixar o output mais bonito/organizado.
+
+
+• Assim como o método toString para conversão de string, um objeto também pode prover um método toJSON para
+ uma conversão para JSON. Esse método JSON.stringify chama o método toJSON automaticamente se disponível.
+
 
 
 			*********************************************************************
