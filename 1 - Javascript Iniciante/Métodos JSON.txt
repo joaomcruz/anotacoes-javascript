@@ -60,3 +60,13 @@
 			*                                                        	    *
 			*                                                                   *
 			*********************************************************************
+
+• Esse método serve para transformar um JSON para objeto javascript
+
+• Pode receber até dois argumentos, sendo o primeiro a "string" (JSON) e segundo uma função reviver que é opcional.
+  Essa função será chamada para cada par de propriedade/valor e pode transformar o valor.
+
+• Essa função é muito útil quando por exemplo tivermos nessa "string" (JSON) uma data. Dessa forma, conseguimos
+  transformar o valor dessa propriedade em um Date , e não simplesmente uma string .
+
+• Tem como sintaxe : JSON.parse(
