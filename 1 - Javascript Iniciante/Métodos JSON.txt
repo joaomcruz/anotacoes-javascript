@@ -69,4 +69,4 @@
 • Essa função é muito útil quando por exemplo tivermos nessa "string" (JSON) uma data. Dessa forma, conseguimos
   transformar o valor dessa propriedade em um Date , e não simplesmente uma string .
 
-• Tem como sintaxe : JSON.parse(
+• Tem como sintaxe : JSON.parse(JSON, function reviver(chave,valor) {} )

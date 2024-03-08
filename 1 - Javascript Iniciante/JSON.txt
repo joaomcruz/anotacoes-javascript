@@ -2,6 +2,7 @@
 
 • JSON é geralmente utilizado quando dados são enviados de um servidor para uma Web Page.
 
+• JSON não suporta comentários
 
 • Significa "Javascript Object Notation" , ou  Notação de objeto javascript
 
@@ -12,7 +13,10 @@
 • É "auto descritivo" e fácil de entender.
 
 • É bem parecido com um objeto javascript, sintaticamente falando. A diferença é que tanto as 
-  propriedades quanto os valores tem que estar entre ""
+  propriedades quanto os valores tem que estar entre "" . Aspas simples não são aceitas.
+
+• Somente valores "concretos" são aceitos. Não podemos passar um "new Date" por exemplo.
+  Ou um objeto propriamente dito. Em JSON tudo é string.
 
 • É muito fácil converter JSON's em objetos javascript e vice versa (por conta da similaridade)
 
