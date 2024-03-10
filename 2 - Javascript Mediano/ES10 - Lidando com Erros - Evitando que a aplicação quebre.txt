@@ -15,6 +15,15 @@
 
 • É possível "pegarmos" qual o erro deu na aplicação no bloco catch.
 
+• Funciona de maneira síncrona
+
+• Só funciona para erros de runtime (ou seja, precisamos passar código javascript VÁLIDO)
+
+• Quando um erro ocorre, o javascript gera um objeto contendo detalhes sobre isso. Esse objeto é passado
+  como argumento do catch.
+
+• Hoje em dia passar argumento para o bloco catch é opcional.
+
 • Só irá entrar no bloco do catch se algo errado ocorrer no bloco try. Como se fosse um if/else
 
 • Sendo assim, a sintaxe do bloco try/catch fica : try { //bloco de código que queremos evitar que quebre a aplicação }
@@ -42,3 +51,19 @@
 	        catch(erro) {
 				console.log(erro) // Não irá entrar nesse bloco
 			    }
+
+
+
+
+
+
+		*************************************************
+		*				  		*
+		*  Lançando nossos próprios "erros" -	Throw   *
+		*				                *
+		*				                *
+		*************************************************
+
+• Podemos lançar nossos próprios erros através da palavra "Throw"
+
+• Tem como sintaxe Throw <nome do objeto de erro> 
