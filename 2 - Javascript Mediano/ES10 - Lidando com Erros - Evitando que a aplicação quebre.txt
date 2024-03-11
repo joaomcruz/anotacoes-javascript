@@ -24,6 +24,11 @@
 
 • Hoje em dia passar argumento para o bloco catch é opcional.
 
+• O erro dentro do argumento do bloco catch tem as propriedades name,message e stack.
+  Name sendo o nome do erro, message a mensagem sobre o erro e stack a string com
+  informações sobre a sequência de chamadas aninhadas que levaram ao erro.
+  Geralmente stack é utilizado para debugar o código
+
 • Só irá entrar no bloco do catch se algo errado ocorrer no bloco try. Como se fosse um if/else
 
 • Sendo assim, a sintaxe do bloco try/catch fica : try { //bloco de código que queremos evitar que quebre a aplicação }
@@ -64,6 +69,36 @@
 		*				                *
 		*************************************************
 
-• Podemos lançar nossos próprios erros através da palavra "Throw"
+• Podemos lançar nossos próprios erros através da palavra "Throw". 
+  Isso pode ser utilizado quando um erro de fato não ocorre, mas queremos forçar
+  um erro caso algo não esteja de acordo com o que estamos esperando.
 
 • Tem como sintaxe Throw <nome do objeto de erro> 
+
+• Alguns tipos de objeto de erro : Error , SyntaxError , ReferenceError, TypeError
+
+• Podemos também criar nosso próprio objeto de erro, passando como argumento uma mensagem. A variável
+  a ele atribuída será o "name".
+
+• É bom para complementar um bloco try catch, por exemplo
+
+• Caso a condição do throw seja atingida, o restante do código dentro do bloco try não é executado
+  e pula para o bloco catch
+
+
+
+
+
+		*********************************
+		*				*
+		* Relançando "erros" -	Throw   *
+		*				*
+		*			        *
+		*********************************
+
+
+
+
+
+
+
