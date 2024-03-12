@@ -96,9 +96,25 @@
 		*			        *
 		*********************************
 
+• É uma boa prática o bloco catch só processar erros que ele conhece e "relançar" os demais.
+
+• Basicamente usamos o throw dentro do bloco catch analisando o erro capturado pelo bloco.
+
+• Para fazermos essa análise do erro usamos o "instanceof" 
 
 
 
 
 
+		*********************************
+		*				*
+		* Try catch +  finally          *
+		*				*
+		*			        *
+		*********************************
 
+• O bloco finally faz o código que está dentro dele rodar independentemente de um erro ser capturado ou não
+
+• Ele roda após o try caso nenhum erro seja capturado
+
+• Roda após o catch caso algum erro seja capturado
