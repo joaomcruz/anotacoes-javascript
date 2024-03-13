@@ -1,4 +1,4 @@
-
+• Variáveis criadas dentro de bloco try catch e finally são locais.
 
 		***********************************
 		*				  *
@@ -102,19 +102,26 @@
 
 • Para fazermos essa análise do erro usamos o "instanceof" 
 
+• Tem como sintaxe :  try { } catch (err) {  if (!(err instanceof SyntaxError)) { throw err  } }
 
 
 
-
-		*********************************
-		*				*
-		* Try catch +  finally          *
-		*				*
-		*			        *
-		*********************************
+		****************************************************************************
+		*									   *
+		* Executando um bloco independente de encontrar ou não um erro - finally   *
+		*									   *
+		*			                                                   *
+		****************************************************************************
 
 • O bloco finally faz o código que está dentro dele rodar independentemente de um erro ser capturado ou não
 
 • Ele roda após o try caso nenhum erro seja capturado
 
 • Roda após o catch caso algum erro seja capturado
+
+• Geralmente é utilizado quando começamos a fazer algo e queremos finalizar independentemente de algo .
+
+• Funciona mesmo se tiver um return dentro de um bloco try/catch
+
+• Tem como sintaxe : try {} catch (err) {} finally {}
+
