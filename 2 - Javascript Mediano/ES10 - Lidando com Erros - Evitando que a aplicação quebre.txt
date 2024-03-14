@@ -123,5 +123,8 @@
 
 • Funciona mesmo se tiver um return dentro de um bloco try/catch
 
+• Podemos utilizar somente o try{} finally{} . A diferenca é que o erro não será tratado e será "esquecido" . Pode ser utilizado em conjunto quando
+  não queremos tratar um erro mas queremos que uma ação iniciada seja finalizada.
+
 • Tem como sintaxe : try {} catch (err) {} finally {}
 
