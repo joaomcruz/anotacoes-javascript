@@ -54,6 +54,263 @@
 
 
 
+			let student = {
+ 					 name: 'John',
+  					 age: 30,
+  					 isAdmin: false,
+  					 courses: ['html', 'css', 'js'],
+  					 spouse: null
+				      };
+
+
+  			let json = JSON.stringify(student);
+
+  			alert(typeof json); // temos uma string
+
+  			alert(json); //
+  	
+			RESULTADO :
+
+			{
+  		        	"name": "John",
+  		        	"age": 30,
+  		        	"isAdmin": false,
+  		        	"courses": ["html", "css", "js"],
+  		        	"spouse": null
+  		        }
+
+
+			alert( JSON.stringify(1) ) // 1 , o número em JSON é só um número
+
+
+			alert( JSON.stringify('test') ) // "test" , uma string em JSON ainda é uma string, mas com aspas duplas
+
+			alert( JSON.stringify(true) ); // true
+
+			alert( JSON.stringify([1, 2, 3]) ); // [1,2,3]
+
+
+
+			let user = {
+					  sayHi() { // ignorado
+					  alert("Hello");
+				   },
+		    
+                       [Symbol("id")]: 123, // ignorado
+                       something: undefined // ignorado
+			};
+
+			alert( JSON.stringify(user) ); // {} (objeto vazio)
+
+
+			let meetup = {
+  					title: "Conference",
+  					room: {
+   						 number: 23,
+    						participants: ["john", "ann"]
+  					      }
+				     };
+
+			alert( JSON.stringify(meetup) );
+
+			Toda a estrutura será transformada em string : 
+			
+			{
+			  "title":"Conference",
+			  "room":{"number":23,"participants":["john","ann"]},
+			}
+
+
+
+			Importante Limitação de referências "circulares" :
+
+			
+
+			let room = {
+  					number: 23
+				   };
+
+			let meetup = {
+  					title: "Conference",
+  					participants: ["john", "ann"]
+				     };
+
+			meetup.place = room;       // meetup referencia room
+			
+			room.occupiedBy = meetup; // room referencia meetup
+
+			JSON.stringify(meetup); // Erro:  Convertendo estrutura circular para JSON
+
+
+		
+			Utilizando o replacer :
+
+			let room = {
+ 					 number: 23
+				   };
+
+
+			let meetup = {
+ 					 title: "Conference",
+  					 participants: [{name: "John"}, {name: "Alice"}],
+  					 place: room // meetup referencia room
+				     };
+
+			room.occupiedBy = meetup; // room referencia meetup
+
+			alert( JSON.stringify(meetup, ['title', 'participants']) ); 
+                        // {"title":"Conference","participants":[{},{}]} O objeto "participants" fica vazio
+                          porquê especificamos somente esse objeto e não as propriedades name dentro dele.
+
+
+                                                                                    
+			let room = {
+ 					 number: 23
+				   };
+
+
+			let meetup = {
+ 					 title: "Conference",
+  					 participants: [{name: "John"}, {name: "Alice"}],
+  					 place: room // meetup referencia room
+				     };
+
+			room.occupiedBy = meetup; // room referencia meetup			
+			
+			alert( JSON.stringify(meetup, ['title', 'participants', 'place', 'name', 'number']) ); //
+                   
+
+                        RESULTADO :
+
+			{
+ 			  "title":"Conference",
+  			  "participants":[{"name":"John"},{"name":"Alice"}],
+  			  "place":{"number":23}
+			}
+
+			Nesse caso tudo está serializado com exceção de "occupiedBy". Mas as lista de propriedades
+                        é muito longa. Ao invés disso podemos utilizar uma função como replacer ao invés de um array.
+			
+
+
+			let room = {
+ 					 number: 23
+				   };
+
+
+			let meetup = {
+ 					 title: "Conference",
+  					 participants: [{name: "John"}, {name: "Alice"}],
+  					 place: room // meetup referencia room
+				     };
+
+			room.occupiedBy = meetup; // room referencia meetup	
+
+
+			alert( JSON.stringify(meetup, function replacer(key, value) {
+  			alert(`${key}: ${value}`);
+  			return (key == 'occupiedBy') ? undefined : value;
+			}));
+
+		
+			RESULTADO :
+
+			:             [object Object]
+			title:        Conference
+			participants: [object Object],[object Object]
+			0:            [object Object]
+			name:         John
+			1:            [object Object]
+			name:         Alice
+			place:        [object Object]
+			number:       23
+			occupiedBy: [object Object]
+
+
+			
+			
+			Formatando utilizando o argumento "espaçamento" :
+
+			
+			let user = {
+					  name: "John",
+					  age: 25,
+					  roles: {
+					  		isAdmin: false,
+		                                        isEditor: true
+						  }
+				   };
+
+
+			alert(JSON.stringify(user, null, 2));
+
+			RESULTADO :
+
+			{
+ 				 "name": "John",
+ 				 "age": 25,
+ 				 "roles": {
+ 				             "isAdmin": false,
+ 				             "isEditor": true
+					  }
+			}
+
+
+
+
+
+			toJSON customizado :
+
+
+			let room = {
+  					number: 23
+				   };
+
+			let meetup = {
+  					title: "Conference",
+  					date: new Date(Date.UTC(2017, 0, 1)),
+  					room
+				    };
+
+			alert( JSON.stringify(meetup) );
+
+
+			RESULTADO :
+
+  			{
+  			  "title":"Conference",
+   			   "date":"2017-01-01T00:00:00.000Z",  // (1)
+  			   "room": {"number":23}               // (2)
+ 			 }
+
+
+
+
+			let room = {
+  			number: 23,
+ 		        toJSON() {
+					 return this.number;
+				 }
+				};
+
+			let meetup = {
+					  title: "Conference",
+					  room
+				     };
+
+			alert( JSON.stringify(room) ); // 23
+
+			alert( JSON.stringify(meetup) );
+
+			RESULTADO :
+
+ 			 {
+  				  "title":"Conference",
+   				 "room": 23
+  			 }
+
+
+
 			*********************************************************************
 			*                                                                   *
 			*   Convertendo JSON para objetos javascript - JSON.parse()         *
