@@ -327,3 +327,73 @@
   transformar o valor dessa propriedade em um Date , e não simplesmente uma string .
 
 • Tem como sintaxe : JSON.parse(JSON, function reviver(chave,valor) {} )
+
+
+
+
+			// Um array "em formato de string"
+
+			let numbers = "[0, 1, 2, 3]";
+
+			numbers = JSON.parse(numbers);
+
+			alert( numbers[1] ); // 1
+
+
+
+			let userData = '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
+
+			let user = JSON.parse(userData);
+
+			alert( user.friends[1] ); // 1
+
+
+
+			Utilizando o Reviver : Imagine que recebemos o objeto meetup em forma de string do servidor :
+
+			// title: (meetup title), date: (meetup date)
+			
+			let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+
+
+			// Agora precisamos desserializar para tornar novamente em um objeto Javascript :
+
+			let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+
+			let meetup = JSON.parse(str);
+
+			alert( meetup.date.getDate() ); // Error!
+
+			// O valor de meetup.date é uma string, não um objeto Date. Como JSON.parse poderia saber se deve transformar essa string em uma Data?
+			   Vamos passar uma função "revive" no JSON.parse como segundo argumento, que irá retornar todos os valores "como são" mas o Date
+			  irá ser um Date
+
+
+
+			let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+
+			let meetup = JSON.parse(str, function(key, value) {
+			  							if (key == 'date') return new Date(value);
+							                        return value;
+						                          });
+
+			alert( meetup.date.getDate() ); // Agora funciona !
+
+
+			// Isso funciona com objetos aninhados também :
+
+			let schedule = `{
+					  "meetups": [
+							    {"title":"Conference","date":"2017-11-30T12:00:00.000Z"},
+							    {"title":"Birthday","date":"2017-04-18T12:00:00.000Z"}
+						     ]
+					}`;
+
+	
+			schedule = JSON.parse(schedule, function(key, value) {
+										  if (key == 'date') return new Date(value);
+										  return value;
+									     });
+
+			alert( schedule.meetups[1].date.getDate() ); // works!
+
