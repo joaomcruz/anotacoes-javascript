@@ -1,9 +1,12 @@
-As our application grows bigger, we want to split it into multiple files, so called “modules”. A module may contain a class or a library of functions for a specific purpose.
 
+- Conforme a aplicação vai crescendo, é normal querermos dividir a mesma em múltiplos arquivos, o que chamamos de módulos.
+  Módulos podem conter uma classe, ou uma biblioteca de funções para um propósito específico.
 
-A module is just a file. One script is one module. As simple as that.
+- Diante disso, módulo é apenas um arquivo. Um script também é um módulo.
 
-Modules can load each other and use special directives export and import to interchange functionality, call functions of one module from another one:
+- Modulos podem "carregar" um ao outro e usar diretivas "especiais" de exportar/importar para interligar funcionalidades. Como por exemplo chamar uma função de um outro módulo a partir de um módulo.
 
-export keyword labels variables and functions that should be accessible from outside the current module.
-import allows the import of functionality from other modules.
+- A "keyword" export cria a "etiqueta" de que variáveis e funções do módulo atual devem ser acessíveis fora desse módulo .
+
+- A keyword import nos permite importar funcionalidades de outros módulos para o módulo/arquivo atual
+
