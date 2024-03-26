@@ -10,3 +10,13 @@
 
 - A keyword import nos permite importar funcionalidades de outros módulos para o módulo/arquivo atual
 
+- Módulos devem ser exportados se quisermos que ele seja acessível fora do mesmo (importado em outro arquivo)
+
+- Para importarmos , devemos passar o caminho relativo do arquivo que queremos importar.
+
+
+Sintaxe Import :
+
+import {parteDoModulo} from 'caminho/caminho/arquivo.js' 
+
+import modulo from 'caminho/caminho/arquivo.js' 
