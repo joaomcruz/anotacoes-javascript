@@ -20,3 +20,98 @@ Sintaxe Import :
 import {parteDoModulo} from 'caminho/caminho/arquivo.js' 
 
 import modulo from 'caminho/caminho/arquivo.js' 
+
+
+
+			************************************
+			*                                  *
+			*                                  *
+			*	Como utilizar export       *
+			*                                  *
+			*                                  *
+			************************************
+
+
+- Podemos exportar antes de uma declaração . Seja ela uma variável, uma função ou uma classe :
+
+
+	• Exportando uma variável que é um array :
+	
+	export let months = ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+
+	• Exportando uma variável que é uma constante :
+	
+	export const MODULES_BECAME_STANDARD_YEAR = 2015;
+
+
+
+	• Exportando uma classe :
+
+	export class User {
+ 			   constructor(name) {
+   							 this.name = name;
+  					     }
+			  }
+
+
+	• Exportando uma função : 
+
+	export function sayHi(user) {
+  					alert(`Hello, ${user}!`);
+				   }
+
+
+- Podemos exportar separadamente após a declaração : 
+
+	function sayHi(user) {
+ 				 alert(`Hello, ${user}!`);
+			     }
+
+	function sayBye(user) {
+				  alert(`Bye, ${user}!`);
+			      }
+
+	export {sayHi, sayBye}
+
+
+
+
+- Exportando com um alias (apelido para a exportação) . Dessa forma esse alias se torna o nome oficial
+  para ser utilizado na importação :
+
+
+	function sayHi(user) {
+ 				 alert(`Hello, ${user}!`);
+			     }
+
+	function sayBye(user) {
+				  alert(`Bye, ${user}!`);
+			      }
+
+	export {sayHi as hi, sayBye as bye}
+
+
+
+
+- Export Default : 
+
+
+
+
+
+
+
+
+
+
+
+
+
+			************************************
+			*                                  *
+			*                                  *
+			*	Como utilizar import       *
+			*                                  *
+			*                                  *
+			************************************
