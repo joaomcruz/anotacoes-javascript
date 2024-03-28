@@ -15,11 +15,7 @@
 - Para importarmos , devemos passar o caminho relativo do arquivo que queremos importar.
 
 
-Sintaxe Import :
 
-import {parteDoModulo} from 'caminho/caminho/arquivo.js' 
-
-import modulo from 'caminho/caminho/arquivo.js' 
 
 
 
@@ -115,3 +111,23 @@ import modulo from 'caminho/caminho/arquivo.js'
 			*                                  *
 			*                                  *
 			************************************
+
+
+- Geralmente para realizarmos importações , nós colocamos os módulos importados entre {} e em seguida passamos o caminho.
+
+	import {modulo1,modulo2} from 'caminho/caminho/arquivo.js' 
+
+	import modulo from 'caminho/caminho/arquivo.js' 
+
+
+
+- Porém se forem muitas importações, nós podemos utilizar o * para importarmos todos os módulos de um dado arquivo (não é considerada boa prática) :
+
+	import * from 'caminho/caminho/arquivo.js' 
+
+
+- Podemos utilizar um alias (assim como no export) para apelidarmos aquele módulo importado :
+
+	import * as moduloImportado from 'caminho/caminho/arquivo.js' 
+
+
